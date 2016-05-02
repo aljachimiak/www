@@ -11,6 +11,13 @@ Run tests with:
 
 Currently that will just run the XO linter.
 
+### Devserver
+Run the development server with
+
+    npm run devserver
+
+And watch the pretty output :-)
+
 Configuration and Deployment
 ----------------------------
 ### Environment Variables

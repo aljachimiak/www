@@ -3,11 +3,18 @@
 'use strict';
 
 process.env.NODE_ENV = 'development';
+process.env.DEBUG = 'odd-www:*';
 
 const server = require('../server');
 
-server.main().catch(err => {
-	console.error('main execution error');
-	console.error(err.stack || err.message || err);
-	process.exit(1);
-});
+server.main()
+	.then(app => {
+		const addr = app.API.server.address();
+		console.log('point your browser to http://%s:%s', addr.address, addr.port);
+		console.log('press CTRL-c to quit');
+	})
+	.catch(err => {
+		console.error('main execution error');
+		console.error(err.stack || err.message || err);
+		process.exit(1);
+	});
