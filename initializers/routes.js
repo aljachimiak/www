@@ -1,0 +1,38 @@
+'use strict';
+
+const notFound = require('../middleware/not-found');
+const methodsAllowed = require('../middleware/methods-allowed');
+const errorHandling = require('../middleware/error-handling');
+
+// Requires:
+// app.API.controllers
+module.exports = function (app) {
+	const debug = app.debug('initializeRoutes');
+	debug('initializing');
+
+	const express = app.API.express;
+
+	// For testing authentication credentials
+	express.all(
+		'/',
+		methodsAllowed({allowed: ['GET']}),
+		app.API.controllers.pages
+	);
+
+	// Catch 404 errors
+	express.use(notFound());
+
+	// Error handling middleware must go last, after all other middleware
+	// and routes have been defined.
+
+	// Opbeat error handler needs to be first
+	express.use(app.API.opbeat.middleware.express());
+
+	// Our catch-all error handler
+	express.use(errorHandling({
+		handler: app.API.handleError
+	}));
+
+	debug('initialized');
+	return app;
+};

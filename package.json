@@ -1,0 +1,30 @@
+{
+  "name": "odd-www",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Odd Networks World Wide Web",
+  "scripts": {
+    "test": "xo",
+    "devserver": "./bin/devserver"
+  },
+  "dependencies": {
+    "bluebird": "~3.3.0",
+    "bunyan": "~1.8.0",
+    "brixx": "~1.6.0",
+    "debug": "~2.2.0",
+    "express": "~4.13.0",
+    "filepath": "~1.1.0",
+    "hbs": "~4.0.0",
+    "lodash": "~4.11.0",
+    "opbeat": "~3.6.0"
+  },
+  "devDependencies": {
+    "xo": "~0.15.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oddnetworks/www.git"
+  },
+  "author": "Odd Networks (https://www.oddnetworks.com)",
+  "homepage": "https://www.oddnetworks.com"
+}
