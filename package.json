@@ -16,7 +16,9 @@
     "filepath": "~1.1.0",
     "hbs": "~4.0.0",
     "lodash": "~4.11.0",
-    "opbeat": "~3.6.0"
+    "moment": "~2.13.0",
+    "opbeat": "~3.6.0",
+    "request": "~2.72.0"
   },
   "devDependencies": {
     "xo": "~0.15.0"
