@@ -62,7 +62,7 @@ module.exports = function () {
 		});
 	}
 
-	return function getGrowthStats() {
+	return function getNpmDownloadStats() {
 		return getAllNpmDownloads(START_DATE, []).then(res => {
 			return res;
 		});

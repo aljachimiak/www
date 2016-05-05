@@ -13,9 +13,9 @@ module.exports = function (app) {
 	const express = app.API.express;
 
 	express.all(
-		'/growthstats',
+		'/growthstats/npm_downloads',
 		methodsAllowed({allowed: ['GET']}),
-		app.API.controllers.growthStatsController
+		app.API.controllers.npmDownloadsController
 	);
 
 	express.all(
