@@ -28,6 +28,7 @@ exports.main = function () {
 		require('./initializers/api-logger'),
 		initializeOpbeat,
 		require('./initializers/api-handle-error'),
+		require('./initializers/api-queries'),
 		require('./initializers/api-controllers'),
 		require('./initializers/api-express'),
 		require('./initializers/routes'),

@@ -1,29 +1,54 @@
 'use strict';
 
+const Promise = require('bluebird');
 const moment = require('moment');
 const request = require('request');
 
-module.exports = function (app) {
+const BASE_URL = 'https://api.npmjs.org/downloads/point';
 
+// We use oddcast as a proxy for Oddworks
+const PACKAGE = 'oddcast';
+
+module.exports = function () {
 	function getNpmDownloads(start, end) {
+		return new Promise((resolve, reject) => {
+			const url = `${BASE_URL}/${start}:${end}/${PACKAGE}`;
+			request.get(url, (err, res, body) => {
+				if (err) {
+					return reject(err);
+				}
+
+				let data = null;
+				try {
+					data = JSON.parse(body);
+				} catch (jsonError) {
+					return reject(jsonError);
+				}
+				resolve(data);
+			});
+		});
 	}
 
-	function getAllNpmDownloads(start, end, results) {
-		return getNpmDownloads().then(res => {
-			const nextStartDate = moment(end).add(1, 'days');
-			const nextStart = nextStartDate.format('YYYY-MM-DD');
+	function getAllNpmDownloads(start, results) {
+		const startDate = moment(start);
 
-			const nextEndDate = nextStartDate.add(6, 'days');
-			if (moment().valueOf() > nextEndDate.valueOf()) {
-				return results;
-			}
+		const endDate = startDate.add(6, 'days');
 
-			const nextEnd = nextEndDate.format('YYYY-MM-DD');
+		if (endDate.valueOf() > moment().valueOf()) {
+			return results;
+		}
 
-			return getAllNpmDownloads(nextStart, nextEnd, res);
+		const end = endDate.format('YYYY-MM-DD');
+
+		return getNpmDownloads(start, end).then(res => {
+			const nextStartString = endDate.add(1, 'days');
+			return getAllNpmDownloads(nextStartString, res);
 		});
 	}
 
 	return function getGrowthStats() {
+		return getAllNpmDownloads('2016-04-10', {}).then(res => {
+			return res;
+		});
 	};
 };

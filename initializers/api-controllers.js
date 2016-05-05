@@ -8,8 +8,9 @@ module.exports = function (app) {
 
 	// Load the controller modules, passing the app object into each one.
 	app.API.controllers = dir.list().reduce((controllers, path) => {
-		const name = path.basename('.js');
-		controllers[name] = require(path.toString())(app);
+		const fn = require(path.toString())(app);
+		const name = fn.name || path.basename('.js');
+		controllers[name] = fn;
 		return controllers;
 	}, Object.create(null));
 

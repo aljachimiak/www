@@ -12,11 +12,16 @@ module.exports = function (app) {
 
 	const express = app.API.express;
 
-	// For testing authentication credentials
+	express.all(
+		'/growthstats',
+		methodsAllowed({allowed: ['GET']}),
+		app.API.controllers.growthStatsController
+	);
+
 	express.all(
 		'/',
 		methodsAllowed({allowed: ['GET']}),
-		app.API.controllers.pages
+		app.API.controllers.pagesController
 	);
 
 	// Catch 404 errors
