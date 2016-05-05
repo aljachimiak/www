@@ -8,6 +8,7 @@ const BASE_URL = 'https://api.npmjs.org/downloads/point';
 
 // We use oddcast as a proxy for Oddworks
 const PACKAGE = 'oddcast';
+const START_DATE = '2016-02-14';
 
 module.exports = function () {
 	function getNpmDownloads(start, end) {
@@ -24,7 +25,20 @@ module.exports = function () {
 				} catch (jsonError) {
 					return reject(jsonError);
 				}
-				resolve(data);
+
+				if (data.error) {
+					return resolve({
+						start: start,
+						end: end,
+						downloads: 0
+					});
+				}
+
+				resolve({
+					start: start,
+					end: end,
+					downloads: data.downloads
+				});
 			});
 		});
 	}
@@ -41,13 +55,15 @@ module.exports = function () {
 		const end = endDate.format('YYYY-MM-DD');
 
 		return getNpmDownloads(start, end).then(res => {
-			const nextStartString = endDate.add(1, 'days');
-			return getAllNpmDownloads(nextStartString, res);
+			const nextStartString = endDate.add(1, 'days').format('YYYY-MM-DD');
+			results.push(res);
+			res.week = results.length;
+			return getAllNpmDownloads(nextStartString, results);
 		});
 	}
 
 	return function getGrowthStats() {
-		return getAllNpmDownloads('2016-04-10', {}).then(res => {
+		return getAllNpmDownloads(START_DATE, []).then(res => {
 			return res;
 		});
 	};
