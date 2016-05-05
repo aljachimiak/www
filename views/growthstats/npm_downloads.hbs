@@ -1,0 +1,43 @@
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Odd Networks - Build for TV</title>
+		<meta name="description" content="Open Source OTT Video Platform for Apple TV, Roku, Amazon Fire, Mocrosoft XBOX, Android TV and more.">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	</head>
+	<body>
+		<article>
+
+		<header class="header">
+			<h1>NPM Download Stats</h1>
+		</header>
+
+		<section class="npm-download-stats">
+			<table border="2">
+				<thead>
+					<tr>
+						<th>Week</th>
+						<th>Start</th>
+						<th>End</th>
+						<th>Downloads</th>
+					</tr>
+				</thead>
+				<tbody>
+				{{#each results}}
+					<tr>
+						<td>{{week}}</td>
+						<td>{{start}}</td>
+						<td>{{end}}</td>
+						<td>{{downloads}}</td>
+					</tr>
+				{{/each}}
+				</tbody>
+			</table>
+		</section>
+
+	</article>
+	</body>
+</html>
