@@ -25,7 +25,7 @@ module.exports = function (app) {
 	);
 
 	// Catch 404 errors
-	express.use(notFound());
+	express.use(notFound(app));
 
 	// Error handling middleware must go last, after all other middleware
 	// and routes have been defined.
