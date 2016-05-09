@@ -5,7 +5,8 @@
   "description": "Odd Networks World Wide Web",
   "scripts": {
     "test": "xo",
-    "devserver": "./bin/devserver"
+    "devserver": "./bin/devserver",
+    "css": "treadmill build.js css"
   },
   "dependencies": {
     "bluebird": "~3.3.0",
@@ -21,6 +22,8 @@
     "request": "~2.72.0"
   },
   "devDependencies": {
+    "node-sass": "~3.7.0",
+    "treadmill": "~2.0.0",
     "xo": "~0.15.0"
   },
   "xo": {
