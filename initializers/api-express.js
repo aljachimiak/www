@@ -29,7 +29,7 @@ module.exports = function (app) {
 };
 
 function loadHandlebarsHelpers(path, app, hbs) {
-	filepath.create(path).list().forEach(function (modulePath) {
+	filepath.create(path).list().forEach(modulePath => {
 		let factory;
 
 		try {

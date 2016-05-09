@@ -28,15 +28,15 @@ module.exports = function () {
 
 				if (data.error) {
 					return resolve({
-						start: start,
-						end: end,
+						start,
+						end,
 						downloads: 0
 					});
 				}
 
 				resolve({
-					start: start,
-					end: end,
+					start,
+					end,
 					downloads: data.downloads
 				});
 			});

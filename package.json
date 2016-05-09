@@ -23,6 +23,12 @@
   "devDependencies": {
     "xo": "~0.15.0"
   },
+  "xo": {
+    "envs": [
+      "node"
+    ],
+    "esnext": true
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/oddnetworks/www.git"
