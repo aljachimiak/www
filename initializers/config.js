@@ -24,6 +24,8 @@ module.exports = function (app) {
 		}
 	};
 
+	app.config.pagedata = getPageData(app);
+
 	U.deepFreeze(app.config);
 	debug('initialized');
 	return app;
@@ -43,4 +45,9 @@ function normalizePort(val) {
 	}
 
 	return false;
+}
+
+function getPageData(app) {
+	const file = app.appdir.append('pagedata', 'pages.json');
+	return require(file.toString());
 }
