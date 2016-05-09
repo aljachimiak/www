@@ -24,6 +24,9 @@ module.exports = function (app) {
 	// https://github.com/donpark/hbs#exposing-locals-as-template-data
 	hbs.localsAsTemplateData(app.API.express);
 
+	// Setup the static page server
+	app.API.express.use(express.static(app.config.express.paths.static));
+
 	debug('initialized');
 	return app;
 };
