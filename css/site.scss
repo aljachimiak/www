@@ -1,4 +1,7 @@
+
+$offWhite: #fbfbfb;
 $lightBlue: #61a8f8;
+$medBlue: #388be9;
 $gray: #767676;
 $fontBlack: #232323;
 $medGray: #6d6d6d;
@@ -8,7 +11,80 @@ body {
 	font-family: "Open Sans", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
 	font-weight: 300;
 	color: $fontBlack;
+	background: $offWhite;
 }
+
+/* Components */
+// Buttons
+a.cta-button {
+	display: inline-block;
+	min-width: 11em;
+	text-align: center;
+	text-decoration: none;
+	border-style: solid;
+	border-width: 3px;
+	text-transform: uppercase;
+	padding: 0.5em 1.2em;
+	font-weight: 600;
+	box-shadow: 0 13px 20px rgba(0, 0, 0, 0.2);
+}
+.cta-button--blue {
+	border-color: $medBlue;
+	background-color: $medBlue;
+	color: #fff;
+}
+.cta-button--white {
+	border-color: $medBlue;
+	background-color: #fff;
+	color: $medBlue;
+}
+.cta-button__github {
+	display: inline-block;
+	background: transparent url("/assets/svg/github.svg") no-repeat center center;
+	text-indent: -9999px;
+	width: 47px;
+	margin-left: 5px;
+}
+.cta-button__slack {
+	display: inline-block;
+	background: transparent url("/assets/svg/slack.svg") no-repeat center center;
+	text-indent: -9999px;
+	width: 57px;
+	margin-left: 5px;
+}
+
+a.circle-button {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	border: 2px solid $medBlue;
+	padding: 2px;
+	border-radius: 50%;
+	color: $medBlue;
+}
+a.circle-button > i.fa {
+	font-size: 22px;
+	width: 30px;
+	height: auto;
+}
+
+/* Media Box */
+.media-box {
+	overflow: hidden;
+}
+.media-box__img {
+	width: 75px;
+	float: left;
+}
+.media-box__img > img {
+	width: 100%;
+}
+.media-box__content {
+	margin: 0 0 0 83px;
+}
+
 
 /* Site Header */
 header.header {
@@ -54,7 +130,8 @@ a.header__nav-link--active {
 }
 .home-hero__header > h1,
 .home-hero__header > h2,
-.home-hero__header > p {
+.home-hero__header > p,
+.home-hero__section {
 	margin-left: 16px;
 	margin-right: 16px;
 }
@@ -88,8 +165,50 @@ a.header__nav-link--active {
 	font-weight: 300;
 	color: $medGray;
 }
+.home-hero__section {
+	margin-top: 2em;
+}
+.home-hero__section-buttons {
+	margin-bottom: 2em;
+	text-align: center;
+}
+.home-hero__section .media-box {
+	font-size: 0.9em;
+	margin-top: 1.8em;
+}
 
-
+/* Footer */
+footer.footer {
+	padding: 24px 0;
+	background-color: #fff;
+}
+.footer__nav {
+	display: table;
+	margin: 24px auto 0;
+}
+li.footer__nav-item {
+	float: left;
+}
+a.footer__nav-link {
+	text-decoration: none;
+	display: block;
+	padding: 0 1em;
+	color: $medBlue;
+}
+.footer__social-links {
+	display: table;
+	margin: 24px auto 0;
+}
+ul.footer__social-links-list,
+ul.footer__nav-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+li.footer__social-links-item {
+	float: left;
+	margin: 0 8px;
+}
 
 
 /* ==========================================================================
