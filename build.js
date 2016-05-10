@@ -18,12 +18,12 @@ task('css', (args, done) => {
 	};
 
 	sass.render(options, (err, res) => {
-		if (res) {
+		if (err) {
+			done(err);
+		} else {
 			dest.write(res.css).then(() => {
 				done();
 			}, done);
-		} else {
-			done(err);
 		}
 	});
 });
