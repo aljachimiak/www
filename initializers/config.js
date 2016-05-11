@@ -8,7 +8,7 @@ module.exports = function (app) {
 
 	app.config.server = {
 		port: normalizePort(process.env.PORT) || 3000,
-		host: process.env.HOST || '127.0.0.1'
+		host: process.env.HOST || '0.0.0.0'
 	};
 
 	app.config.log = {
