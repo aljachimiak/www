@@ -19,6 +19,12 @@ module.exports = function (app) {
 	);
 
 	express.all(
+		'/contact/',
+		methodsAllowed({allowed: ['GET']}),
+		app.API.controllers.pagesController
+	);
+
+	express.all(
 		'/',
 		methodsAllowed({allowed: ['GET']}),
 		app.API.controllers.pagesController
