@@ -1,5 +1,8 @@
 'use strict';
 
+const bodyParser = require('body-parser');
+// https://github.com/expressjs/body-parser
+
 const notFound = require('../middleware/not-found');
 const methodsAllowed = require('../middleware/methods-allowed');
 const errorHandling = require('../middleware/error-handling');
@@ -16,6 +19,14 @@ module.exports = function (app) {
 		'/growthstats/npm_downloads.:type',
 		methodsAllowed({allowed: ['GET']}),
 		app.API.controllers.npmDownloadsController
+	);
+
+	express.post(
+		'/contact/',
+		bodyParser.urlencoded({
+			parameterLimit: 8
+		}),
+		app.API.controllers.contactController
 	);
 
 	express.all(

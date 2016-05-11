@@ -8,6 +8,12 @@
 				<h1>
 					Contact Us
 				</h1>
+				{{#if formError}}
+				<p class="contact-form__error">
+					<strong>There was an error submitting your form:</strong><br>
+					{{formError}}
+				</p>
+				{{/if}}
 			</header>
 			<form class="form contact-form__form" accept-charset="UTF-8" autocomplete="off" method="POST">
 
@@ -15,11 +21,17 @@
 				<div class="form__field">
 					<label class="form__label" for="first_name">Name <span class="form__req">*</span></label>
 					<div class="form__subfield form__subfield--first">
-						<input class="form__text-input" id="first_name" name="first_name" maxlength="255"></input>
+						<input class="form__text-input"
+							id="first_name" name="first_name"
+							maxlength="255"
+							value="{{form.firstName}}"></input>
 						<label class="form__label" for="first_name">First</label>
 					</div>
 					<div class="form__subfield">
-						<input class="form__text-input" id="last_name" name="last_name" maxlength="255"></input>
+						<input class="form__text-input"
+							id="last_name" name="last_name"
+							maxlength="255"
+							value="{{form.lastName}}"></input>
 						<label class="form__label" for="last_name">Last</label>
 					</div>
 				</div>
@@ -27,19 +39,27 @@
 				<!-- Email -->
 				<div class="form__field">
 					<label class="form__label" for="email">Email <span class="form__req">*</span></label>
-					<input class="form__text-input" id="email" name="email" type="email" spellcheck="false" maxlength="255"></input>
+					<input class="form__text-input"
+						id="email" name="email" type="email"
+						spellcheck="false" maxlength="255"
+						value="{{form.email}}"></input>
 				</div>
 
 				<!-- Phone Number -->
 				<div class="form__field">
 					<label class="form__label" for="phone_number">Phone Number</label>
-					<input class="form__text-input" id="phone_number" name="phone_number" type="tel" maxlength="255"></input>
+					<input class="form__text-input"
+						id="phone_number" name="phone_number"
+						type="tel" maxlength="255"
+						value="{{form.phoneNumber}}"></input>
 				</div>
 
 				<!-- Comments -->
 				<div class="form__field">
 					<label class="form__label" for="inquiry">Inquiring about</label>
-					<textarea id="inquiry" name="inquiry" spellcheck="true" rows="10" cols="50"></textarea>
+					<textarea
+						id="inquiry" name="inquiry"
+						spellcheck="true" rows="10" cols="50">{{form.inquiry}}</textarea>
 				</div>
 
 				<!-- Buttons -->
