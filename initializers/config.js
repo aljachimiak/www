@@ -24,6 +24,12 @@ module.exports = function (app) {
 		}
 	};
 
+	app.config.awsSES = {
+		accessKeyId: process.env.AWS_SES_ACCESS_KEY_ID,
+		secretAccessKey: process.env.AWS_SES_SECRET_ACCESS_KEY,
+		region: process.env.AWS_SES_REGION
+	};
+
 	app.config.pagedata = getPageData(app);
 
 	U.deepFreeze(app.config);

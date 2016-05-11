@@ -9,6 +9,7 @@
     "css": "treadmill build.js css"
   },
   "dependencies": {
+    "aws-sdk": "~2.3.0",
     "bluebird": "~3.3.0",
     "body-parser": "~1.15.0",
     "bunyan": "~1.8.0",
