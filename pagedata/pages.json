@@ -2,5 +2,9 @@
 	"index": {
 		"subtitle": " - Build for TV",
 		"description": "Open Source OTT Video Platform for Apple TV, Roku, Amazon Fire, Mocrosoft XBOX, Android TV and more."
+	},
+	"contact": {
+		"subtitle": " - Contact",
+		"description": "Contact Odd Networks."
 	}
 }

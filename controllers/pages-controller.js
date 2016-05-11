@@ -9,7 +9,7 @@ module.exports = function (app) {
 
 	return function pagesController(req, res) {
 		const path = !req.path || req.path === '/' ?
-			'index' : req.path.replace(/^\//, '');
+			'index' : req.path.replace(/^\//, '').replace(/\/$/, '');
 
 		res.render(path, pagedata[path]);
 	};
