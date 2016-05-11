@@ -7,6 +7,8 @@ $medGray: #6d6d6d;
 $lightGray: #dfdfdf;
 $fontBlack: #232323;
 
+$mobileBodyMargin: 16px;
+
 /* Type */
 body {
 	font-family: "Open Sans", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
@@ -163,6 +165,39 @@ a.header__nav-link--active {
 	color: $lightBlue;
 }
 
+/* Footer */
+footer.footer {
+	padding: 2.5em 0;
+	background-color: #fff;
+}
+.footer__nav {
+	display: table;
+	margin: 0 auto;
+}
+li.footer__nav-item {
+	float: left;
+}
+a.footer__nav-link {
+	text-decoration: none;
+	display: block;
+	padding: 0 1em;
+	color: $medBlue;
+}
+.footer__social-links {
+	display: table;
+	margin: 24px auto 0;
+}
+ul.footer__social-links-list,
+ul.footer__nav-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+li.footer__social-links-item {
+	float: left;
+	margin: 0 8px;
+}
+
 /* Homepage Hero */
 .home-hero {
 	margin: 3em 0 0;
@@ -172,8 +207,8 @@ a.header__nav-link--active {
 .home-hero__header > h2,
 .home-hero__header > p,
 .home-hero__section {
-	margin-left: 16px;
-	margin-right: 16px;
+	margin-left: $mobileBodyMargin;
+	margin-right: $mobileBodyMargin;
 }
 .home-hero__header {
 	text-align: center;
@@ -217,39 +252,6 @@ a.header__nav-link--active {
 	margin-top: 1.8em;
 }
 
-/* Footer */
-footer.footer {
-	padding: 2.5em 0;
-	background-color: #fff;
-}
-.footer__nav {
-	display: table;
-	margin: 0 auto;
-}
-li.footer__nav-item {
-	float: left;
-}
-a.footer__nav-link {
-	text-decoration: none;
-	display: block;
-	padding: 0 1em;
-	color: $medBlue;
-}
-.footer__social-links {
-	display: table;
-	margin: 24px auto 0;
-}
-ul.footer__social-links-list,
-ul.footer__nav-list {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-li.footer__social-links-item {
-	float: left;
-	margin: 0 8px;
-}
-
 /* Contact Form */
 .contact-form {
 	padding-top: 2em;
@@ -257,11 +259,25 @@ li.footer__social-links-item {
 }
 header.contact-form__header,
 .contact-form__form {
-	margin-left: 16px;
-	margin-right: 16px;
+	margin-left: $mobileBodyMargin;
+	margin-right: $mobileBodyMargin;
 }
 header.contact-form__header h1 {
 	font-weight: normal;
+}
+
+/* Contact Confirmation */
+.contact-confirm {
+	padding-top: 2em;
+	padding-bottom: 2em;
+}
+.contact-confirm__header {
+	margin-left: $mobileBodyMargin;
+	margin-right: $mobileBodyMargin;
+}
+.contact-confirm__section-buttons {
+	margin-top: 3em;
+	text-align: center;
 }
 
 
