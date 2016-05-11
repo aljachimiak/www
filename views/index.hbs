@@ -1,18 +1,7 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<title>Odd Networks{{subtitle}}</title>
-		<meta name="description" content="{{description}}">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="/assets/css/main.css">
-	</head>
+{{> head}}
 	<body>
 		<article>
-		<!--[if lt IE 8]>
-			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-		<![endif]-->
+		{{> ie8}}
 
 		<header class="header">
 			<div class="header__logo">
@@ -79,34 +68,4 @@
 				</div>
 			</section>
 		</section>
-		<footer class="footer">
-			<nav class="footer__nav">
-				<ul class="footer__nav-list">
-					<li class="footer__nav-item">
-						<a class="footer__nav-link" href="/">Home</a>
-					</li>
-					<li class="footer__nav-item">
-						<a class="footer__nav-link" href="/contact/">Contact</a>
-					</li>
-					<li class="footer__nav-item">
-						<a class="footer__nav-link" href="http://slack.oddnetworks.com" target="_blank">Slack</a>
-					</li>
-					<li class="footer__nav-item">
-						<a class="footer__nav-link" href="http://blog.oddnetworks.com/" target="_blank">Blog</a>
-					</li>
-				</ul>
-			</nav>
-			<nav class="footer__social-links">
-				<ul class="footer__social-links-list">
-					<li class="footer__social-links-item">
-						<a class="circle-button" href="https://twitter.com/oddnetworks" target="_blank"><i class="fa fa-twitter"></i></a>
-					</li>
-					<li class="footer__social-links-item">
-						<a class="circle-button" href="https://github.com/oddnetworks" target="_blank"><i class="fa fa-github"></i></a>
-					</li>
-				</ul>
-			</nav>
-		</footer>
-	</article>
-	</body>
-</html>
+{{> footer}}
