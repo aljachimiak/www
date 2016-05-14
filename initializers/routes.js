@@ -24,6 +24,7 @@ module.exports = function (app) {
 	express.post(
 		'/contact/',
 		bodyParser.urlencoded({
+			extended: false,
 			parameterLimit: 8
 		}),
 		app.API.controllers.contactController
