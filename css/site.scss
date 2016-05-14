@@ -31,6 +31,7 @@ body {
 }
 input.cta-button {
 	background: none;
+	border-radius: 0;
 }
 a.cta-button {
 	display: inline-block;
@@ -201,7 +202,7 @@ li.footer__social-links-item {
 /* Homepage Hero */
 .home-hero {
 	margin: 3em 0 0;
-	padding-bottom: 1em;
+	padding-bottom: 2em;
 }
 .home-hero__header > h1,
 .home-hero__header > h2,
@@ -209,6 +210,16 @@ li.footer__social-links-item {
 .home-hero__section {
 	margin-left: $mobileBodyMargin;
 	margin-right: $mobileBodyMargin;
+}
+@media only screen and (min-width: 34em) {
+	.home-hero__header > h1,
+	.home-hero__header > h2,
+	.home-hero__header > p,
+	.home-hero__section {
+		width: 30em;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 .home-hero__header {
 	text-align: center;
@@ -262,6 +273,14 @@ header.contact-form__header,
 	margin-left: $mobileBodyMargin;
 	margin-right: $mobileBodyMargin;
 }
+@media only screen and (min-width: 34em) {
+	header.contact-form__header,
+	.contact-form__form {
+		width: 30em;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
 header.contact-form__header h1 {
 	font-weight: normal;
 }
@@ -274,6 +293,13 @@ header.contact-form__header h1 {
 .contact-confirm__header {
 	margin-left: $mobileBodyMargin;
 	margin-right: $mobileBodyMargin;
+}
+@media only screen and (min-width: 34em) {
+	.contact-confirm__header {
+		width: 30em;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 .contact-confirm__section-buttons {
 	margin-top: 3em;
