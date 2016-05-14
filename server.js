@@ -25,7 +25,7 @@ exports.main = function () {
 
 	const initializers = [
 		require('./initializers/config'),
-		require('./initializers/api-logger'),
+		require('./initializers/api-log'),
 		initializeOpbeat,
 		require('./initializers/api-handle-error'),
 		require('./initializers/api-aws'),
