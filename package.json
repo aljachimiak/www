@@ -5,7 +5,7 @@
   "description": "Odd Networks World Wide Web",
   "scripts": {
     "test": "xo",
-    "devserver": "./bin/devserver",
+    "devserver": "./bin/devserver | bunyan",
     "css": "treadmill build.js css"
   },
   "dependencies": {
