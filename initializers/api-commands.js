@@ -7,7 +7,7 @@ module.exports = function (app) {
 	const dir = app.appdir.append('commands');
 
 	// Load the modules, passing the app object into each one.
-	app.API.queries = dir.list().reduce((commands, path) => {
+	app.API.commands = dir.list().reduce((commands, path) => {
 		const fn = require(path.toString())(app);
 		const name = fn.name || path.basename('.js');
 		commands[name] = fn;

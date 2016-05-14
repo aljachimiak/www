@@ -6,7 +6,7 @@ module.exports = function (app) {
 	const ses = app.API.AWS.ses;
 
 	const template = U.template(`
-	Name: <%= firstName %> <%= lastname %>
+	Name: <%= firstName %> <%= lastName %>
 	Email: <%= email %>
 	Phone Number: <%= phoneNumber %>
 
@@ -14,6 +14,11 @@ module.exports = function (app) {
 	<%= inquiry %>
 `);
 
+	// args.firstName
+	// args.lastName
+	// args.email
+	// args.phoneNumber
+	// args.inquiry
 	return function sendContactEmail(args) {
 		let body = 'Email parsing error: ';
 
@@ -39,7 +44,7 @@ module.exports = function (app) {
 						Data: body
 					}
 				}
-			},
+			}
 		};
 
 		// Return a Promise
@@ -48,7 +53,6 @@ module.exports = function (app) {
 				if (err) {
 					return reject(err);
 				}
-				console.log(data);
 				return resolve(data);
 			});
 		});

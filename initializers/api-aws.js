@@ -5,12 +5,12 @@ const AWS = require('aws-sdk');
 const U = require('../lib/u');
 
 module.exports = function (app) {
-	const configs = app.configs.awsSES;
+	const configs = app.config.awsSES;
 
 	if (!U.isFullString(configs.accessKeyId)) {
 		app.API.log.error('Missing AWS_SES_ACCESS_KEY_ID for sending email');
 	}
-	if (!U.isFullString(configs.secretAccesskey)) {
+	if (!U.isFullString(configs.secretAccessKey)) {
 		app.API.log.error('Missing AWS_SES_SECRET_ACCESS_KEY for sending email');
 	}
 	if (!U.isFullString(configs.region)) {
@@ -19,10 +19,10 @@ module.exports = function (app) {
 
 	app.API.AWS = Object.create(null);
 
-	app.API.AWS.SES = new AWS.SES({
+	app.API.AWS.ses = new AWS.SES({
 		apiVersion: '2010-12-01',
 		accessKeyId: configs.accessKeyId,
-		secretAccesskey: configs.secretAccesskey,
+		secretAccessKey: configs.secretAccessKey,
 		region: configs.region
 	});
 };

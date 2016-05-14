@@ -2,7 +2,10 @@
 
 const U = require('../lib/u');
 
-module.exports = function () {
+module.exports = function (app) {
+	const log = app.API.log;
+	const sendContactEmail = app.API.commands.sendContactEmail;
+
 	return function contactController(req, res) {
 		const formErrors = [];
 
@@ -24,6 +27,14 @@ module.exports = function () {
 		if (formErrors.length) {
 			res.render('contact', {formError: formErrors[0], form});
 		} else {
+			sendContactEmail(form)
+				.then(() => {
+					log.info('contact email sent');
+				})
+				.catch(err => {
+					log.error(err, 'error sending contact email');
+				});
+
 			res.render('contact_confirm');
 		}
 	};
