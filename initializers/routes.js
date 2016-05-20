@@ -21,6 +21,12 @@ module.exports = function (app) {
 		app.API.controllers.npmDownloadsController
 	);
 
+	express.all(
+		'/oddworks/*',
+		methodsAllowed({allowed: ['GET']}),
+		app.API.controllers.documentationController
+	);
+
 	express.post(
 		'/contact/',
 		bodyParser.urlencoded({
