@@ -4,12 +4,13 @@ const SEP = require('path').sep;
 const contentLoader = require('../lib/content-loader');
 
 module.exports = function (app) {
-	const handleError = app.API.handleError;
 	const basepath = app.appdir.append('content');
 
 	return function documentationController(req, res, next) {
 		// Normalize and resolve the URL path to the file system
-		const path = basepath.append(req.path.replace(/\//g, SEP));
+		const path = basepath.append(
+			req.path.replace(/\//g, SEP).replace(/\.json$/, '')
+		);
 
 		contentLoader.load(path)
 			.then(data => {
@@ -22,6 +23,12 @@ module.exports = function (app) {
 					res.render('documentation', data);
 				}
 			})
-			.catch(next);
+			.catch(err => {
+				if (err && err.message === 'Not Found') {
+					next();
+				} else {
+					next(err);
+				}
+			});
 	};
 };
