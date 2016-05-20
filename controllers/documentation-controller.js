@@ -14,7 +14,10 @@ module.exports = function (app) {
 
 		contentLoader.load(path)
 			.then(data => {
-				if (/\.json$/.test(req.path)) {
+				if (data.isIndex && !/\/$/.test(req.path)) {
+					// Redirect (moved permanently) to the "/" url.
+					res.redirect(301, `${req.path}/`);
+				} else if (/\.json$/.test(req.path)) {
 					// If .json is used on a request path,
 					// then send back the content data as JSON
 					res.send(data);
