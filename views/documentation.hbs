@@ -4,7 +4,35 @@
 
 		{{> site_header }}
 
-		<section class="doc-page">
-			<h1>Documentation</h1>
-		</section>
+		{{#if isIndex}}
+			<section class="doc-index">
+				<header class="doc-index-header">
+					<h2 class="doc-index-header__title">{{title}}</h2>
+					<p class="doc-index-header__description">{{description}}</p>
+				</header>
+				<nav class="doc-index-nav">
+					<ul class="doc-index-nav__list">
+						{{#each listing}}
+						<li class="doc-index-nav__item">
+							<a href="./{{this.name}}">{{this.title}}</a><br>
+							{{this.description}}
+						</li>
+						{{/each}}
+					</ul>
+				</nav>
+			</section>
+		{{else}}
+			<section class="doc-page">
+				<header class="doc-page-header">
+					<h2 class="doc-page-header__title">{{title}}</h2>
+					<p class="doc-page-header__description">{{description}}</p>
+				</header>
+				{{#each sections}}
+				<section class="doc-page-section">
+					<h2 class="doc-page-section__header">{{this.title}}</h2>
+					{{{this.content}}}
+				</section>
+				{{/each}}
+			</section>
+		{{/if}}
 {{> footer}}
