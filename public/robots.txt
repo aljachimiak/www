@@ -1,0 +1,3 @@
+Sitemap: https://www.oddnetworks.com/sitemap.xml
+User-agent: *
+Allow: /

@@ -1,0 +1,17 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# COMPANY
+    Company: Odd Networks
+    Site: https://www.oddnetworks.com/
+    Twitter: @oddnetworks
+    Location: New York
+
+# THANKS
+
+    Our wonderful customers!
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    Normalize.css, jQuery, Modernizr
