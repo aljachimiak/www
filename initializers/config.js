@@ -21,6 +21,9 @@ module.exports = function (app) {
 			partials: app.appdir.append('views', 'partials').toString(),
 			helpers: app.appdir.append('views', 'helpers').toString(),
 			static: app.appdir.append('public').toString()
+		},
+		locals: {
+			googleSiteVerification: process.env.GOOGLE_SITE_VERIFICATION
 		}
 	};
 

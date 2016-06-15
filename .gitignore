@@ -25,3 +25,6 @@ node_modules
 
 # Front end build targets
 /public/assets/css/
+
+# Local environment variables
+.env

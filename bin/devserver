@@ -2,8 +2,9 @@
 
 'use strict';
 
-process.env.NODE_ENV = 'development';
-process.env.DEBUG = 'odd-www:*';
+require('dotenv').config();
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+process.env.DEBUG = process.env.DEBUG || 'odd-www:*';
 
 const server = require('../server');
 

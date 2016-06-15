@@ -4,11 +4,19 @@ const express = require('express');
 const hbs = require('hbs');
 const filepath = require('filepath');
 
+const U = require('../lib/u');
+
 module.exports = function (app) {
 	const debug = app.debug('initializeExpress');
 	debug('initializing');
 
 	app.API.express = express();
+
+	const locals = app.config.express.locals;
+	if (!U.isFullString(locals.googleSiteVerification)) {
+		app.API.log.warn('Missing GOOGLE_SITE_VERIFICATION');
+	}
+	U.extend(app.API.express.locals, locals);
 
 	// Use Handlebars for views
 	// https://github.com/donpark/hbs

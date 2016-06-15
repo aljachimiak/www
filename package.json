@@ -16,6 +16,7 @@
     "bunyan": "~1.8.0",
     "brixx": "~1.6.0",
     "debug": "~2.2.0",
+    "dotenv": "~2.0.0",
     "express": "~4.13.0",
     "filepath": "~1.1.0",
     "gray-matter": "~2.0.0",
