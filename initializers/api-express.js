@@ -18,7 +18,10 @@ module.exports = function (app) {
 	// Load Handlebars partials
 	// https://github.com/donpark/hbs#helpers-and-partials
 	hbs.registerPartials(app.config.express.paths.partials);
-	loadHandlebarsHelpers(app.config.express.paths.helpers, app, hbs);
+
+	if (filepath.create(app.config.express.paths.helpers).exists()) {
+		loadHandlebarsHelpers(app.config.express.paths.helpers, app, hbs);
+	}
 
 	// Use locals in template data
 	// https://github.com/donpark/hbs#exposing-locals-as-template-data
