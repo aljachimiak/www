@@ -43,7 +43,7 @@ module.exports = function (app) {
 	);
 
 	express.all(
-		'/',
+		'/*',
 		methodsAllowed({allowed: ['GET']}),
 		app.API.controllers.pagesController
 	);
