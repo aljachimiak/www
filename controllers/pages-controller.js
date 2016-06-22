@@ -11,7 +11,6 @@ module.exports = function (app) {
 		const path = !req.path || req.path === '/' ?
 			'index' : req.path.replace(/^\//, '').replace(/\/$/, '');
 
-		console.log('PAGE %s', path)
 		res.render(path, pagedata[path]);
 	};
 };

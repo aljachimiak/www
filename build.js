@@ -19,6 +19,7 @@ task('css', (args, done) => {
 
 	sass.render(options, (err, res) => {
 		if (err) {
+			console.error(err.stack);
 			done(err);
 		} else {
 			dest.write(res.css).then(() => {
