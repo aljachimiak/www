@@ -1,9 +1,23 @@
 
+// Helpful: http://colorizer.org/
 $offWhite: #fdfdfd;
 $fontBlack: #232323;
 $gray: #767676;
 $medGray: #6d6d6d;
 $lightGray: #dfdfdf;
+
+$blue: #0000a9;
+$purple: #5400a9;
+$magenta: #a900a9;
+$pink: #a90055;
+$red: #a90000;
+$orange: #a95400;
+$yellow: #a9a900;
+$yellowGreen: #55a900;
+$green: #00a900;
+$lightGreen: #00a954;
+$cyan: #00a9a9;
+$lightBlue: #0055a9;
 
 $mobileBodyMargin: 16px;
 
@@ -18,6 +32,50 @@ body {
 	font-family: "Oswald", sans-serif;
 	font-weight: 700;
 	text-transform: uppercase;
+}
+
+/* Colors */
+.blue {
+	background-color: $blue;
+}
+.purple {
+	background-color: $purple;
+}
+.magenta {
+	background-color: $magenta;
+}
+.pink {
+	background-color: $pink;
+}
+.red {
+	background-color: $red;
+}
+.orange {
+	background-color: $orange;
+}
+.yellow {
+	background-color: $yellow;
+}
+.yellow-green {
+	background-color: $yellowGreen;
+}
+.green {
+	background-color: $green;
+}
+.light-green {
+	background-color: $lightGreen;
+}
+.cyan {
+	background-color: $cyan;
+}
+.light-blue {
+	background-color: $lightBlue;
+}
+
+/* Layout */
+.constrained {
+	margin-left: $mobileBodyMargin;
+	margin-right: $mobileBodyMargin;
 }
 
 /* Components */
@@ -140,6 +198,18 @@ a.header__nav-link {
 // a.header__nav-link--active {
 // 	color: $lightBlue;
 // }
+.header__page-break {
+	margin-top: 1.5em;
+	height: 10px;
+	line-height: 10px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.header__page-break__block {
+	min-width: 30px;
+	min-height: 10px;
+	display: inline-block;
+}
 
 /* Footer */
 footer.footer {
