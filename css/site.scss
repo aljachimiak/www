@@ -412,20 +412,12 @@ li.footer__social-links-item {
 	padding-top: 2em;
 	padding-bottom: 2em;
 }
-.contact-confirm__header {
-	margin-left: $mobileBodyMargin;
-	margin-right: $mobileBodyMargin;
-}
-@media only screen and (min-width: 34em) {
+@media only screen and (min-width: 48em) {
 	.contact-confirm__header {
-		width: 30em;
+		width: 44em;
 		margin-left: auto;
 		margin-right: auto;
 	}
-}
-.contact-confirm__section-buttons {
-	margin-top: 3em;
-	text-align: center;
 }
 
 
