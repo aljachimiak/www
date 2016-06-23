@@ -200,15 +200,43 @@ a.header__nav-link {
 // }
 .header__page-break {
 	margin-top: 1.5em;
-	height: 10px;
-	line-height: 10px;
+	height: 1em;
+	line-height: 1em;
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
 	overflow: hidden;
 	white-space: nowrap;
 }
 .header__page-break__block {
-	min-width: 30px;
-	min-height: 10px;
+	width: 100px;
+	height: 1em;
 	display: inline-block;
+}
+@media only screen and (max-width: 360px) {
+	.header__page-break__block {
+		width: 30px;
+	}
+}
+@media only screen and (max-width: 480px) and (min-width: 360px) {
+	.header__page-break__block {
+		width: 40px;
+	}
+}
+@media only screen and (max-width: 600px) and (min-width: 480px) {
+	.header__page-break__block {
+		width: 50px;
+	}
+}
+@media only screen and (max-width: 840px) and (min-width: 600px) {
+	.header__page-break__block {
+		width: 70px;
+	}
+}
+@media only screen and (max-width: 960px) and (min-width: 840px) {
+	.header__page-break__block {
+		width: 80px;
+	}
 }
 
 /* Footer */
