@@ -7,6 +7,7 @@ const notFound = require('../middleware/not-found');
 const errorHandling = require('../middleware/error-handling');
 
 const ContactController = require('../controllers/contact-controller');
+const InfusionsoftController = require('../controllers/infusionsoft-controller');
 // const DocumentationController = require('../controllers/documentation-controller');
 const NPMDownloadsController = require('../controllers/npm-downloads-controller');
 const PagesController = require('../controllers/pages-controller');
@@ -29,6 +30,11 @@ module.exports = function (app) {
 	// 	methodsAllowed({allowed: ['GET']}),
 	// 	DocumentationController.create()
 	// );
+
+	express.all(
+		'/oauth/infusionsoft',
+		InfusionsoftController.create(app)
+	);
 
 	express.all(
 		'/request-access',
