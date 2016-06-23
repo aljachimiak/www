@@ -3,7 +3,7 @@
 $offWhite: #fdfdfd;
 $fontBlack: #111;
 $gray: #767676;
-$medGray: #6d6d6d;
+$medGray: #555;
 $lightGray: #dfdfdf;
 
 $blue: #0000a9;
@@ -49,8 +49,14 @@ body {
 .subheader {
 	font-family: "Oswald", sans-serif;
 	color: $gray;
-	font-weight: 300;
+	font-weight: 400;
 	font-size: 1.2em;
+}
+.summary {
+	font-family: "Oswald", sans-serif;
+	color: $medGray;
+	font-weight: 400;
+	font-size: 1em;
 }
 
 /* Colors */
@@ -96,16 +102,28 @@ body {
 	margin-left: $mobileBodyMargin;
 	margin-right: $mobileBodyMargin;
 }
+@media only screen and (min-width: 1200px) {
+	.constrained {
+		width: 1200px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
 
 /* Components */
 // Buttons
 .cta-button {
-	min-width: 11em;
+	font-family: "Oswald", sans-serif;
+	font-size: 1.5em;
+	font-weight: 400;
+	text-transform: uppercase;
+	padding: 0.4em 1.1em;
 	text-align: center;
 	border-style: solid;
-	border-width: 3px;
-	padding: 0.5em 1.2em;
-	font-weight: 600;
+	border-width: 4px;
+	color: #fff;
+	border-color: $magenta;
+	background-color: $magenta;
 }
 input.cta-button {
 	background: none;
@@ -296,6 +314,42 @@ li.footer__social-links-item {
 	float: left;
 	margin: 0 8px;
 }
+
+/* Landing Page */
+.future-of-tv__hero-summary {
+	position: relative;
+}
+.future-of-tv__hero-img {
+	width: 280px;
+	height: 280px;
+	position: absolute;
+	z-index: -1;
+	top: -6em;
+	left: 0;
+}
+.future-of-tv__hero-odd-networks {
+	padding-top: 180px;
+}
+.future-of-tv__hero-img > img {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+// .future-of-tv__hero-img {
+// 	position: absolute;
+// 	top: -7em;
+// 	right: 0;
+// 	width: 300px;
+// 	height: 300px;
+// 	margin: 0;
+// 	padding: 0;
+// 	z-index: -1;
+// }
+// .future-of-tv__hero-img > img {
+// 	width: 100%;
+// 	margin: 0;
+// 	padding: 0;
+// }
 
 /* Contact Form */
 .contact-form {
