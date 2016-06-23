@@ -127,6 +127,7 @@ body {
 }
 input.cta-button {
 	background: none;
+	background-color: $magenta;
 	border-radius: 0;
 }
 a.cta-button {
@@ -167,7 +168,7 @@ a.circle-button > i.fa {
 
 /* Forms */
 .form__field, .form__subfield, .form__buttons {
-	margin-top: 1em;
+	margin-top: 1.5em;
 }
 .form__subfield.form__subfield--first {
 	margin-top: 0;
@@ -180,8 +181,9 @@ input, textarea {
 }
 label.form__label {
 	display: block;
-	font-weight: 600;
+	font-weight: 400;
 	margin-bottom: 0.5em;
+	font-family: "Oswald", sans-serif;
 }
 .form__subfield label.form__label {
 	color: $gray;
@@ -189,9 +191,9 @@ label.form__label {
 	font-size: 0.9em;
 	margin-top: 0.5em;
 }
-// label.form__label > .form__req {
-// 	color: $medBlue;
-// }
+label.form__label > .form__req {
+	color: $red;
+}
 @media only screen and (max-width: 28em) {
 	input, textarea {
 		width: 100%;
@@ -396,21 +398,13 @@ li.footer__social-links-item {
 	padding-top: 2em;
 	padding-bottom: 2em;
 }
-header.contact-form__header,
-.contact-form__form {
-	margin-left: $mobileBodyMargin;
-	margin-right: $mobileBodyMargin;
-}
-@media only screen and (min-width: 34em) {
+@media only screen and (min-width: 48em) {
 	header.contact-form__header,
 	.contact-form__form {
-		width: 30em;
+		width: 44em;
 		margin-left: auto;
 		margin-right: auto;
 	}
-}
-header.contact-form__header h1 {
-	font-weight: normal;
 }
 
 /* Contact Confirmation */
