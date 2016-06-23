@@ -104,7 +104,7 @@ body {
 }
 @media only screen and (min-width: 1200px) {
 	.constrained {
-		width: 1200px;
+		max-width: 1200px;
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -316,24 +316,29 @@ li.footer__social-links-item {
 }
 
 /* Landing Page */
+.future-of-tv__page-break {
+	margin-top: 4em;
+	margin-bottom: 2em;
+}
 .future-of-tv__block {
 	max-width: 760px;
 }
+.future-of-tv__hero {
+	position: relative;
+}
 .future-of-tv__hero-subheader {
 	max-width: 300px;
-}
-.future-of-tv__hero-summary {
-	position: relative;
 }
 .future-of-tv__hero-img {
 	width: 280px;
 	height: 280px;
 	position: absolute;
 	z-index: -1;
-	top: -6em;
+	top: 80%;
 	left: 0;
 }
 .future-of-tv__hero-odd-networks {
+	margin-top: 0;
 	padding-top: 180px;
 }
 .future-of-tv__hero-img > img {
@@ -345,12 +350,45 @@ li.footer__social-links-item {
 	.future-of-tv__hero-img {
 		width: 300px;
 		height: 300px;
-		top: -11em;
-		left: 400px;
+		top: 2em;
+		left: 44%;
 	}
 	.future-of-tv__hero-odd-networks {
 		padding-top: 100px;
 	}
+}
+.future-of-tv__benefit-container {
+	padding: 0.5em 1em;
+	margin-top: 1em;
+	color: #fff;
+	background-color: $lightBlue;
+}
+.future-of-tv__benefit-container .subheader {
+	color: #fff;
+}
+@media only screen and (min-width: 960px) {
+	.future-of-tv__hero-summary {
+		width: 40%;
+		float: left;
+	}
+	.future-of-tv__hero-odd-networks {
+		padding-top: 60px;
+	}
+	.future-of-tv__hero-cta {
+		margin-left: 50%;
+		margin-top: 11em;
+	}
+	.future-of-tv__benefit-sub-section--left {
+		float: left;
+		width: 48%;
+	}
+	.future-of-tv__benefit-sub-section--right {
+		padding-top: 1px;
+		margin-left: 52%;
+	}
+}
+.future-of-tv__faq {
+	max-width: 760px;
 }
 
 /* Contact Form */
