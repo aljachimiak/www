@@ -233,12 +233,13 @@ a.header__nav-link {
 	padding: 0 1em;
 	color: $gray;
 }
-// a.header__nav-link:hover ,
-// a.header__nav-link--active {
-// 	color: $lightBlue;
-// }
-.header__page-break {
-	margin-top: 1.5em;
+header.header > .rainbow-page-break {
+	margin-top: 1em;
+	margin-bottom: 0;
+}
+
+/* Rainbow Page Break */
+.rainbow-page-break {
 	height: 0.8em;
 	line-height: 0.8em;
 	max-width: 1200px;
@@ -247,38 +248,38 @@ a.header__nav-link {
 	overflow: hidden;
 	white-space: nowrap;
 }
-.header__page-break__block {
+.rainbow-page-break__block {
 	width: 88px;
 	margin-right: 12px;
 	height: 0.8em;
 	display: inline-block;
 }
 @media only screen and (max-width: 360px) {
-	.header__page-break__block {
+	.rainbow-page-break__block {
 		width: 27px;
 		margin-right: 3px;
 	}
 }
 @media only screen and (max-width: 480px) and (min-width: 360px) {
-	.header__page-break__block {
+	.rainbow-page-break__block {
 		width: 32px;
 		margin-right: 8px;
 	}
 }
 @media only screen and (max-width: 600px) and (min-width: 480px) {
-	.header__page-break__block {
+	.rainbow-page-break__block {
 		width: 42px;
 		margin-right: 8px;
 	}
 }
 @media only screen and (max-width: 840px) and (min-width: 600px) {
-	.header__page-break__block {
+	.rainbow-page-break__block {
 		width: 60px;
 		margin-right: 10px;
 	}
 }
 @media only screen and (max-width: 960px) and (min-width: 840px) {
-	.header__page-break__block {
+	.rainbow-page-break__block {
 		width: 70px;
 		margin-right: 10px;
 	}
@@ -318,7 +319,7 @@ li.footer__social-links-item {
 }
 
 /* Landing Page */
-.future-of-tv__page-break {
+.future-of-tv .rainbow-page-break {
 	margin-top: 4em;
 	margin-bottom: 2em;
 }
@@ -327,6 +328,7 @@ li.footer__social-links-item {
 }
 .future-of-tv__hero {
 	position: relative;
+	margin-top: 3em;
 }
 .future-of-tv__hero-subheader {
 	max-width: 300px;
