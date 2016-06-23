@@ -316,6 +316,12 @@ li.footer__social-links-item {
 }
 
 /* Landing Page */
+.future-of-tv__block {
+	max-width: 760px;
+}
+.future-of-tv__hero-subheader {
+	max-width: 300px;
+}
 .future-of-tv__hero-summary {
 	position: relative;
 }
@@ -335,21 +341,17 @@ li.footer__social-links-item {
 	margin: 0;
 	padding: 0;
 }
-// .future-of-tv__hero-img {
-// 	position: absolute;
-// 	top: -7em;
-// 	right: 0;
-// 	width: 300px;
-// 	height: 300px;
-// 	margin: 0;
-// 	padding: 0;
-// 	z-index: -1;
-// }
-// .future-of-tv__hero-img > img {
-// 	width: 100%;
-// 	margin: 0;
-// 	padding: 0;
-// }
+@media only screen and (min-width: 760px) {
+	.future-of-tv__hero-img {
+		width: 300px;
+		height: 300px;
+		top: -11em;
+		left: 400px;
+	}
+	.future-of-tv__hero-odd-networks {
+		padding-top: 100px;
+	}
+}
 
 /* Contact Form */
 .contact-form {
