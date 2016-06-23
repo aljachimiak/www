@@ -1,7 +1,7 @@
 
 // Helpful: http://colorizer.org/
 $offWhite: #fdfdfd;
-$fontBlack: #232323;
+$fontBlack: #111;
 $gray: #767676;
 $medGray: #6d6d6d;
 $lightGray: #dfdfdf;
@@ -12,7 +12,7 @@ $magenta: #a900a9;
 $pink: #a90055;
 $red: #a90000;
 $orange: #a95400;
-$yellow: #a9a900;
+$yellow: #d6d600;
 $yellowGreen: #55a900;
 $green: #00a900;
 $lightGreen: #00a954;
@@ -24,7 +24,7 @@ $mobileBodyMargin: 16px;
 /* Type */
 body {
 	font-family: Helvetica, Arial, "Nimbus Sans L", sans-serif;
-	font-weight: 300;
+	font-size: 1.1em;
 	color: $fontBlack;
 	background: $offWhite;
 }
@@ -32,6 +32,25 @@ body {
 	font-family: "Oswald", sans-serif;
 	font-weight: 700;
 	text-transform: uppercase;
+}
+.headline-font--h1 {
+	font-size: 2.3em;
+}
+.headline-font--h2 {
+	font-size: 1.8em;
+}
+.headline-font--h3 {
+	font-size: 1.2em;
+	line-height: 1.6;
+}
+.highlight {
+	background-color: $yellow;
+}
+.subheader {
+	font-family: "Oswald", sans-serif;
+	color: $gray;
+	font-weight: 300;
+	font-size: 1.2em;
 }
 
 /* Colors */
@@ -200,8 +219,8 @@ a.header__nav-link {
 // }
 .header__page-break {
 	margin-top: 1.5em;
-	height: 1em;
-	line-height: 1em;
+	height: 0.8em;
+	line-height: 0.8em;
 	max-width: 1200px;
 	margin-left: auto;
 	margin-right: auto;
@@ -209,33 +228,39 @@ a.header__nav-link {
 	white-space: nowrap;
 }
 .header__page-break__block {
-	width: 100px;
-	height: 1em;
+	width: 88px;
+	margin-right: 12px;
+	height: 0.8em;
 	display: inline-block;
 }
 @media only screen and (max-width: 360px) {
 	.header__page-break__block {
-		width: 30px;
+		width: 27px;
+		margin-right: 3px;
 	}
 }
 @media only screen and (max-width: 480px) and (min-width: 360px) {
 	.header__page-break__block {
-		width: 40px;
+		width: 32px;
+		margin-right: 8px;
 	}
 }
 @media only screen and (max-width: 600px) and (min-width: 480px) {
 	.header__page-break__block {
-		width: 50px;
+		width: 42px;
+		margin-right: 8px;
 	}
 }
 @media only screen and (max-width: 840px) and (min-width: 600px) {
 	.header__page-break__block {
-		width: 70px;
+		width: 60px;
+		margin-right: 10px;
 	}
 }
 @media only screen and (max-width: 960px) and (min-width: 840px) {
 	.header__page-break__block {
-		width: 80px;
+		width: 70px;
+		margin-right: 10px;
 	}
 }
 
