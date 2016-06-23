@@ -318,6 +318,11 @@ li.footer__social-links-item {
 	margin: 0 8px;
 }
 
+/* Home Page */
+.home-page-block {
+	margin-top: 4em;
+}
+
 /* Landing Page */
 .future-of-tv .rainbow-page-break {
 	margin-top: 4em;
@@ -361,14 +366,11 @@ li.footer__social-links-item {
 		padding-top: 100px;
 	}
 }
-.future-of-tv__benefit-container {
-	padding: 0.5em 1em;
-	margin-top: 1em;
-	color: #fff;
-	background-color: $lightBlue;
+.future-of-tv__benefit-container ul {
+	padding-left: 1em;
 }
-.future-of-tv__benefit-container .subheader {
-	color: #fff;
+.future-of-tv__benefit-container ul > li {
+	margin-bottom: 0.5em;
 }
 @media only screen and (min-width: 960px) {
 	.future-of-tv__hero-summary {
