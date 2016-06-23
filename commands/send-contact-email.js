@@ -3,7 +3,9 @@
 const U = require('../lib/u');
 
 module.exports = function (app) {
-	const ses = app.API.AWS.ses;
+	// const ses = app.API.AWS.ses;
+	// TODO: Infusionsoft integration
+	const ses = {};
 
 	const template = U.template(`
 	Name: <%= firstName %> <%= lastName %>

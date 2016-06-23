@@ -28,10 +28,8 @@ exports.main = function () {
 		require('./initializers/api-log'),
 		initializeOpbeat,
 		require('./initializers/api-handle-error'),
-		require('./initializers/api-aws'),
 		require('./initializers/api-queries'),
 		require('./initializers/api-commands'),
-		require('./initializers/api-controllers'),
 		require('./initializers/api-express'),
 		require('./initializers/routes'),
 		require('./initializers/api-server')

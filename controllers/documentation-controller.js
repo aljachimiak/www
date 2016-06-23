@@ -3,6 +3,7 @@ const SEP = require('path').sep;
 
 const contentLoader = require('../lib/content-loader');
 
+// TODO: Convert to standard Controller Class
 module.exports = function (app) {
 	const basepath = app.appdir.append('content');
 

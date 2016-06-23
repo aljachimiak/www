@@ -1,10 +1,16 @@
 'use strict';
 
-module.exports = function (app) {
-	return function npmDownloadsController(req, res, next) {
+const controller = require('../lib/controller');
+
+class NPMDownloadsController {
+	constructor(app) {
+		this.app = app;
+	}
+
+	get(req, res, next) {
 		const responseType = req.params.type;
 
-		app.API.queries.getNpmDownloadStats()
+		this.app.API.queries.getNpmDownloadStats()
 			.then(results => {
 				let body;
 
@@ -29,5 +35,11 @@ module.exports = function (app) {
 				}
 			})
 			.catch(next);
-	};
-};
+	}
+
+	static create(app) {
+		return controller.create(new NPMDownloadsController(app));
+	}
+}
+
+module.exports = NPMDownloadsController;

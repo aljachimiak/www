@@ -4,8 +4,12 @@ const bodyParser = require('body-parser');
 // https://github.com/expressjs/body-parser
 
 const notFound = require('../middleware/not-found');
-const methodsAllowed = require('../middleware/methods-allowed');
 const errorHandling = require('../middleware/error-handling');
+
+const ContactController = require('../controllers/contact-controller');
+// const DocumentationController = require('../controllers/documentation-controller');
+const NPMDownloadsController = require('../controllers/npm-downloads-controller');
+const PagesController = require('../controllers/pages-controller');
 
 // Requires:
 // app.API.controllers
@@ -17,36 +21,28 @@ module.exports = function (app) {
 
 	express.all(
 		'/growthstats/npm_downloads.:type',
-		methodsAllowed({allowed: ['GET']}),
-		app.API.controllers.npmDownloadsController
+		NPMDownloadsController.create(app)
 	);
+
+	// express.all(
+	// 	'/oddworks/*',
+	// 	methodsAllowed({allowed: ['GET']}),
+	// 	DocumentationController.create()
+	// );
 
 	express.all(
-		'/oddworks/*',
-		methodsAllowed({allowed: ['GET']}),
-		app.API.controllers.documentationController
-	);
-
-	express.post(
-		'/contact/',
+		'/request-access',
 		bodyParser.urlencoded({
 			extended: false,
 			parameterLimit: 8
 		}),
-		app.API.controllers.contactController
+		ContactController.create(app, {
+			view: 'request-access',
+			confirmationView: 'request-access-confirm'
+		})
 	);
 
-	express.all(
-		'/contact/',
-		methodsAllowed({allowed: ['GET']}),
-		app.API.controllers.pagesController
-	);
-
-	express.all(
-		'/*',
-		methodsAllowed({allowed: ['GET']}),
-		app.API.controllers.pagesController
-	);
+	express.all('/*', PagesController.create(app));
 
 	// Catch 404 errors
 	express.use(notFound(app));

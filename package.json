@@ -1,5 +1,5 @@
 {
-  "name": "odd-www",
+  "name": "odd-networks-www",
   "private": true,
   "version": "1.0.0",
   "description": "Odd Networks World Wide Web",
@@ -9,7 +9,6 @@
     "css": "treadmill build.js css"
   },
   "dependencies": {
-    "aws-sdk": "~2.3.0",
     "boom": "~3.2.0",
     "bluebird": "~3.3.0",
     "body-parser": "~1.15.0",
