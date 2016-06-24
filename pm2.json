@@ -1,0 +1,14 @@
+{
+	"apps": [{
+		"name": "oddnetworks",
+		"script": "bin/server",
+		"watch": false,
+		"out_file": "combined.log",
+		"err_file": "combined.log",
+		"merge_logs": true,
+		"cwd": "/var/www/oddnetworks",
+		"env": {
+			"NODE_ENV": "production"
+		}
+	}]
+}
