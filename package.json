@@ -31,7 +31,7 @@
     "node-sass": "~3.7.0",
     "opbeat": "~3.6.0",
     "request": "~2.72.0",
-    "treadmill": "~2.0.0",
+    "treadmill": "~2.0.0"
   },
   "devDependencies": {
     "aws-sdk": "~2.4.0",
