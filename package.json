@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "Odd Networks World Wide Web",
   "scripts": {
+    "start": "./bin/server",
     "test": "xo",
     "devserver": "./bin/devserver | bunyan",
     "css": "treadmill build.js css",
