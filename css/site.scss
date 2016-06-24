@@ -26,7 +26,7 @@ body {
 	font-family: Helvetica, Arial, "Nimbus Sans L", sans-serif;
 	font-size: 1.1em;
 	color: $fontBlack;
-	background: $offWhite;
+	background: #fff;
 }
 .headline-font {
 	font-family: "Oswald", sans-serif;
@@ -318,15 +318,21 @@ li.footer__social-links-item {
 	margin: 0 8px;
 }
 
+/* Future of TV Footer */
+.future-of-tv__footer > .rainbow-page-break {
+	margin-top: 2em;
+	margin-bottom: 4em;
+}
+
 /* Home Page */
 .home-page-block {
 	margin-top: 4em;
 }
 
 /* Landing Page */
-.future-of-tv .rainbow-page-break {
-	margin-top: 4em;
-	margin-bottom: 2em;
+.future-of-tv__benefits .rainbow-page-break {
+	margin-top: 2em;
+	margin-bottom: 4em;
 }
 .future-of-tv__block {
 	max-width: 760px;
