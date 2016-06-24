@@ -5,6 +5,7 @@ const controller = require('../lib/controller');
 
 class ContactController {
 	constructor(app, options) {
+		this.log = app.API.log;
 		this.view = options.view;
 		this.confirmationView = options.confirmationView;
 		this.locals = U.cloneDeep(app.config.pagedata[this.view] || {});
@@ -36,7 +37,8 @@ class ContactController {
 			res.render(this.view, U.merge({}, this.locals, locals));
 		} else {
 			// TODO Send To Infusionsoft
-			res.render(this.confirmationView);
+			this.log.info({form}, 'SIGNUP');
+			res.status(201).render(this.confirmationView);
 		}
 	}
 
