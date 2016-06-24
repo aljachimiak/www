@@ -42,9 +42,9 @@ Configuration and Deployment
 * `OPBEAT_APP_ID=<app id>`
 * `OPBEAT_ORGANIZATION_ID=<org id>`
 * `OPBEAT_SECRET_TOKEN=<token>`
-* `AWS_SES_ACCESS_KEY_ID=<AWS user ID for sending email>`
-* `AWS_SES_SECRET_ACCESS_KEY=<AWS user ID secret for sending email>`
-* `AWS_SES_REGION=<AWS region for sending email>`
+
+### Deployment is via AWS CodeDeploy
+You'll need to [install the AWS command line tool](http://docs.aws.amazon.com/cli/latest/userguide/installing.html).
 
 Copyright
 ---------
