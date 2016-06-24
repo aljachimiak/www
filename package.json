@@ -6,7 +6,9 @@
   "scripts": {
     "test": "xo",
     "devserver": "./bin/devserver | bunyan",
-    "css": "treadmill build.js css"
+    "css": "treadmill build.js css",
+    "launch-instances": "source .launch-ec2-instances-vars.sh && bin/launch-ec2-instances",
+    "deploy": "source .deploy-vars.sh && bin/deploy.sh"
   },
   "dependencies": {
     "boom": "~3.2.0",

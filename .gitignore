@@ -30,6 +30,7 @@ node_modules
 .env
 .production-env
 .launch-ec2-instances-vars.sh
+.deploy-vars.sh
 
 # Deployment
 build/deployment
