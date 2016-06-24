@@ -23,6 +23,7 @@ class PagesController {
 	}
 
 	static cleanPath(path) {
+		path = path.replace(/index.html$/, 'index');
 		return !path || (path === '/') ?
 			'index' : path.replace(/^\//, '').replace(/\/$/, '');
 	}
