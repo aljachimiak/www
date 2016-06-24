@@ -28,8 +28,8 @@ node_modules
 
 # Local environment variables
 .env
-.deploy-env
 .production-env
+.launch-ec2-instances-vars.sh
 
 # Deployment
 build/deployment
