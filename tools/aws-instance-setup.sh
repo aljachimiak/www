@@ -18,4 +18,4 @@ chmod +x ./install
 
 # Install application dependencies
 apt-get -y install libkrb5-dev
-npm install -g pm2@">=1.0.0 <1.1.3"
+npm install -g pm2@">=1.0.0 <1.2.0"

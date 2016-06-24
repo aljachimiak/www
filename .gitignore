@@ -28,6 +28,7 @@ node_modules
 
 # Local environment variables
 .env
+.deploy-env
 
 # AWS Configs
 aws-instance-config.sh

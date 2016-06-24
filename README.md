@@ -35,16 +35,14 @@ There is a Sass build which can be run with
 Configuration and Deployment
 ----------------------------
 ### Environment Variables
-* `NODE_ENV=[development|staging|production]`
-* `HOST=[127.0.0.1]`
-* `PORT=[3000]`
-* `LOG_LEVEL=[trace|debug|info|warn|error|fatal]`
-* `OPBEAT_APP_ID=<app id>`
-* `OPBEAT_ORGANIZATION_ID=<org id>`
-* `OPBEAT_SECRET_TOKEN=<token>`
+Find a list of environment variables in `.env-example`. Copy that to `.env` in you local clone of the project and fill them in appropriately.
 
 ### Deployment is via AWS CodeDeploy
-You'll need to [install the AWS command line tool](http://docs.aws.amazon.com/cli/latest/userguide/installing.html).
+To deploy you'll need to have
+
+    .deploy-env
+
+in place. Copy it over from `.deploy-env-example` and fill in the values.
 
 Copyright
 ---------
