@@ -2,11 +2,6 @@
 
 'use strict';
 
-const filepath = require('filepath');
-const env = filepath.create().append('.deploy-env');
-
-require('dotenv').config({path: env.toString()});
-
 const launchEc2Instances = require('../tools/launch-ec-2-instances');
 
 const args = {
