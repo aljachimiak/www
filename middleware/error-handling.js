@@ -3,19 +3,32 @@
 const U = require('../lib/u');
 
 module.exports = function (options) {
-	options = U.ensure(options);
+	options = options || {};
 	const handler = options.handler;
 
-	return function errorHandling(err, req, res, next) {
+	function shouldReportError(err) {
+		if (U.isFunction(handler)) {
+			if (err && err.output && err.output.statusCode < 500) {
+				return false;
+			}
+			return true;
+		}
+		return false;
+	}
+
+	return function errorHandler(err, req, res, next) {
 		if (err) {
-			if (U.isFunction(handler)) {
-				handler(err);
+			// We treat Boom errors specially
+			// https://github.com/hapijs/boom
+
+			if (shouldReportError(err)) {
+				handler(err, req);
 			}
 
 			res
-				.status(500)
+				.status(err.isBoom ? err.output.statusCode : 500)
 				.set('Content-Type', 'text/plain')
-				.send('There was a server-side error.');
+				.send('there was a server error');
 		} else {
 			next();
 		}
