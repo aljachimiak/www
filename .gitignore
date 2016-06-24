@@ -29,6 +29,7 @@ node_modules
 # Local environment variables
 .env
 .deploy-env
+.production-env
 
-# AWS Configs
-aws-instance-config.sh
+# Deployment
+build/deployment
