@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+
+'use strict';
+
+require('dotenv').config();
+
+const server = require('../server');
+
+server.main()
+	.then(app => {
+		const addr = app.API.server.address();
+		console.log('*** server started ***');
+		console.log('%s:%s', addr.address, addr.port);
+	})
+	.catch(err => {
+		console.error('*** server start error ***');
+		console.error(err.stack || err.message || err);
+	});
