@@ -2,7 +2,13 @@
 
 'use strict';
 
-require('dotenv').config();
+const filepath = require('filepath');
+
+// CodeDeploy does not copy over hidden files, so
+// we need to use 'env' instead of '.env'
+require('dotenv').config({
+	path: filepath.create(__dirname).dir().append('env').toString()
+});
 
 const server = require('../server');
 
