@@ -1,8 +1,10 @@
 'use strict';
 
+const express = require('express');
 const bodyParser = require('body-parser');
 // https://github.com/expressjs/body-parser
 
+const cacheControl = require('../middleware/cache-control');
 const notFound = require('../middleware/not-found');
 const errorHandling = require('../middleware/error-handling');
 
@@ -12,31 +14,68 @@ const InfusionsoftController = require('../controllers/infusionsoft-controller')
 const NPMDownloadsController = require('../controllers/npm-downloads-controller');
 const PagesController = require('../controllers/pages-controller');
 
+const NO_CACHE_HEADERS = {
+	'Expires': '-1',
+	'Cache-Control': 'no-cache, no-store'
+};
+
+const LONG_CACHE_HEADERS = {
+	'Expires': 86400 * 30,
+	'Cache-Control': `public, max-age=${86400 * 30}`
+};
+
+const SHORT_CACHE_HEADERS = {
+	'Expires': 100,
+	'Cache-Control': `public, max-age=${100}`
+};
+
 // Requires:
 // app.API.controllers
 module.exports = function (app) {
 	const debug = app.debug('initializeRoutes');
 	debug('initializing');
 
-	const express = app.API.express;
+	app.API.express.use(cacheControl([
+		{
+			pattern: /^\/growthstats/,
+			headers: NO_CACHE_HEADERS
+		},
+		{
+			pattern: /^\/assets\/(img|svg)\//,
+			headers: LONG_CACHE_HEADERS
+		},
+		{
+			pattern: /^\/assets\//,
+			headers: SHORT_CACHE_HEADERS
+		},
+		{
+			pattern: /^\//,
+			headers: NO_CACHE_HEADERS
+		}
+	]));
 
-	express.all(
+	// Setup the static page server
+	app.API.express.use(express.static(app.config.express.paths.static, {
+		maxAge: app.config.middleware.static.maxAge
+	}));
+
+	app.API.express.all(
 		'/growthstats/npm_downloads.:type',
 		NPMDownloadsController.create(app)
 	);
 
-	// express.all(
+	// app.API.express.all(
 	// 	'/oddworks/*',
 	// 	methodsAllowed({allowed: ['GET']}),
 	// 	DocumentationController.create()
 	// );
 
-	express.all(
+	app.API.express.all(
 		'/oauth/infusionsoft',
 		InfusionsoftController.create(app)
 	);
 
-	express.all(
+	app.API.express.all(
 		'/request-access',
 		bodyParser.urlencoded({
 			extended: false,
@@ -48,19 +87,19 @@ module.exports = function (app) {
 		})
 	);
 
-	express.all('/*', PagesController.create(app));
+	app.API.express.all('/*', PagesController.create(app));
 
 	// Catch 404 errors
-	express.use(notFound(app));
+	app.API.express.use(notFound(app));
 
 	// Error handling middleware must go last, after all other middleware
 	// and routes have been defined.
 
 	// Opbeat error handler needs to be first
-	express.use(app.API.opbeat.middleware.express());
+	app.API.express.use(app.API.opbeat.middleware.express());
 
 	// Our catch-all error handler
-	express.use(errorHandling({
+	app.API.express.use(errorHandling({
 		handler: app.API.handleError
 	}));
 

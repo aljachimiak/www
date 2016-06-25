@@ -27,6 +27,12 @@ module.exports = function (app) {
 		}
 	};
 
+	app.config.middleware = {
+		static: {
+			maxAge: app.environment === 'production' ? '30d' : 0
+		}
+	};
+
 	app.config.awsSES = {
 		accessKeyId: process.env.AWS_SES_ACCESS_KEY_ID,
 		secretAccessKey: process.env.AWS_SES_SECRET_ACCESS_KEY,
