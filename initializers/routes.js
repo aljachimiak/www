@@ -54,6 +54,10 @@ module.exports = function (app) {
 		}
 	]));
 
+	app.API.express.all('/signup', (req, res) => {
+		res.redirect(301, '/request-access');
+	});
+
 	// Setup the static page server
 	app.API.express.use(express.static(app.config.express.paths.static, {
 		maxAge: app.config.middleware.static.maxAge
