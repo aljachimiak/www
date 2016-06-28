@@ -6,6 +6,7 @@
   "scripts": {
     "postinstall": "npm run css",
     "start": "./bin/server",
+    "lint": "xo",
     "test": "xo",
     "devserver": "./bin/devserver | bunyan",
     "css": "treadmill build.js css",
