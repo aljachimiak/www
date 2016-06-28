@@ -54,7 +54,7 @@ module.exports = function (app) {
 		}
 	]));
 
-	app.API.express.all('/signup', (req, res) => {
+	app.API.express.all('/signup|contact', (req, res) => {
 		res.redirect(301, '/request-access');
 	});
 
