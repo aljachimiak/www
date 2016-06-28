@@ -64,7 +64,7 @@ module.exports = function (app) {
 	}));
 
 	app.API.express.all(
-		'/growthstats/npm_downloads.:type',
+		'/growthstats/npm_downloads.:type?',
 		NPMDownloadsController.create(app)
 	);
 
