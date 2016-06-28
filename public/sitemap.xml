@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-      http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<url>
-  <loc>https://www.oddnetworks.com/</loc>
-  <priority>1.00</priority>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.oddnetworks.com/future-of-tv/platform-for-content-networks</loc>
-  <priority>0.80</priority>
-  <changefreq>weekly</changefreq>
-</url>
-</urlset>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://www.oddnetworks.com/site.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://blog.oddnetworks.com/sitemap/sitemap.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://oddcast.oddnetworks.com/sitemap/sitemap.xml</loc>
+  </sitemap>
+</sitemapindex>
