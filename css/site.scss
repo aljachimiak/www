@@ -122,13 +122,18 @@ a.cta-button__link {
 	margin-top: 2em;
 	text-align: center;
 }
-// @media only screen and (min-width: 800px) {
-// 	.constrained {
-// 		max-width: 780px;
-// 		margin-left: auto;
-// 		margin-right: auto;
-// 	}
-// }
+@media only screen and (min-width: 30em) {
+	.hero__headline {
+		line-height: 1.1;
+		font-size: 4em;
+	}
+	.hero__subhead {
+		font-size: 2em;
+	}
+	.hero__summary {
+		font-size: 1.6em;
+	}
+}
 
 //
 // Pages
@@ -146,4 +151,13 @@ a.cta-button__link {
 	font-size: 2em;
 	font-weight: $bold;
 	color: $purple;
+}
+@media only screen and (min-width: 30em) {
+	.home__features-header,
+	.home__features-section {
+		font-size: 1.2em;
+	}
+	.home__features-section-headline {
+		font-size: 2.2em;
+	}
 }
