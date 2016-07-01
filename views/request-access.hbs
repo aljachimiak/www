@@ -1,22 +1,25 @@
 {{> head}}
-	<article class="future-of-tv">
-	{{> landing_page_header}}
+	<article class="request-access">
+	{{> site_header}}
 	<section class="constrained contact-form">
-		<header class="contact-form__header">
-			<h1 class="headline-font headline-font--h1">
-				<span class="highlight">Request early access.</span>
-			</h1>
-			<p class="headline-font headline-font--h3">
-			You'll have our email address.<br>Ask us anything.
+		<header>
+			<div class="hero__logo">
+				<img class="hero__logo-img" src="/assets/svg/odd-networks-paul.svg" alt="Odd Networks">
+			</div>
+			<h2 class="hero__headline">
+			Request Early Access
+			</h2>
+			<p class="hero__subhead">
+				<span class="highlight">You'll have our email address. Ask us anything.</span>
 			</p>
-			{{#if formError}}
-			<p class="contact-form__error">
-				<strong>There was an error submitting your form:</strong><br>
-				{{formError}}
-			</p>
-			{{/if}}
 		</header>
 		<form class="form contact-form__form" accept-charset="UTF-8" autocomplete="off" method="POST">
+			{{#if formError}}
+			<p class="form__field">
+				<strong>There was an error submitting your form:</strong><br>
+				<span class="error">{{formError}}</span>
+			</p>
+			{{/if}}
 
 			<!-- Email -->
 			<div class="form__field">
@@ -35,7 +38,7 @@
 				</label>
 				<textarea
 					id="inquiry" name="inquiry"
-					spellcheck="true" rows="7" cols="50">{{form.inquiry}}</textarea>
+					spellcheck="true" rows="3" cols="50">{{form.inquiry}}</textarea>
 			</div>
 
 			<!-- Name: First, Last -->
@@ -58,12 +61,11 @@
 			</div>
 
 			<!-- Buttons -->
-			<div class="form__buttons">
-				<input id="save_contact_form" name="save_contact_form" class="cta-button" type="submit" value="Submit">
-			</div>
+			<p class="form__buttons cta-button">
+				<input id="save_contact_form" name="save_contact_form" class="cta-button__link" type="submit" value="Submit">
+			</p>
 		</form>
 	</section>
-	{{> rainbow_page_break}}
+	{{> site_footer}}
 	</article>
-</body>
-</html>
+{{> footer}}
