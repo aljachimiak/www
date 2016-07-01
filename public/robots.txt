@@ -2,6 +2,7 @@ Sitemap: https://www.oddnetworks.com/sitemap.xml
 User-agent: *
 Allow: /
 Disallow: /request-access
+Disallow: /inquiry
 Disallow: /contact
 Disallow: /contact/success
 Disallow: /contact/signedup

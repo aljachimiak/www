@@ -91,6 +91,18 @@ module.exports = function (app) {
 		})
 	);
 
+	app.API.express.all(
+		'/inquiry',
+		bodyParser.urlencoded({
+			extended: false,
+			parameterLimit: 8
+		}),
+		ContactController.create(app, {
+			view: 'inquiry',
+			confirmationView: 'inquiry-confirm'
+		})
+	);
+
 	app.API.express.all('/*', PagesController.create(app));
 
 	// Catch 404 errors
