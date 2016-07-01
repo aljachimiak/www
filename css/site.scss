@@ -241,3 +241,27 @@ label.form__label > .form__req {
 	font-size: 1.5em;
 	text-align: center;
 }
+
+// Ad Landing Page
+.ad-landing-page .home__features {
+	text-align: center;
+}
+.ad-landing-page .home__features ul {
+	font-size: 1.2em;
+	font-weight: $med;
+	padding-left: 0;
+	text-align: left;
+	max-width: 20em;
+	margin-left: auto;
+	margin-right: auto;
+}
+.ad-landing-page .home__features ul > li {
+	margin-top: 1em;
+}
+.ad-landing-page .home__features .cta-button__link {
+	margin-left: auto;
+	margin-right: auto;
+}
+.ad-landing-page .home__features-section-headline {
+	color: $black;
+}
