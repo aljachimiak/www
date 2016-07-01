@@ -138,6 +138,8 @@ label.form__label > .form__req {
 	margin-left: auto;
 	margin-right: auto;
 }
+.hero__logo > a {
+}
 .hero__headline {
 	max-width: 18em;
 	margin-left: auto;
@@ -221,10 +223,9 @@ label.form__label > .form__req {
 }
 
 // Request Access
-.request-access .hero__logo {
+.request-access .hero__logo,
+.request-access-confirm .hero__logo {
 	max-width: 30em;
-	margin-left: auto;
-	margin-right: auto;
 }
 .request-access .form {
 	max-width: 32em;
