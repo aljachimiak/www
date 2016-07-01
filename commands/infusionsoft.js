@@ -71,7 +71,7 @@ module.exports = function infusionsoft(app) {
 						'infusionsoft token'
 					);
 
-					return true;
+					resolve(true);
 				});
 			});
 		}
