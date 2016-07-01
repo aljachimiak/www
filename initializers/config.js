@@ -33,10 +33,20 @@ module.exports = function (app) {
 		}
 	};
 
-	app.config.awsSES = {
-		accessKeyId: process.env.AWS_SES_ACCESS_KEY_ID,
-		secretAccessKey: process.env.AWS_SES_SECRET_ACCESS_KEY,
-		region: process.env.AWS_SES_REGION
+	if (!process.env.INFUSIONSOFT_CLIENT_ID) {
+		debug('missing env var INFUSIONSOFT_CLIENT_ID');
+	}
+	if (!process.env.INFUSIONSOFT_SECRET) {
+		debug('missing env var INFUSIONSOFT_SECRET');
+	}
+
+	app.config.infusionsoft = {
+		clientId: process.env.INFUSIONSOFT_CLIENT_ID,
+		clientSecret: process.env.INFUSIONSOFT_SECRET,
+		redirectUri: 'https://www.oddnetworks.com/oauth/infusionsoft',
+		responseType: 'code',
+		scope: 'full',
+		grantType: 'authorization_code'
 	};
 
 	app.config.pagedata = getPageData(app);
