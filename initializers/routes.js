@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 // https://github.com/expressjs/body-parser
 
 const cacheControl = require('../middleware/cache-control');
+const accessLog = require('../middleware/access-log');
 const notFound = require('../middleware/not-found');
 const errorHandling = require('../middleware/error-handling');
 
@@ -55,8 +56,10 @@ module.exports = function (app) {
 		}
 	]));
 
+	app.API.express.use(accessLog(app));
+
 	app.API.express.all('/signup|contact', (req, res) => {
-		res.redirect(301, '/request-access');
+		res.redirect(301, '/inquiry');
 	});
 
 	// Setup the static page server
