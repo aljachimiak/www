@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Odd Networks{{subtitle}}</title>
+	<title>{{title}} Odd Networks</title>
 	<!--
 		____      _     _   _   _      _                      _
 	 / __ \    | |   | | | \ | |    | |                    | |
@@ -20,34 +20,14 @@
 	<link rel="author" href="/humans.txt">
 
 	<meta name="google-site-verification" content="{{googleSiteVerification}}">
-
 	<link rel="icon" type="image/png" href="http://oddnetworks.com/assets/img/favicon.png" />
-
-	<!-- Facebook Pixel Code -->
-	<script>
-	!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-	n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-	n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-	t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-	document,'script','https://connect.facebook.net/en_US/fbevents.js');
-
-	fbq('init', '206978703034915');
-	fbq('track', "PageView");
-	</script>
-	<noscript><img height="1" width="1" style="display:none"
-	src="https://www.facebook.com/tr?id=206978703034915&ev=PageView&noscript=1"
-	/></noscript>
-	<!-- End Facebook Pixel Code -->
-
-	{{> google_analytics}}
-
 	<link rel="stylesheet" href="/assets/css/main.css">
 
 	{{! Open Graph }}
 	{{! Facebook }}
 	{{! Google }}
 	<meta property="og:description" content="Launch your own branded streaming service for Roku, Apple TV, FireTV, and mobile.">
-	<meta property="og:title" content="Odd Networks{{subtitle}}">
+	<meta property="og:title" content="Odd Networks{{title}}">
 	<meta property="og:image" content="//www.oddnetworks.com/assets/img/share.png">
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://www.oddnetworks.com/" />
@@ -61,6 +41,9 @@
 	<meta name="twitter:domain" content="https://www.oddnetworks.com/">
 	<meta name="twitter:image" content="//www.oddnetworks.com/assets/img/share.png">
 	<meta name="twitter:site" content="@oddnetworks">
-	<meta name="twitter:title" content="Odd Networks{{subtitle}}">
+	<meta name="twitter:title" content="Odd Networks{{title}}">
+
+	{{> google_analytics}}
+	{{> facebook_pixel}}
 </head>
 <body>

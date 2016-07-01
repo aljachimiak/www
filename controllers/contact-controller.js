@@ -8,20 +8,26 @@ class ContactController {
 		this.log = app.API.log;
 		this.view = options.view;
 		this.confirmationView = options.confirmationView;
-		this.locals = U.cloneDeep(app.config.pagedata[this.view] || {});
+		this.pagedata = U.cloneDeep(app.config.pagedata);
 	}
 
 	get(req, res) {
-		res.status(200).render(this.view, this.locals);
+		const locals = U.merge(
+			{},
+			this.pagedata[this.view],
+			this.pagedata.index
+		);
+		res.status(200).render(this.view, locals);
 	}
 
 	post(req, res) {
 		const formErrors = [];
 
 		const form = {
+			source: this.view,
+			email: req.body.email,
 			firstName: req.body.first_name,
 			lastName: req.body.last_name,
-			email: req.body.email,
 			inquiry: req.body.inquiry
 		};
 
@@ -32,13 +38,19 @@ class ContactController {
 			formErrors.push('First name is required');
 		}
 
+		let locals = U.cloneDeep(this.pagedata.index);
+
 		if (formErrors.length) {
-			const locals = {formError: formErrors[0], form};
-			res.render(this.view, U.merge({}, this.locals, locals));
+			locals = this.pagedata[this.view] || locals;
+			res.render(
+				this.view,
+				U.merge({}, locals, {formError: formErrors[0], form})
+			);
 		} else {
 			// TODO Send To Infusionsoft
 			this.log.info({form}, 'SIGNUP');
-			res.status(201).render(this.confirmationView);
+			locals = this.pagedata[this.confirmationView] || locals;
+			res.status(201).render(this.confirmationView, locals);
 		}
 	}
 

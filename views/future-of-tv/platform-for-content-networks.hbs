@@ -1,94 +1,45 @@
 {{> head}}
-	<article class="future-of-tv">
-	{{> landing_page_header}}
-	<section class="constrained clearfix">
-		<header class="future-of-tv__hero">
-			<h1 class="headline-font headline-font--h1 future-of-tv__block">
-				<span class="highlight">Your brand is on the bleeding edge of a new era of television.</span>
-			</h1>
-			<p class="headline-font headline-font--h2 future-of-tv__hero-subheader">
-				Technology needs to catch up.
-			</p>
-			<p class="future-of-tv__hero-img"><img src="/assets/img/old-tv.jpg"></p>
-		</header>
-		<div class="future-of-tv__hero-summary">
-			<p class="headline-font headline-font--h3 future-of-tv__hero-odd-networks future-of-tv__block">
-				<span class="highlight">Odd Networks</span> is a band of geeks holed up in a mostly secret
-				hideout to build the <span class="highlight">television platform of the future.</span>
-			</p>
-			<p class="subheader future-of-tv__block">You'll be able to distribute your content anywhere,
-			on any platform, and collect the data to prove it. Together we'll change TV forever.</p>
-		</div>
-		<div class="future-of-tv__hero-cta">
-			<p><a class="cta-button" href="/request-access">Request Early Access</a></p>
-			<p class="summary">Not sure? Read on.</p>
-		</div>
-	</section>
-	<section class="constrained future-of-tv__benefits clearfix">
-		{{> rainbow_page_break}}
+	<article class="ad-landing-page">
+	{{> site_header}}
+	<section class="hero constrained">
 		<header>
-			<h1 class="headline-font headline-font--h2">
-				<span class="highlight">Awesome sh*t you'll be able to do:</span>
-			</h1>
+			{{> hero_img}}
+			<h2 class="hero__headline">
+				Launch your own video streaming service.
+			</h2>
+			<p class="hero__subhead">
+				<span class="highlight">Your audience is on every streaming device. Are You?</span>
+			</p>
 		</header>
-		<section class="future-of-tv__benefit-sub-section--left">
-			<section class="future-of-tv__benefit-container">
-				<header>
-					<h1 class="headline-font headline-font--h2">Your own branded apps.</h1>
-				</header>
-				<ul class="subheader">
-					<li>Launch apps on Apple TV, Roku, FireTV, and more.</li>
-					<li>Add mobile apps for Apple and Android devices.</li>
-				</ul>
-			</section>
-			<section class="future-of-tv__benefit-container">
-				<header>
-					<h1 class="headline-font headline-font--h2">Know your audience like never before.</h1>
-				</header>
-				<ul class="subheader">
-					<li>Collect and merge analytical data from your website and all your apps.</li>
-					<li>Oh, and YouTube, Facebook and Twitter too.</li>
-					<li>Use artificial intelligence for content programming.</li>
-					<li>Run your own content programming. You know, so the bots don't take over.</li>
-				</ul>
-			</section>
-		</section>
-		<section class="future-of-tv__benefit-sub-section--right">
-			<section class="future-of-tv__benefit-container">
-				<header>
-					<h1 class="headline-font headline-font--h2">Own the World.</h1>
-				</header>
-				<ul class="subheader">
-					<li>Selectively push content to YouTube, Facebook and Twitter.</li>
-					<li>Be the next generation of TV.</li>
-				</ul>
-			</section>
-			<section class="future-of-tv__benefit-container">
-				<header>
-					<h1 class="headline-font headline-font--h2">Make it rain.</h1>
-				</header>
-				<ul class="subheader">
-					<li>Add a subscription service.</li>
-					<li>Run advertising.</li>
-				</ul>
-			</section>
-		</section>
+		<div>
+			<p class="hero__summary">
+			Odd Networks is a band of geeks holed up in a secret hideout building a
+			video platform for the future of television.
+			</p>
+			<p class="hero__cta cta-button">
+				<a class="cta-button__link" href="/request-access">Request Early Access</a>
+			</p>
+		</div>
 	</section>
-	<section class="constrained clearfix">
-		<section>
+	<section class="home__features constrained">
+		<section class="home__features-section">
 			<header>
-				<h1 class="headline-font headline-font--h2">Still not sure?</h1>
-				<h1 class="headline-font headline-font--h3">How much?</h1>
+				<h2 class="home__features-section-headline">
+					<span class="highlight">Awesome sh*t you can do:</span>
+				</h2>
 			</header>
-			<p class="subheader">Probably less then $100 a month.</p>
-			<p class="headline-font headline-font--h3"><span class="highlight">No. Really. How much?</span></p>
-			<p class="subheader">Really. Probably less then $100 a month.</p>
-			<p><a class="cta-button" href="/request-access">Request Early Access</a></p>
+			<ul>
+				<li>Push to YouTube, Facebook, and Twitter.</li>
+				<li>Launch your own branded apps on Roku and Apple TV.</li>
+				<li>Command and control of your entire empire from one place.</li>
+				<li>Analytics from YouTube, social networks and your own TV apps in one dashboard.</li>
+				<li>Make it rain with your own advertising or subscription service.</li>
+			</ul>
+			<p class="cta-button">
+				<a class="cta-button__link" href="/request-access">Request Access</a>
+			</p>
 		</section>
 	</section>
-	<footer class="future-of-tv__footer">
-		{{> rainbow_page_break}}
-	</footer>
+	{{> site_footer}}
 	</article>
-</body>
-</html>
+{{> footer}}

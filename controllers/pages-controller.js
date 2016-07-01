@@ -19,7 +19,9 @@ class PagesController {
 			return next();
 		}
 
-		res.status(200).render(path, this.pagedata[path]);
+		const locals = this.pagedata[path] || this.pagedata.index;
+
+		res.status(200).render(path, locals);
 	}
 
 	static cleanPath(path) {

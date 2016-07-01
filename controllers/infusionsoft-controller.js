@@ -3,22 +3,34 @@
 const controller = require('../lib/controller');
 
 class InfusionsoftController {
+	constructor(app) {
+		this.config = app.config.infusionsoft;
+		this.commands = app.API.commands;
+	}
+
 	get(req, res) {
-		console.log('%s %s', req.method, req.url);
-		console.log(JSON.stringify(req.headers, null, 2));
-		res.status(200).send('success');
-	}
+		// scope=full|wo321.infusionsoft.com&code=hf7askekx9ba8cax5x3m78nz
+		const args = {
+			clientId: this.config.clientId,
+			clientSecret: this.config.clientSecret,
+			code: req.query.code,
+			grantType: this.config.grantType,
+			redirectUri: this.config.redirectUri
+		};
 
-	post(req, res) {
-		console.log('%s %s', req.method, req.url);
-		console.log(JSON.stringify(req.headers, null, 2));
-		res.status(201).send('success');
-	}
-
-	put(req, res) {
-		console.log('%s %s', req.method, req.url);
-		console.log(JSON.stringify(req.headers, null, 2));
-		res.status(201).send('success');
+		return this.commands.infusionsoft
+			.link(args)
+			.then(() => {
+				res.status(200).send('success');
+				return null;
+			})
+			.catch(err => {
+				this.log.error(err, 'infusionsoft link error');
+				res
+					.status(200)
+					.send('failed: check server logs for "infusionsoft link error"');
+				return null;
+			});
 	}
 
 	static create(app) {

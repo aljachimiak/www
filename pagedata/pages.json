@@ -1,10 +1,20 @@
 {
 	"index": {
-		"subtitle": " - Build for TV",
-		"description": "Open Source OTT Video Platform for Apple TV, Roku, Amazon Fire, Mocrosoft XBOX, Android TV and more."
+		"title": "Launch your own streaming service |",
+		"description": "Odd Networks is a band of geeks holed up in a secret hideout building a video platform for the future of television."
 	},
-	"contact": {
-		"subtitle": " - Contact",
-		"description": "Contact Odd Networks."
+	"request-access": {
+		"description": "Request early access."
+	},
+	"request-access-confirm": {
+		"title": "Thank You! | ",
+		"description": "We'll be in touch."
+	},
+	"inquiry": {
+		"description": "Make an inquiry."
+	},
+	"inquiry-confirm": {
+		"title": "Thank You! | ",
+		"description": "We'll be in touch."
 	}
 }

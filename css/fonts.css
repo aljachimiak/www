@@ -1,13 +1,19 @@
 
 @font-face {
-	font-family: 'Oswald';
+	font-family: 'Hind';
 	font-style: normal;
-	font-weight: 400;
-	src: local('Oswald Regular'), local('Oswald-Regular'), url(https://fonts.gstatic.com/s/oswald/v11/Y_TKV6o8WovbUd3m_X9aAA.ttf) format('truetype');
+	font-weight: 300;
+	src: local('Hind Light'), local('Hind-Light'), url(https://fonts.gstatic.com/s/hind/v6/ovjfFuI0qshJ4pjW8a52hA.ttf) format('truetype');
 }
 @font-face {
-	font-family: 'Oswald';
+	font-family: 'Hind';
+	font-style: normal;
+	font-weight: 500;
+	src: local('Hind Medium'), local('Hind-Medium'), url(https://fonts.gstatic.com/s/hind/v6/GSrOz960_Sk2fwhd1d3CUw.ttf) format('truetype');
+}
+@font-face {
+	font-family: 'Hind';
 	font-style: normal;
 	font-weight: 700;
-	src: local('Oswald Bold'), local('Oswald-Bold'), url(https://fonts.gstatic.com/s/oswald/v11/bH7276GfdCjMjApa_dkG6aCWcynf_cDxXwCLxiixG1c.ttf) format('truetype');
+	src: local('Hind Bold'), local('Hind-Bold'), url(https://fonts.gstatic.com/s/hind/v6/akA3ImRNyYfKy4MBs09Paw.ttf) format('truetype');
 }
