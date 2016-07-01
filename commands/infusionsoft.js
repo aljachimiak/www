@@ -3,6 +3,8 @@
 const request = require('request');
 const U = require('../lib/u');
 
+const TOKEN_URL = 'https://api.infusionsoft.com/token';
+
 module.exports = function infusionsoft(app) {
 	const log = app.API.log;
 	const CACHE = Object.create(null);
@@ -12,7 +14,7 @@ module.exports = function infusionsoft(app) {
 			/* eslint-disable camelcase */
 			const opts = {
 				method: 'POST',
-				url: 'https://',
+				url: TOKEN_URL,
 				form: {
 					client_id: args.clientId,
 					client_secret: args.clientSecret,
