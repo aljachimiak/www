@@ -138,24 +138,10 @@ label.form__label > .form__req {
 	margin-left: auto;
 	margin-right: auto;
 }
-.hero__logo > a {
-}
 .hero__headline {
 	max-width: 18em;
 	margin-left: auto;
 	margin-right: auto;
-}
-.hero__subhead {
-	max-width: 20em;
-	margin-left: auto;
-	margin-right: auto;
-}
-.hero__summary {
-	max-width: 22em;
-	margin-left: auto;
-	margin-right: auto;
-}
-.hero__headline {
 	margin-top: 0;
 	line-height: 1;
 	font-size: 2.5em;
@@ -164,11 +150,17 @@ label.form__label > .form__req {
 	color: $purple;
 }
 .hero__subhead {
+	max-width: 20em;
+	margin-left: auto;
+	margin-right: auto;
 	font-weight: $bold;
 	font-size: 1.2em;
 	text-align: center;
 }
 .hero__summary {
+	max-width: 22em;
+	margin-left: auto;
+	margin-right: auto;
 	margin-top: 2em;
 	text-align: center;
 }

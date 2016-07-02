@@ -1,23 +1,30 @@
 {{> head}}
 	<article class="ad-landing-page-legacy">
-	{{> site_header}}
-	<section class="hero constrained">
-		<header>
-			{{> hero_img}}
+	<header class="header">
+		<div class="header__logo">
+			<img class="header__logo-img" src="/assets/svg/odd-networks.svg" alt="Odd Networks">
+		</div>
+	</header>
+	<section class="hero constrained clearfix">
+		<header class="hero__header">
 			<h2 class="hero__headline">
 				Launch your own video streaming service.
 			</h2>
 			<p class="hero__subhead">
-				<span class="highlight">Your audience is on every streaming device. Are You?</span>
+				Odd Networks is a band of geeks holed up in a secret hideout building the
+				video platform of the future.
 			</p>
+			<div>
+				<p class="hero__cta">
+					<a class="cta-button cta-button--blue" href="/request-odd-access">Request Early Access</a>
+				</p>
+			</div>
 		</header>
-		<div>
-			<p class="hero__cta cta-button">
-				<a class="cta-button__link" href="/request-access">Request Early Access</a>
-			</p>
+		<div class="hero__logo">
+			<img class="hero__logo-img" src="/assets/img/feature-hero.png" alt="Odd Networks in action">
 		</div>
 	</section>
-	<section class="home__features constrained">
+	<section class="home__features constrained clearfix">
 		<section class="home__features-section">
 			<header>
 				<h2 class="home__features-section-headline">
@@ -31,11 +38,13 @@
 				<li>Analytics from YouTube, social networks and your own TV apps in one dashboard.</li>
 				<li>Make it rain with your own advertising or subscription service.</li>
 			</ul>
-			<p class="cta-button">
-				<a class="cta-button__link" href="/request-access">Request Early Access</a>
+			<p class="home__features-cta-button">
+				<a class="cta-button cta-button--blue" href="/request-odd-access">Request Early Access</a>
 			</p>
 		</section>
 	</section>
-	{{> site_footer}}
+	<footer class="footer">
+		<p class="footer__legal">&copy; 2016 Odd Networks, Inc.</p>
+	</footer>
 	</article>
 {{> footer}}
