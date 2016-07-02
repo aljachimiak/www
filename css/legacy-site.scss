@@ -1,0 +1,229 @@
+
+// Helpful: http://colorizer.org/
+$fontBlack: #232323;
+$medBlue: #388be9;
+$lightGray: #dfdfdf;
+$gray: #767676;
+
+// Typeface
+body {
+	font-family: "Open Sans", "DejaVu Sans", Helvetica, Tahoma, Arial, sans-serif;
+	font-weight: 300;
+	color: $fontBlack;
+}
+
+//
+// Layout
+// ------
+.constrained {
+	margin-left: 0.8em;
+	margin-right: 0.8em;
+}
+@media only screen and (min-width: 60em) {
+	.constrained {
+		max-width: 56.6em;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+//
+// Components
+// ----------
+
+// Buttons
+.cta-button {
+	display: inline-block;
+	text-align: center;
+	border-style: solid;
+	border-width: 3px;
+	text-transform: uppercase;
+	padding: 0.5em 1.2em;
+	font-weight: 600;
+	box-shadow: 0 13px 20px rgba(0, 0, 0, 0.2);
+}
+input.cta-button {
+	border-radius: 0;
+}
+a.cta-button {
+	display: inline-block;
+	text-decoration: none;
+}
+.cta-button--blue {
+	border-color: $medBlue;
+	background-color: $medBlue;
+	color: #fff;
+}
+.cta-button--white {
+	border-color: $medBlue;
+	background-color: #fff;
+	color: $medBlue;
+}
+.cta-button__github {
+	background: transparent url("/assets/svg/github.svg") no-repeat center center;
+	text-indent: -9999px;
+	width: 47px;
+	margin-left: 5px;
+}
+.cta-button__slack {
+	display: block;
+	background: transparent url("/assets/svg/slack.svg") no-repeat center center;
+	text-indent: -9999px;
+	width: 57px;
+	margin-left: 5px;
+}
+
+// Forms
+.form__field, .form__subfield, .form__buttons {
+	margin-top: 1em;
+}
+.form__subfield.form__subfield--first {
+	margin-top: 0;
+}
+input, textarea {
+	box-sizing: border-box;
+	border: 1px solid $lightGray;
+	outline: none;
+	padding: 0.5em;
+}
+label.form__label {
+	display: block;
+	font-weight: 600;
+	margin-bottom: 0.5em;
+}
+.form__subfield label.form__label {
+	color: $gray;
+	font-weight: 300;
+	font-size: 0.9em;
+	margin-top: 0.5em;
+}
+label.form__label > .form__req {
+	color: $medBlue;
+}
+@media only screen and (max-width: 28em) {
+	input, textarea {
+		width: 100%;
+	}
+}
+
+// Header
+.header {
+	padding-top: 2em;
+}
+.header__logo {
+	width: 12em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Footer
+.footer {
+	padding-top: 2em;
+}
+.footer__img > img {
+	width: 100%;
+}
+.footer__img {
+	max-width: 425px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.footer__legal {
+	font-size: 0.8em;
+	text-align: center;
+}
+
+// .hero
+.hero {
+	margin-top: 3em;
+}
+.hero__headline {
+	max-width: 16em;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+	line-height: 1;
+	font-size: 2em;
+	font-weight: 300;
+	text-align: center;
+}
+.hero__subhead {
+	max-width: 20em;
+	margin-left: auto;
+	margin-right: auto;
+	font-weight: 300;
+	font-size: 1em;
+	text-align: center;
+	color: $gray;
+}
+.hero__cta {
+	text-align: center;
+}
+.hero__logo {
+	margin-top: 3em;
+	max-width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.hero__logo-img {
+	width: 100%;
+}
+@media only screen and (min-width: 48em) {
+	.hero {
+		margin-top: 4em;
+	}
+}
+@media only screen and (min-width: 60em) {
+	.hero__header {
+		width: 22em;
+		float: left;
+		margin-top: 3em;
+	}
+	.hero__logo {
+		margin-top: 2em;
+		margin-left: 24em;
+	}
+	.hero__headline,
+	.hero__subhead,
+	.hero__cta {
+		margin-left: 0;
+		text-align: left;
+	}
+}
+
+// .contact-form
+.contact-form {
+	margin-top: 3em;
+}
+.contact-form.constrained {
+	max-width: 36em;
+}
+
+// Ad Landing Page
+.ad-landing-page-legacy .home__features {
+	text-align: center;
+}
+.ad-landing-page-legacy .home__features ul {
+	color: $gray;
+	font-weight: 300;
+	text-align: left;
+	max-width: 20em;
+	margin-left: auto;
+	margin-right: auto;
+}
+.ad-landing-page-legacy .home__features ul > li {
+	margin-top: 1em;
+}
+.ad-landing-page-legacy .home__features-section-headline {
+	margin-top: 1em;
+	font-weight: 400;
+	font-size: 2em;
+}
+.ad-landing-page-legacy .home__features-cta-button {
+	margin-top: 2em;
+}
+@media only screen and (min-width: 60em) {
+	.ad-landing-page-legacy .home__features {
+		margin-top: 2em;
+	}
+}

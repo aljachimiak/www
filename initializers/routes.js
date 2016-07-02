@@ -101,6 +101,18 @@ module.exports = function (app) {
 	);
 
 	app.API.express.all(
+		'/request-odd-access',
+		bodyParser.urlencoded({
+			extended: false,
+			parameterLimit: 8
+		}),
+		ContactController.create(app, {
+			view: 'request-odd-access',
+			confirmationView: 'request-odd-access-confirm'
+		})
+	);
+
+	app.API.express.all(
 		'/inquiry',
 		bodyParser.urlencoded({
 			extended: false,

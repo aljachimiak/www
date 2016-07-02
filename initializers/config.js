@@ -23,7 +23,8 @@ module.exports = function (app) {
 			static: app.appdir.append('public').toString()
 		},
 		locals: {
-			googleSiteVerification: process.env.GOOGLE_SITE_VERIFICATION
+			googleSiteVerification: process.env.GOOGLE_SITE_VERIFICATION,
+			stylesheet: '/assets/css/main.css'
 		}
 	};
 
