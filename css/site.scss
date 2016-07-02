@@ -2,6 +2,7 @@
 // Helpful: http://colorizer.org/
 
 $black: #0f0a0a;
+$gray: #6f6a6a;
 $yellow: #ffe900;
 $purple: #5b4091;
 $red: #db162f;
@@ -44,11 +45,9 @@ a {
 
 ul {
 	padding-left: 1.5em;
-	color: $red;
 	list-style: square;
 }
 ul > li {
-	color: $black;
 	margin-bottom: 0.5em;
 	line-height: 1.3;
 }
@@ -153,7 +152,7 @@ label.form__label > .form__req {
 	max-width: 20em;
 	margin-left: auto;
 	margin-right: auto;
-	font-weight: $bold;
+	font-weight: $light;
 	font-size: 1.2em;
 	text-align: center;
 }
@@ -163,6 +162,7 @@ label.form__label > .form__req {
 	margin-right: auto;
 	margin-top: 2em;
 	text-align: center;
+	color: $gray;
 }
 .hero__cta .cta-button__link {
 	margin-left: auto;
@@ -177,7 +177,7 @@ label.form__label > .form__req {
 		font-size: 2em;
 	}
 	.hero__summary {
-		font-size: 1.6em;
+		font-size: 1.2em;
 	}
 }
 
@@ -241,6 +241,7 @@ label.form__label > .form__req {
 	max-width: 20em;
 	margin-left: auto;
 	margin-right: auto;
+	color: $gray;
 }
 .ad-landing-page .home__features ul > li {
 	margin-top: 1em;
