@@ -43,7 +43,6 @@ body {
 	box-shadow: 0 13px 20px rgba(0, 0, 0, 0.2);
 }
 input.cta-button {
-	background: none;
 	border-radius: 0;
 }
 a.cta-button {
@@ -144,8 +143,8 @@ label.form__label > .form__req {
 	margin-right: auto;
 	margin-top: 0;
 	line-height: 1;
-	font-size: 1.8em;
-	font-weight: 600;
+	font-size: 2em;
+	font-weight: 300;
 	text-align: center;
 }
 .hero__subhead {
@@ -192,6 +191,14 @@ label.form__label > .form__req {
 	}
 }
 
+// .contact-form
+.contact-form {
+	margin-top: 3em;
+}
+.contact-form.constrained {
+	max-width: 36em;
+}
+
 // Ad Landing Page
 .ad-landing-page-legacy .home__features {
 	text-align: center;
@@ -209,8 +216,7 @@ label.form__label > .form__req {
 }
 .ad-landing-page-legacy .home__features-section-headline {
 	margin-top: 1em;
-	color: $gray;
-	font-weight: 300;
+	font-weight: 400;
 	font-size: 2em;
 }
 .ad-landing-page-legacy .home__features-cta-button {

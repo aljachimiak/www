@@ -13,6 +13,15 @@
 		"title": "Thank You! | ",
 		"description": "We'll be in touch."
 	},
+	"request-odd-access": {
+		"description": "Request early access.",
+		"stylesheet": "/assets/css/legacy.css"
+	},
+	"request-odd-access-confirm": {
+		"title": "Thank You! | ",
+		"description": "We'll be in touch.",
+		"stylesheet": "/assets/css/legacy.css"
+	},
 	"inquiry": {
 		"description": "Make an inquiry."
 	},

@@ -31,6 +31,8 @@ class ContactController {
 			inquiry: req.body.inquiry
 		};
 
+		this.log.info({form}, 'SIGNUP');
+
 		if (!U.isFullString(form.email)) {
 			formErrors.push('Email is required');
 		}
@@ -38,19 +40,19 @@ class ContactController {
 			formErrors.push('First name is required');
 		}
 
-		let locals = U.cloneDeep(this.pagedata.index);
+		const defaultLocals = U.cloneDeep(this.pagedata.index);
 
 		if (formErrors.length) {
-			locals = this.pagedata[this.view] || locals;
 			res.render(
 				this.view,
-				U.merge({}, locals, {formError: formErrors[0], form})
+				U.merge({}, defaultLocals, this.pagedata[this.view])
 			);
 		} else {
 			// TODO Send To Infusionsoft
-			this.log.info({form}, 'SIGNUP');
-			locals = this.pagedata[this.confirmationView] || locals;
-			res.status(201).render(this.confirmationView, locals);
+			res.status(201).render(
+				this.confirmationView,
+				U.merge({}, defaultLocals, this.pagedata[this.confirmationView])
+			);
 		}
 	}
 
