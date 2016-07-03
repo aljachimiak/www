@@ -142,6 +142,7 @@ label.form__label > .form__req {
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 0;
+	margin-bottom: 0;
 	line-height: 1;
 	font-size: 2.5em;
 	font-weight: $bold;
@@ -157,10 +158,10 @@ label.form__label > .form__req {
 	text-align: center;
 }
 .hero__summary {
-	max-width: 22em;
+	max-width: 28em;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 2em;
+	margin-top: 1.5em;
 	text-align: center;
 	color: $gray;
 }
