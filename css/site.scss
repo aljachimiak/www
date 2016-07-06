@@ -60,7 +60,7 @@ input.button {
 	max-width: 11em;
 }
 a.button {
-	display: block;
+	display: inline-block;
 	text-decoration: none;
 }
 
@@ -122,6 +122,9 @@ a.header__nav-link {
 // Site Footer
 .footer {
 	padding-top: 2em;
+	padding-bottom: 1em;
+	background-color: #444;
+	color: #fff;
 }
 .footer__legal {
 	font-size: 0.8em;
@@ -138,4 +141,62 @@ li.footer-nav__item {
 a.footer-nav__link {
 	display: block;
 	padding: 0.5em;
+	font-weight: $bold;
+	color: #fff;
+}
+
+// Benefits
+.benefit {
+	width: 40%;
+	float: left;
+	margin-left: 7%;
+	margin-top: 1em;
+}
+.benefit__link {
+	display: block;
+	height: 13em;
+	padding: 1em;
+	text-decoration: none;
+	background-color: #555;
+	color: #fff;
+}
+.benefits__end {
+	clear: both;
+}
+
+// Home Page
+.home-hero {
+	text-align: center;
+	background-color: #444;
+	color: #fff;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+a.home-hero__cta-button.button {
+	background-color: #ddd;
+	color: #333;
+}
+ul.home-hero__logo-garden {
+	list-style: none;
+	padding: 0;
+	text-align: center;
+}
+ul.home-hero__logo-garden > li {
+	display: inline-block;
+	padding: 0.5em 1em;
+}
+.home-about {
+	text-align: center;
+	padding-top: 2em;
+	padding-bottom: 2em;
+	max-width: 36em;
+	margin-left: auto;
+	margin-right: auto;
+}
+.home .benefits {
+	background-color: #ddd;
+	padding: 1em;
+}
+.home .benefits__header {
+	text-align: center;
 }
