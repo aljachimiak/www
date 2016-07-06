@@ -200,3 +200,64 @@ ul.home-hero__logo-garden > li {
 .home .benefits__header {
 	text-align: center;
 }
+
+// Pricing
+.pricing-header {
+	text-align: center;
+	padding: 2em;
+}
+.pricing-header p {
+	font-size: 1.3em;
+}
+.pricing-plan {
+	width: 26%;
+	margin-left: 2%;
+	float: left;
+	height: 30em;
+	border: 2px solid #777;
+	padding: 1em 2%;
+}
+h2.pricing-plan__name {
+	text-align: center;
+	font-weight: normal;
+}
+.pricing-plan__price {
+	font-weight: normal;
+	font-size: 0.9em;
+	text-align: center;
+}
+.pricing-plan__price > strong {
+	font-weight: $bold;
+	font-size: 4em;
+}
+.pricing-plan__monthly-price {
+	text-align: center;
+}
+.pricing-calculator {
+	text-align: center;
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+.pricing-calculator__users,
+.pricing-calculator__operator,
+.pricing-calculator__plays,
+.pricing-calculator__result {
+	display: inline-block;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+.enterprise-plan {
+	border: 2px solid #777;
+	padding: 1em;
+	margin-bottom: 3em;
+}
+.pricing-faq {
+	float: left;
+	width: 44%;
+	margin-left: 3%;
+}
+
+// Product
+.product .benefits {
+	padding-bottom: 2em;
+}
