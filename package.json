@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Odd Networks World Wide Web",
   "scripts": {
-    "postinstall": "npm run css && npm run legacy-css",
+    "postinstall": "npm run css",
     "start": "./bin/server",
     "lint": "xo",
     "test": "xo",
