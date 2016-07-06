@@ -14,9 +14,12 @@ class PagesController {
 	}
 
 	get(req, res, next) {
-		const path = PagesController.cleanPath(req.path);
+		let path = PagesController.cleanPath(req.path);
 		if (!this.viewPath.append(`${path}.hbs`).isFile()) {
-			return next();
+			path = `${path}/index`;
+			if (!this.viewPath.append(`${path}.hbs`).isFile()) {
+				return next();
+			}
 		}
 
 		const locals = this.pagedata[path] || this.pagedata.index;
