@@ -10,6 +10,7 @@
     "test": "xo",
     "devserver": "nodemon ./bin/devserver | bunyan",
     "css": "treadmill build.js css",
+    "watch-css": "treadmill build.js watch-css",
     "launch-instances": "source .launch-ec2-instances-vars.sh && bin/launch-ec2-instances",
     "deploy": "source .deploy-vars.sh && bin/deploy.sh"
   },
@@ -36,6 +37,7 @@
   },
   "devDependencies": {
     "aws-sdk": "~2.4.0",
+    "chokidar": "~1.6.0",
     "nodemon": "~1.9.0",
     "xo": "~0.15.0"
   },
