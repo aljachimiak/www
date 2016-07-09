@@ -1,5 +1,6 @@
 
 $fontBlack: #2a3444;
+$backgroundBlack: #171719;
 
 $bodyFont: "Hind", "Verdana", sans-serif;
 $titleFont: "Ubuntu", "Verdana", sans-serif;
@@ -35,8 +36,9 @@ ul.header__nav-list {
 }
 a.header__nav-link {
 	font-family: $titleFont;
-	text-transform: uppercase;
+	font-size: 0.9em;
 	font-weight: $med;
+	text-transform: uppercase;
 	color: $fontBlack;
 	line-height: 2em;
 	display: block;
