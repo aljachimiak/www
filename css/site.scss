@@ -4,6 +4,7 @@ $fontWhite: #fff;
 $backgroundBlack: #171719;
 $purple: #52338a;
 $green: #23b89b;
+$red: #d51432;
 $lightGreen: #82d9cb;
 $darkGray: #2d2e2e;
 
@@ -15,6 +16,7 @@ $med: 500;
 $heavy: 700;
 
 $mobileMargin: 16px;
+$headerPadding: 10em;
 
 // Typeface
 body {
@@ -55,6 +57,48 @@ a.button {
 	border-style: solid;
 	border-color: $fontBlack;
 	text-decoration: none;
+}
+
+// Forms
+.form__field, .form__subfield, .form__buttons {
+	margin-top: 1.5em;
+}
+input, textarea {
+	box-sizing: border-box;
+	border: 2px solid $darkGray;
+	outline: none;
+	padding: 0.5em;
+}
+label.form__label {
+	font-family: $titleFont;
+	display: block;
+	font-weight: $med;
+	margin-bottom: 0.5em;
+	color: $darkGray;
+}
+label.form__label--subfield {
+	font-weight: $light;
+	font-family: $bodyFont;
+	font-size: 0.9em;
+	margin-top: 0.5em;
+}
+label.form__label > .form__req {
+	color: $red;
+}
+.form__button.button {
+	color: $fontWhite;
+	background-color: $purple;
+	border-color: $purple;
+}
+.form__error > strong {
+	font-family: $titleFont;
+	font-weight: $heavy;
+	color: $red;
+}
+@media only screen and (max-width: 28em) {
+	input, textarea {
+		width: 100%;
+	}
 }
 
 // Header
@@ -134,7 +178,7 @@ a.footer-nav__link {
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	background-size: cover;
-	padding-top: 10em; // Compensate for position:fixed page header
+	padding-top: $headerPadding; // Compensate for position:fixed page header
 	padding-bottom: 1em;
 	color: $fontWhite;
 	font-family: $titleFont;
@@ -170,6 +214,7 @@ a.footer-nav__link {
 // Home About
 .home-about {
 	text-align: center;
+	padding-bottom: 2em;
 }
 .home-about__container {
 	margin-left: $mobileMargin;
@@ -188,7 +233,7 @@ a.footer-nav__link {
 a.home-about__cta-link.button {
 	border-color: $green;
 	color: $green;
-	margin-top: 0.5em;
+	margin-top: 1em;
 }
 
 // Home Benefits
@@ -242,5 +287,48 @@ a.home-about__cta-link.button {
 }
 .benefit__content-link {
 	color: $lightGreen;
+}
+
+// Contact Page
+.contact-form__hero {
+	padding-top: $headerPadding;
+	text-align: center;
+	margin-left: $mobileMargin;
+	margin-right: $mobileMargin;
+}
+.contact-form__header {
+	font-family: $titleFont;
+	font-size: 2em;
+	font-weight: $heavy;
+}
+.contact-form__form {
+	margin-left: $mobileMargin;
+	margin-right: $mobileMargin;
+}
+
+// Contact Confirmation
+.contact-confirm {
+	padding-top: $headerPadding;
+	padding-bottom: 2em;
+	margin-left: $mobileMargin;
+	margin-right: $mobileMargin;
+}
+.contact-confirm__header {
+	font-family: $titleFont;
+	font-size: 1.5em;
+	font-weight: $heavy;
+	text-align: center;
+}
+.contact-confirm__subhead {
+	font-size: 1.2em;
+	text-align: center;
+}
+.contact-confirm__cta {
+	text-align: center;
+}
+a.contact-confirm__cta-link.button {
+	border-color: $green;
+	color: $green;
+	margin-top: 1.2em;
 }
 

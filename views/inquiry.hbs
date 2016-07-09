@@ -1,20 +1,18 @@
 {{> head}}
-	<article class="request-access constrained">
-	{{> site_header}}
-	<section class="constrained contact-form">
-		<header>
-			<h2 class="hero__headline">
-			Make an inquiry.
+	{{> header}}
+	<section class="contact-form">
+		<header class="contact-form__hero">
+			<h2 class="contact-form__header">
+				Go ahead.<br>Make an inquiry.
 			</h2>
-			<p class="hero__subhead">
-				You'll have our email address. Ask us anything.
-			</p>
 		</header>
 		<form class="form contact-form__form" accept-charset="UTF-8" autocomplete="off" method="POST">
-			{{#if formError}}
-			<p class="form__field">
-				<strong>There was an error submitting your form:</strong><br>
-				<span class="error">{{formError}}</span>
+			{{#if formErrors}}
+			<p class="form__error">
+				<strong>There was an error submitting your form:</strong>
+				{{#each formErrors}}
+				<br><span class="error">{{message}}</span>
+				{{/each}}
 			</p>
 			{{/if}}
 
@@ -39,29 +37,28 @@
 
 			<!-- Name: First, Last -->
 			<div class="form__field">
-				<label class="form__label" for="first_name">Name</label>
-				<div class="form__subfield form__subfield--first">
+				<div class="form__subfield">
+					<label class="form__label" for="first_name">Name</label>
 					<input class="form__text-input"
 						id="first_name" name="first_name"
 						size="28" maxlength="255"
 						value="{{form.firstName}}"></input>
-					<label class="form__label" for="first_name">First <span class="form__req">*</span></label>
+					<label class="form__label form__label--subfield" for="first_name">First <span class="form__req">*</span></label>
 				</div>
 				<div class="form__subfield">
 					<input class="form__text-input"
 						id="last_name" name="last_name"
 						size="28" maxlength="255"
 						value="{{form.lastName}}"></input>
-					<label class="form__label" for="last_name">Last</label>
+					<label class="form__label form__label--subfield" for="last_name">Last</label>
 				</div>
 			</div>
 
 			<!-- Buttons -->
-			<p class="form__buttons cta-button">
-				<input id="save_contact_form" name="save_contact_form" class="cta-button__link" type="submit" value="Submit">
+			<p class="form__buttons">
+				<input id="save_contact_form" name="save_contact_form" class="form__button button" type="submit" value="Submit">
 			</p>
 		</form>
 	</section>
-	{{> site_footer}}
-	</article>
-{{> footer}}
+	{{> footer}}
+{{> foot}}

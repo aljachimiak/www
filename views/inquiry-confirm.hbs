@@ -1,22 +1,17 @@
 {{> head}}
-	<article class="request-access-confirm">
-	{{> site_header}}
-	<section class="constrained contact-confirm">
-		<header>
-			{{> hero_img}}
-			<h2 class="hero__headline">
-			Thank You!
-			</h2>
-			<p class="hero__subhead">
-				You'll be getting an email confirmation shortly if it has not arrived already.
-			</p>
-		</header>
-	</section>
-	<section class="constrained social-list">
-		<p>Find us on Twitter
-			<a href="https://twitter.com/OddNetworks">@OddNetworks</a>
+	{{> header}}
+	<section class="contact-confirm">
+		<h2 class="contact-confirm__header">
+		Thank You!
+		</h2>
+		<p class="contact-confirm__subhead">
+			You'll be getting an email response shortly if it has not arrived already.
 		</p>
+		<p class="contact-confirm__cta"><!--
+			--><a class="contact-confirm__cta-link button" href="http://slack.oddnetworks.com/">Join us in Slack</a><!--
+			--><a class="contact-confirm__cta-link button" href="https://github.com/oddnetworks/oddworks">Check us out on GitHub</a><!--
+			--><a class="contact-confirm__cta-link button" href="https://twitter.com/oddnetworks">Follow us on Twitter</a><!--
+		--></p>
 	</section>
-	{{> site_footer}}
-	</article>
-{{> footer}}
+	{{> footer}}
+{{> foot}}
