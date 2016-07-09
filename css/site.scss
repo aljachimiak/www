@@ -4,7 +4,7 @@ $fontWhite: #fff;
 $backgroundBlack: #171719;
 $purple: #52338a;
 $green: #23b89b;
-$red: #d51432;
+$red: #ea3546;
 $lightGreen: #82d9cb;
 $darkGray: #2d2e2e;
 
@@ -106,6 +106,7 @@ label.form__label > .form__req {
 	padding-bottom: 1em;
 	background-color: $backgroundBlack;
 	position: fixed;
+	width: 100%;
 }
 .header__logo-link {
 	display: block;
@@ -171,6 +172,27 @@ a.footer-nav__link {
 	color: $fontWhite;
 }
 
+// Page CTA
+.page-cta {
+	text-align: center;
+	padding-top: 2em;
+	padding-bottom: 2em;
+}
+.page-cta__header {
+	font-family: $titleFont;
+	font-weight: $heavy;
+	font-size: 2em;
+	color: $purple;
+	margin-top: 0;
+	margin-bottom: 0;
+	line-height: 1.2em;
+}
+a.page-cta__button.button {
+	border-color: $green;
+	background-color: $green;
+	color: $fontWhite;
+}
+
 // Home Hero
 .home-hero {
 	background-color: $backgroundBlack;
@@ -190,11 +212,14 @@ a.footer-nav__link {
 }
 .home-hero__header {
 	font-size: 2em;
+	line-height: 1.2em;
 	font-weight: $heavy;
+	margin-bottom: 0;
 }
 .home-hero__subheader {
+	font-family: $bodyFont;
 	font-size: 1em;
-	font-weight: $med;
+	font-weight: $light;
 }
 .home-hero__logo-garden {
 	list-style: none;
@@ -332,3 +357,56 @@ a.contact-confirm__cta-link.button {
 	margin-top: 1.2em;
 }
 
+// Product Hero
+.product-hero {
+	background-color: $backgroundBlack;
+	background-image: url(/assets/img/space-bg-mobile.jpg);
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: cover;
+	padding-top: $headerPadding; // Compensate for position:fixed page header
+	padding-bottom: 1em;
+	color: $fontWhite;
+	font-family: $titleFont;
+	text-align: center;
+}
+.product-hero__container {
+	margin-left: $mobileMargin;
+	margin-right: $mobileMargin;
+}
+.product-hero__header {
+	font-size: 2em;
+	line-height: 1.2em;
+	font-weight: $heavy;
+	margin-bottom: 0;
+}
+.product-hero__subheader {
+	font-family: $bodyFont;
+	font-size: 1em;
+	font-weight: $light;
+	color: $lightGreen;
+}
+
+// Product Benefits
+.product-benefit {
+	padding: 1em;
+}
+.product-benefit__box {
+	margin-left: $mobileMargin;
+	margin-right: $mobileMargin;
+}
+.product-benefit--even {
+	background-color: $green;
+	color: $fontWhite;
+}
+.product-benefit__header {
+	margin-top: 0;
+	font-family: $titleFont;
+	font-weight: $med;
+	font-size: 1.4em;
+	text-transform: uppercase;
+}
+a.product-benefit__link {
+	border-color: $purple;
+	color: $purple;
+}
