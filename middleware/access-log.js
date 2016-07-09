@@ -11,7 +11,7 @@ module.exports = function (app) {
 					info[key] = req.query[key];
 				}
 				return info;
-			}, {method: req.method, path: req.path});
+			}, {method: req.method, url: req.url, path: req.path});
 
 			log.info({req: info}, 'page request');
 		}
