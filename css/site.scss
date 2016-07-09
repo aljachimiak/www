@@ -93,6 +93,40 @@ a.header__nav-link {
 	padding-right: 0.7em;
 }
 
+// Footer
+.footer {
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-color: $darkGray;
+}
+.footer-nav {
+	text-align: center;
+}
+ul.footer-nav__list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.footer-nav__item {
+	display: inline-block;
+}
+a.footer-nav__link {
+	font-family: $titleFont;
+	font-size: 0.9em;
+	font-weight: $med;
+	text-transform: uppercase;
+	color: $fontWhite;
+	line-height: 2em;
+	display: block;
+	text-decoration: none;
+	padding-left: 0.7em;
+	padding-right: 0.7em;
+}
+.footer__legal {
+	text-align: center;
+	color: $fontWhite;
+}
+
 // Home Hero
 .home-hero {
 	background-color: $backgroundBlack;
