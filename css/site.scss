@@ -1,13 +1,46 @@
 
 $fontBlack: #2a3444;
 
+$bodyFont: "Hind", "Verdana", sans-serif;
+$titleFont: "Ubuntu", "Verdana", sans-serif;
+
 $light: 300;
 $med: 500;
 $bold: 700;
 
 // Typeface
 body {
-	font-family: "Hind", "Verdana", sans-serif;
+	font-family: $bodyFont;
 	font-weight: $light;
 	color: $fontBlack;
+}
+
+// Header
+.header__logo-link {
+	display: block;
+	width: 12em;
+	margin-left: auto;
+	margin-right: auto;
+}
+.header__nav {
+	margin-top: -1em; // Small mobile only ... un-floated
+	text-align: center;
+}
+ul.header__nav-list {
+	list-style: none;
+	padding: 0;
+}
+.header__nav-item {
+	display: inline-block;
+}
+a.header__nav-link {
+	font-family: $titleFont;
+	text-transform: uppercase;
+	font-weight: $med;
+	color: $fontBlack;
+	line-height: 2em;
+	display: block;
+	text-decoration: none;
+	padding-left: 0.7em;
+	padding-right: 0.7em;
 }
