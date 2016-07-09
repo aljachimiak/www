@@ -57,8 +57,9 @@ a.button {
 
 // Header
 .header {
-	background-color: $backgroundBlack;
 	padding-bottom: 1em;
+	background-color: $backgroundBlack;
+	position: fixed;
 }
 .header__logo-link {
 	display: block;
@@ -97,7 +98,7 @@ a.header__nav-link {
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	background-size: cover;
-	padding-top: 1em;
+	padding-top: 10em; // Compensate for position:fixed page header
 	padding-bottom: 1em;
 	color: $fontWhite;
 	font-family: $titleFont;
@@ -129,3 +130,4 @@ a.header__nav-link {
 	background-color: $purple;
 	border-color: $purple;
 }
+
