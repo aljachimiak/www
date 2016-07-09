@@ -3,6 +3,9 @@ $fontBlack: #2a3444;
 $fontWhite: #fff;
 $backgroundBlack: #171719;
 $purple: #52338a;
+$green: #23b89b;
+$lightGreen: #82d9cb;
+$darkGray: #2d2e2e;
 
 $bodyFont: "Hind", "Verdana", sans-serif;
 $titleFont: "Ubuntu", "Verdana", sans-serif;
@@ -29,7 +32,7 @@ body {
 	text-transform: uppercase;
 	padding: 0.4em 1em;
 	border-style: solid;
-	border-width: 2px;
+	border-width: 3px;
 	border-color: $fontBlack;
 	color: $fontBlack;
 	background: none;
@@ -41,7 +44,7 @@ input.button {
 	background: none;
 	border-radius: 0;
 	border-style: solid;
-	border-width: 2px;
+	border-width: 3px;
 	border-color: $fontBlack;
 }
 a.button {
@@ -50,7 +53,6 @@ a.button {
 	background: none;
 	border-radius: 0;
 	border-style: solid;
-	border-width: 2px;
 	border-color: $fontBlack;
 	text-decoration: none;
 }
@@ -63,7 +65,7 @@ a.button {
 }
 .header__logo-link {
 	display: block;
-	width: 12em;
+	width: 11em;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -129,5 +131,82 @@ a.header__nav-link {
 	color: $fontWhite;
 	background-color: $purple;
 	border-color: $purple;
+}
+
+// Home About
+.home-about {
+	text-align: center;
+}
+.home-about__container {
+	margin-left: $mobileMargin;
+	margin-right: $mobileMargin;
+}
+.home-about__header {
+	font-family: $titleFont;
+	font-size: 1.5em;
+	font-weight: $heavy;
+}
+.home-about__logo {
+	width: 8em;
+	margin-left: auto;
+	margin-right: auto;
+}
+a.home-about__cta-link.button {
+	border-color: $green;
+	color: $green;
+	margin-top: 0.5em;
+}
+
+// Home Benefits
+.benefits {
+	background-color: $backgroundBlack;
+	background-image: url(/assets/img/network-bg-mobile.jpg);
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: cover;
+	color: $fontWhite;
+	padding-top: 2em;
+	padding-bottom: 1em;
+}
+.benefits__hero {
+	margin-left: $mobileMargin;
+	margin-right: $mobileMargin;
+	text-align: center;
+	padding-bottom: 1em;
+}
+.benefits__hero-header {
+	margin-top: 0;
+	font-size: 1.8em;
+	font-weight: $heavy;
+	font-family: $titleFont;
+	text-transform: uppercase;
+}
+.benefits__hero-subheader {
+	font-family: $bodyFont;
+	font-size: 1.2em;
+	color: $lightGreen;
+	font-weight: $light;
+}
+.benefit {
+	background-color: $darkGray;
+	margin-left: $mobileMargin;
+	margin-right: $mobileMargin;
+	padding: 1em;
+	margin-top: 1em;
+}
+.benefit > a.benefit__link {
+	color: $fontWhite;
+	text-decoration: none;
+}
+.benefit__header {
+	margin-top: 0;
+	font-family: $titleFont;
+	font-weight: $heavy;
+}
+.benefit__content {
+	margin-bottom: 0;
+}
+.benefit__content-link {
+	color: $lightGreen;
 }
 
