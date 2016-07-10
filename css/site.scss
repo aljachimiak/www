@@ -232,7 +232,6 @@ a.page-cta__button.button {
 // Home Hero
 .home-hero {
 	background-color: $backgroundBlack;
-	background-image: url("/assets/img/planet-bg-mobile.jpg");
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -292,6 +291,16 @@ a.page-cta__button.button {
 	}
 	.home-hero__header {
 		font-size: 3em;
+	}
+}
+@media only screen and (max-width: 60em) {
+	.home-hero {
+		background-image: url("/assets/img/planet-bg-mobile.jpg");
+	}
+}
+@media only screen and (min-width: 60em) {
+	.home-hero {
+		background-image: url("/assets/img/planet-bg-desktop.jpg");
 	}
 }
 
@@ -384,7 +393,6 @@ a.home-about__cta-link.button {
 // Home Benefits
 .benefits {
 	background-color: $backgroundBlack;
-	background-image: url("/assets/img/network-bg-mobile.jpg");
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -436,7 +444,8 @@ a.home-about__cta-link.button {
 	margin-top: 0;
 	font-size: 1.5em;
 	font-family: $titleFont;
-	font-weight: $heavy;
+	font-weight: $med;
+	text-transform: uppercase;
 }
 .benefit__content {
 	margin-bottom: 0;
@@ -463,6 +472,16 @@ a.home-about__cta-link.button {
 	}
 	.benefit__content-box {
 		margin-left: 13em;
+	}
+}
+@media only screen and (max-width: 60em) {
+	.benefits {
+		background-image: url("/assets/img/network-bg-mobile.jpg");
+	}
+}
+@media only screen and (min-width: 60em) {
+	.benefits {
+		background-image: url("/assets/img/network-bg-desktop.jpg");
 	}
 }
 @media only screen and (min-width: 80em) {
@@ -528,7 +547,6 @@ a.contact-confirm__cta-link.button {
 // Product Hero
 .product-hero {
 	background-color: $backgroundBlack;
-	background-image: url("/assets/img/space-bg-mobile.jpg");
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -577,4 +595,14 @@ a.contact-confirm__cta-link.button {
 a.product-benefit__link {
 	border-color: $purple;
 	color: $purple;
+}
+@media only screen and (max-width: 60em) {
+	.product-hero {
+		background-image: url("/assets/img/space-bg-mobile.jpg");
+	}
+}
+@media only screen and (min-width: 60em) {
+	.product-hero {
+		background-image: url("/assets/img/space-bg-desktop.jpg");
+	}
 }
