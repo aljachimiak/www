@@ -42,10 +42,15 @@
     "xo": "~0.15.0"
   },
   "xo": {
-    "envs": [
-      "node"
-    ],
-    "esnext": true
+    "envs": ["node"],
+    "esnext": true,
+    "overrides": [
+      {
+        "files": "public/assets/javascript/*.js",
+        "esnext": false,
+        "envs": ["browser"]
+      }
+    ]
   },
   "repository": {
     "type": "git",

@@ -4,8 +4,8 @@ $fontWhite: #fff;
 $backgroundBlack: #171719;
 $purple: #52338a;
 $green: #23b89b;
-$red: #ea3546;
 $lightGreen: #82d9cb;
+$red: #ea3546;
 $darkGray: #2d2e2e;
 
 $bodyFont: "Hind", "Verdana", sans-serif;
@@ -29,7 +29,7 @@ body {
 .button {
 	display: inline-block;
 	font-family: $titleFont;
-	font-size: 1.2em;
+	font-size: 1.1em;
 	font-weight: 500;
 	text-transform: uppercase;
 	padding: 0.4em 1em;
@@ -57,6 +57,21 @@ a.button {
 	border-style: solid;
 	border-color: $fontBlack;
 	text-decoration: none;
+}
+.button > .button__brand {
+	background-repeat: no-repeat;
+	background-position: center center;
+	text-indent: -9999px;
+	display: inline-block;
+	height: 1.3em;
+	width: 4em;
+	margin-left: 0.2em;
+}
+.button > .button__brand--slack {
+	background-image: url("/assets/svg/slack-brand.svg");
+}
+.button > .button__brand--github {
+	background-image: url("/assets/svg/github-brand.svg");
 }
 
 // Forms
@@ -108,6 +123,9 @@ label.form__label > .form__req {
 	position: fixed;
 	width: 100%;
 }
+.scroll-top .header {
+	background-color: transparent;
+}
 .header__logo-link {
 	display: block;
 	width: 11em;
@@ -140,6 +158,7 @@ a.header__nav-link {
 
 // Footer
 .footer {
+	clear: both;
 	padding-top: 1em;
 	padding-bottom: 1em;
 	background-color: $darkGray;
@@ -196,12 +215,12 @@ a.page-cta__button.button {
 // Home Hero
 .home-hero {
 	background-color: $backgroundBlack;
-	background-image: url(/assets/img/planet-bg-mobile.jpg);
+	background-image: url("/assets/img/planet-bg-mobile.jpg");
 	background-repeat: no-repeat;
-	background-position: 50% 50%;
+	background-position: center center;
 	background-size: cover;
 	padding-top: $headerPadding; // Compensate for position:fixed page header
-	padding-bottom: 1em;
+	padding-bottom: 2em;
 	color: $fontWhite;
 	font-family: $titleFont;
 	text-align: center;
@@ -214,12 +233,13 @@ a.page-cta__button.button {
 	font-size: 2em;
 	line-height: 1.2em;
 	font-weight: $heavy;
-	margin-bottom: 0;
+	margin: 0;
 }
 .home-hero__subheader {
 	font-family: $bodyFont;
 	font-size: 1em;
 	font-weight: $light;
+	margin-top: 0.5em;
 }
 .home-hero__logo-garden {
 	list-style: none;
@@ -230,47 +250,130 @@ a.page-cta__button.button {
 	width: 1px;
 	margin: -1px;
 }
+.home-hero__cta {
+	margin-top: 2em;
+}
 .home-hero__cta-button.button {
 	color: $fontWhite;
-	background-color: $purple;
-	border-color: $purple;
+	background-color: $green;
+	border-color: $green;
+}
+@media only screen and (min-width: 40em) {
+	.home-hero__header {
+		font-size: 2.4em;
+	}
+	.home-hero__subheader {
+		font-size: 1.3em;
+	}
+}
+@media only screen and (min-width: 60em) {
+	.home-hero {
+		padding-bottom: 4em;
+	}
+	.home-hero__container {
+		margin-top: 4em;
+	}
+	.home-hero__header {
+		font-size: 3em;
+	}
 }
 
 // Home About
 .home-about {
+	padding-top: 4em;
+	padding-bottom: 3em;
 	text-align: center;
-	padding-bottom: 2em;
 }
 .home-about__container {
 	margin-left: $mobileMargin;
 	margin-right: $mobileMargin;
 }
 .home-about__header {
+	color: $purple;
 	font-family: $titleFont;
-	font-size: 1.5em;
+	font-size: 1.8em;
 	font-weight: $heavy;
+	margin: 0;
+	text-transform: uppercase;
+}
+.home-about__img {
+	margin-top: 2em;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.home-about__content {
+	margin-top: 2em;
 }
 .home-about__logo {
 	width: 8em;
 	margin-left: auto;
 	margin-right: auto;
 }
+.home-about__cta {
+	margin: 0;
+	text-align: center;
+}
 a.home-about__cta-link.button {
+	display: block;
+	width: 9em;
+	font-size: 1em;
 	border-color: $green;
 	color: $green;
 	margin-top: 1em;
+	margin-left: auto;
+	margin-right: auto;
+}
+@media only screen and (min-width: 28em) {
+	a.home-about__cta-link.button {
+		display: inline-block;
+		margin-left: 1.2em;
+	}
+	a.home-about__cta-link.button:first-child {
+		margin-left: 0;
+	}
+}
+@media only screen and (min-width: 40em) {
+	.home-about__container {
+		max-width: 36em;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+@media only screen and (min-width: 58em) {
+	.home-about__container {
+		max-width: 60em;
+		padding-left: 2em;
+		padding-right: 2em;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.home-about__header {
+		font-size: 2.2em;
+	}
+	.home-about__img {
+		width: 48%;
+		float: left;
+	}
+	.home-about__content {
+		margin-left: 54%;
+		text-align: left;
+	}
+	.home-about__cta {
+		padding-top: 2em;
+	}
 }
 
 // Home Benefits
 .benefits {
 	background-color: $backgroundBlack;
-	background-image: url(/assets/img/network-bg-mobile.jpg);
+	background-image: url("/assets/img/network-bg-mobile.jpg");
 	background-repeat: no-repeat;
-	background-position: 50% 50%;
+	background-position: center center;
 	background-size: cover;
 	color: $fontWhite;
-	padding-top: 2em;
-	padding-bottom: 1em;
+	padding-top: 4em;
+	padding-bottom: 3em;
 }
 .benefits__hero {
 	margin-left: $mobileMargin;
@@ -279,7 +382,7 @@ a.home-about__cta-link.button {
 	padding-bottom: 1em;
 }
 .benefits__hero-header {
-	margin-top: 0;
+	margin: 0;
 	font-size: 1.8em;
 	font-weight: $heavy;
 	font-family: $titleFont;
@@ -288,6 +391,7 @@ a.home-about__cta-link.button {
 .benefits__hero-subheader {
 	font-family: $bodyFont;
 	font-size: 1.2em;
+	margin-top: 0.5em;
 	color: $lightGreen;
 	font-weight: $light;
 }
@@ -295,8 +399,17 @@ a.home-about__cta-link.button {
 	background-color: $darkGray;
 	margin-left: $mobileMargin;
 	margin-right: $mobileMargin;
-	padding: 1em;
 	margin-top: 1em;
+}
+.benefit__img-box {
+	position: absolute;
+	overflow: hidden;
+	height: 1px;
+	width: 1px;
+	margin: -1px;
+}
+.benefit__content-box {
+	padding: 1em;
 }
 .benefit > a.benefit__link {
 	color: $fontWhite;
@@ -304,6 +417,7 @@ a.home-about__cta-link.button {
 }
 .benefit__header {
 	margin-top: 0;
+	font-size: 1.5em;
 	font-family: $titleFont;
 	font-weight: $heavy;
 }
@@ -312,6 +426,40 @@ a.home-about__cta-link.button {
 }
 .benefit__content-link {
 	color: $lightGreen;
+}
+@media only screen and (min-width: 40em) {
+	.benefits__hero-header {
+		font-size: 2.2em;
+	}
+	.benefit {
+		height: 12em;
+	}
+	.benefit__img-box {
+		position: static;
+		height: 12em;
+		width: 12em;
+		margin: 0;
+		float: left;
+	}
+	.benefit__content-box {
+		margin-left: 13em;
+	}
+}
+@media only screen and (min-width: 80em) {
+	.benefits__box {
+		width: 77em;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.benefit {
+		float: left;
+		margin-left: 0;
+		margin-right: 0;
+		width: 38em;
+	}
+	.benefit:nth-child(even) {
+		margin-left: 1em;
+	}
 }
 
 // Contact Page
@@ -360,9 +508,9 @@ a.contact-confirm__cta-link.button {
 // Product Hero
 .product-hero {
 	background-color: $backgroundBlack;
-	background-image: url(/assets/img/space-bg-mobile.jpg);
+	background-image: url("/assets/img/space-bg-mobile.jpg");
 	background-repeat: no-repeat;
-	background-position: 50% 50%;
+	background-position: center center;
 	background-size: cover;
 	padding-top: $headerPadding; // Compensate for position:fixed page header
 	padding-bottom: 1em;
