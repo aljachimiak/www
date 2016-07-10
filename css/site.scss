@@ -155,6 +155,23 @@ a.header__nav-link {
 	padding-left: 0.7em;
 	padding-right: 0.7em;
 }
+@media only screen and (min-width: 50em) {
+	.header > .container {
+		max-width: 60em;
+		padding-left: $mobileMargin;
+		padding-right: $mobileMargin;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.header__logo-link {
+		margin-left: 0;
+		float: left;
+	}
+	.header__nav {
+		float: right;
+		margin-top: 1em;
+	}
+}
 
 // Footer
 .footer {
