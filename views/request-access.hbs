@@ -1,69 +1,76 @@
 {{> head}}
-	<article class="request-access">
-	{{> site_header}}
-	<section class="constrained contact-form">
-		<header>
-			{{> hero_img}}
-			<h2 class="hero__headline">
-			Request Early Access
-			</h2>
-			<p class="hero__subhead">
-				You'll have our email address. Ask us anything.
-			</p>
+	{{> header}}
+	<section class="contact-form page-content">
+		<header class="contact-form__hero">
+			<div class="contact-form__hero-container">
+				<h2 class="contact-form__header">
+				Request early access to the Odd Networks platform.
+				</h2>
+				<p class="contact-form__subheader">
+					Launch your own video streaming channel.
+				</p>
+				<p class="contact-form__summary">
+					Our managed service platform is not yet publicly available, but you can request more information and possibly get early access to it.
+				</p>
+			</div>
 		</header>
-		<form class="form contact-form__form" accept-charset="UTF-8" autocomplete="off" method="POST">
-			{{#if formError}}
-			<p class="form__field">
-				<strong>There was an error submitting your form:</strong><br>
-				<span class="error">{{formError}}</span>
-			</p>
-			{{/if}}
+		<div class="contact-form__form-container">
+			<form class="form contact-form__form" accept-charset="UTF-8" autocomplete="off" method="POST">
+				{{#if formErrors}}
+				<section class="form__error">
+					<h2 class="form__error-header">There was an error submitting your form:</h2>
+					<ul class="form__error-list">
+					{{#each formErrors}}
+						<li class="form__error-item">{{message}}</li>
+					{{/each}}
+					</ul>
+				</section>
+				{{/if}}
 
-			<!-- Email -->
-			<div class="form__field">
-				<label class="form__label" for="email">Email <span class="form__req">*</span></label>
-				<input class="form__text-input"
-					id="email" name="email" type="email"
-					spellcheck="false" size="28" maxlength="255"
-					value="{{form.email}}"></input>
-			</div>
-
-			<!-- Comments -->
-			<div class="form__field">
-				<label class="form__label" for="inquiry">
-					Tell us why you need early access.
-					There's no shame in bragging a little.
-				</label>
-				<textarea
-					id="inquiry" name="inquiry"
-					spellcheck="true" rows="3" cols="50">{{form.inquiry}}</textarea>
-			</div>
-
-			<!-- Name: First, Last -->
-			<div class="form__field">
-				<label class="form__label" for="first_name">Name</label>
-				<div class="form__subfield form__subfield--first">
+				<!-- Email -->
+				<div class="form__field">
+					<label class="form__label" for="email">Email <span class="form__req">*</span></label>
 					<input class="form__text-input"
-						id="first_name" name="first_name"
-						size="28" maxlength="255"
-						value="{{form.firstName}}"></input>
-					<label class="form__label" for="first_name">First <span class="form__req">*</span></label>
+						id="email" name="email" type="email"
+						spellcheck="false" size="36" maxlength="255"
+						value="{{form.email}}"></input>
 				</div>
-				<div class="form__subfield">
-					<input class="form__text-input"
-						id="last_name" name="last_name"
-						size="28" maxlength="255"
-						value="{{form.lastName}}"></input>
-					<label class="form__label" for="last_name">Last</label>
-				</div>
-			</div>
 
-			<!-- Buttons -->
-			<p class="form__buttons cta-button">
-				<input id="save_contact_form" name="save_contact_form" class="cta-button__link" type="submit" value="Submit">
-			</p>
-		</form>
+				<!-- Comments -->
+				<div class="form__field">
+					<label class="form__label" for="inquiry">
+						What interests you in having early access?
+					</label>
+					<textarea
+						id="inquiry" name="inquiry"
+						spellcheck="true" rows="3" cols="50">{{form.inquiry}}</textarea>
+				</div>
+
+				<!-- Name: First, Last -->
+				<div class="form__field">
+					<div class="form__subfield">
+						<label class="form__label" for="first_name">Name</label>
+						<input class="form__text-input"
+							id="first_name" name="first_name"
+							size="36" maxlength="255"
+							value="{{form.firstName}}"></input>
+						<label class="form__label form__label--subfield" for="first_name">First <span class="form__req">*</span></label>
+					</div>
+					<div class="form__subfield">
+						<input class="form__text-input"
+							id="last_name" name="last_name"
+							size="36" maxlength="255"
+							value="{{form.lastName}}"></input>
+						<label class="form__label form__label--subfield" for="last_name">Last</label>
+					</div>
+				</div>
+
+				<!-- Buttons -->
+				<p class="form__buttons">
+					<input id="save_contact_form" name="save_contact_form" class="form__button button" type="submit" value="Submit">
+				</p>
+			</form>
+		</div>
 	</section>
-	{{> site_footer}}
-	</article>
-{{> footer}}
+	{{> footer}}
+{{> foot}}

@@ -4,21 +4,23 @@
   "version": "1.0.0",
   "description": "Odd Networks World Wide Web",
   "scripts": {
-    "postinstall": "npm run css && npm run legacy-css",
+    "postinstall": "npm run css",
     "start": "./bin/server",
     "lint": "xo",
     "test": "xo",
-    "devserver": "./bin/devserver | bunyan",
+    "devserver": "nodemon ./bin/devserver | bunyan",
     "css": "treadmill build.js css",
+    "watch-css": "treadmill build.js watch-css",
     "launch-instances": "source .launch-ec2-instances-vars.sh && bin/launch-ec2-instances",
     "deploy": "source .deploy-vars.sh && bin/deploy.sh"
   },
   "dependencies": {
-    "boom": "~3.2.0",
     "bluebird": "~3.3.0",
     "body-parser": "~1.15.0",
-    "bunyan": "~1.8.0",
+    "boom": "~3.2.0",
     "brixx": "~1.6.0",
+    "bunyan": "~1.8.0",
+    "chokidar": "~1.6.0",
     "debug": "~2.2.0",
     "dotenv": "~2.0.0",
     "express": "~4.13.0",
@@ -36,13 +38,19 @@
   },
   "devDependencies": {
     "aws-sdk": "~2.4.0",
+    "nodemon": "~1.9.0",
     "xo": "~0.15.0"
   },
   "xo": {
-    "envs": [
-      "node"
-    ],
-    "esnext": true
+    "envs": ["node"],
+    "esnext": true,
+    "overrides": [
+      {
+        "files": "public/assets/javascript/*.js",
+        "esnext": false,
+        "envs": ["browser"]
+      }
+    ]
   },
   "repository": {
     "type": "git",

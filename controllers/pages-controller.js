@@ -22,6 +22,7 @@ class PagesController {
 			}
 		}
 
+		debugger;
 		const locals = this.pagedata[path] || this.pagedata.index;
 
 		res.status(200).render(path, locals);

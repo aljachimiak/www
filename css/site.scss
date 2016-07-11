@@ -1,67 +1,88 @@
 
-// Helpful: http://colorizer.org/
+$fontBlack: #2a3444;
+$fontWhite: #fff;
+$backgroundBlack: #171719;
+$purple: #52338a;
+$green: #23b89b;
+$lightGreen: #82d9cb;
+$red: #ea3546;
+$darkGray: #2d2e2e;
 
-$black: #0f0a0a;
-$gray: #6f6a6a;
-$darkGray: #444;
-$yellow: #ffe900;
+$bodyFont: "Hind", "Verdana", sans-serif;
+$titleFont: "Ubuntu", "Verdana", sans-serif;
 
 $light: 300;
 $med: 500;
-$bold: 700;
+$heavy: 700;
+
+$mobileMargin: 16px;
+$headerPadding: 10em;
+
+
+html, body {
+	height: 100%;
+}
 
 // Typeface
 body {
-	font-family: "Hind", "Verdana", sans-serif;
+	font-family: $bodyFont;
 	font-weight: $light;
-	color: $black;
+	color: $fontBlack;
 }
-.highlight {
-	background-color: $yellow;
-}
-
-//
-// Layout
-// ------
-.constrained {
-	margin-left: 0.8em;
-	margin-right: 0.8em;
-}
-@media only screen and (min-width: 60em) {
-	.constrained {
-		max-width: 58.6em;
-		margin-left: auto;
-		margin-right: auto;
-	}
-}
-
-//
-// Components
-// ----------
 
 // Buttons
 .button {
-	font-size: 1.5em;
+	display: inline-block;
+	font-family: $titleFont;
+	font-size: 1.1em;
 	font-weight: 500;
-	text-transform: lowercase;
-	padding: 0.4em 1.1em;
-	text-align: center;
+	text-transform: uppercase;
+	padding: 0.4em 1em;
 	border-style: solid;
-	border-width: 0;
-	color: #fff;
-	background-color: $darkGray;
-	max-width: 11em;
+	border-width: 3px;
+	border-color: $fontBlack;
+	color: $fontBlack;
+	background: none;
+	text-align: center;
 }
 input.button {
-	display: block;
+	display: inline-block;
+	color: $fontBlack;
 	background: none;
-	background-color: $darkGray;
 	border-radius: 0;
-	max-width: 11em;
+	border-style: solid;
+	border-width: 3px;
+	border-color: $fontBlack;
 }
 a.button {
 	display: inline-block;
+	color: $fontBlack;
+	background: none;
+	border-radius: 0;
+	border-style: solid;
+	border-color: $fontBlack;
 	text-decoration: none;
+}
+a.button.button--slack, a.button.button--github {
+	width: 9em;
+	font-size: 1em;
+	border-color: $green;
+	color: $green;
+}
+.button > .button__brand {
+	background-repeat: no-repeat;
+	background-position: center center;
+	text-indent: -9999px;
+	display: inline-block;
+	height: 1.3em;
+	width: 4em;
+	margin-left: 0.2em;
+}
+.button--slack > .button__brand {
+	background-image: url("/assets/svg/slack-brand.svg");
+}
+.button--github > .button__brand {
+	background-image: url("/assets/svg/github-brand.svg");
 }
 
 // Forms
@@ -70,133 +91,705 @@ a.button {
 }
 input, textarea {
 	box-sizing: border-box;
-	border: 1px solid $gray;
+	border: 2px solid $darkGray;
 	outline: none;
 	padding: 0.5em;
 }
 label.form__label {
+	font-family: $titleFont;
 	display: block;
-	font-weight: 400;
+	font-weight: $med;
 	margin-bottom: 0.5em;
+	color: $darkGray;
 }
-.form__subfield label.form__label {
-	color: $black;
-	font-weight: 300;
+label.form__label--subfield {
+	font-weight: $light;
+	font-family: $bodyFont;
 	font-size: 0.9em;
 	margin-top: 0.5em;
 }
 label.form__label > .form__req {
-	color: $darkGray;
+	color: $red;
+}
+.form__button.button {
+	color: $fontWhite;
+	background-color: $purple;
+	border-color: $purple;
+}
+.form__error-header {
+	font-weight: $med;
+	color: $red;
+	font-size: 1.5em;
+	margin: 0;
 }
 @media only screen and (max-width: 28em) {
 	input, textarea {
 		width: 100%;
 	}
-	input.cta-button__link {
-		width: auto;
-	}
 }
 
-// Site Header
-.header__header {
-	float: left;
+// Header
+.header {
+	padding-bottom: 1em;
+	background-color: $backgroundBlack;
+	position: fixed;
+	width: 100%;
+}
+.scroll-top .header {
+	background-color: transparent;
+}
+.header__logo-link {
+	display: block;
+	width: 11em;
+	margin-left: auto;
+	margin-right: auto;
 }
 .header__nav {
-	float: right;
+	text-align: center;
 }
 ul.header__nav-list {
 	list-style: none;
 	padding: 0;
+	margin: 0;
 }
-li.header__nav-item {
+.header__nav-item {
 	display: inline-block;
 }
 a.header__nav-link {
+	font-family: $titleFont;
+	font-size: 0.9em;
+	font-weight: $med;
+	text-transform: uppercase;
+	color: $fontWhite;
+	line-height: 2em;
 	display: block;
-	padding: 0.5em;
+	text-decoration: none;
+	padding-left: 0.7em;
+	padding-right: 0.7em;
 }
-.header-end {
-	clear: both;
+@media only screen and (min-width: 50em) {
+	.header > .container {
+		max-width: 60em;
+		padding-left: $mobileMargin;
+		padding-right: $mobileMargin;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.header__logo-link {
+		margin-left: 0;
+		float: left;
+	}
+	.header__nav {
+		float: right;
+		margin-top: 1em;
+	}
 }
 
-// Site Footer
-.footer {
-	padding-top: 2em;
-	padding-bottom: 1em;
-	background-color: #444;
-	color: #fff;
+// Footer
+$footerHeight: 8em;
+.page-content {
+	min-height: 100%;
+	margin-bottom: -$footerHeight;
 }
-.footer__legal {
-	font-size: 0.8em;
+.page-content:after {
+	content: "";
+	display: block;
+	height: $footerHeight;
+}
+.footer {
+	clear: both;
+	height: $footerHeight;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-color: $darkGray;
+}
+.footer-nav {
+	margin-top: 2em;
 	text-align: center;
 }
 ul.footer-nav__list {
 	list-style: none;
 	padding: 0;
-	text-align: center;
+	margin: 0;
 }
-li.footer-nav__item {
+.footer-nav__item {
 	display: inline-block;
 }
 a.footer-nav__link {
+	font-family: $titleFont;
+	font-size: 0.9em;
+	font-weight: $med;
+	text-transform: uppercase;
+	color: $fontWhite;
+	line-height: 2em;
 	display: block;
-	padding: 0.5em;
-	font-weight: $bold;
-	color: #fff;
-}
-
-// Benefits
-.benefit {
-	width: 40%;
-	float: left;
-	margin-left: 7%;
-	margin-top: 1em;
-}
-.benefit__link {
-	display: block;
-	height: 13em;
-	padding: 1em;
 	text-decoration: none;
-	background-color: #555;
-	color: #fff;
+	padding-left: 0.7em;
+	padding-right: 0.7em;
 }
-.benefits__end {
-	clear: both;
+.footer__legal {
+	text-align: center;
+	color: $fontWhite;
 }
 
-// Home Page
-.home-hero {
-	text-align: center;
-	background-color: #444;
-	color: #fff;
-	padding-top: 1em;
-	padding-bottom: 1em;
-}
-a.home-hero__cta-button.button {
-	background-color: #ddd;
-	color: #333;
-}
-ul.home-hero__logo-garden {
-	list-style: none;
-	padding: 0;
-	text-align: center;
-}
-ul.home-hero__logo-garden > li {
-	display: inline-block;
-	padding: 0.5em 1em;
-}
-.home-about {
+// Page CTA
+.page-cta {
 	text-align: center;
 	padding-top: 2em;
 	padding-bottom: 2em;
-	max-width: 36em;
+}
+.page-cta__header {
+	font-family: $titleFont;
+	font-weight: $heavy;
+	font-size: 2em;
+	color: $purple;
+	margin-top: 0;
+	margin-bottom: 0;
+	line-height: 1.2em;
+}
+a.page-cta__button.button {
+	border-color: $green;
+	background-color: $green;
+	color: $fontWhite;
+}
+
+// Home Hero
+.home-hero {
+	background-color: $backgroundBlack;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	padding-top: $headerPadding; // Compensate for position:fixed page header
+	padding-bottom: 2em;
+	color: $fontWhite;
+	font-family: $titleFont;
+	text-align: center;
+}
+.home-hero__container {
+	margin-left: $mobileMargin;
+	margin-right: $mobileMargin;
+}
+.home-hero__header {
+	font-size: 2em;
+	line-height: 1.2em;
+	font-weight: $heavy;
+	margin: 0;
+}
+.home-hero__subheader {
+	font-family: $bodyFont;
+	font-size: 1em;
+	font-weight: $light;
+	margin-top: 0.5em;
+}
+.home-hero__logo-garden {
+	list-style: none;
+	padding: 0;
+	position: absolute;
+	overflow: hidden;
+	height: 1px;
+	width: 1px;
+	margin: -1px;
+}
+.home-hero__cta {
+	margin-top: 2em;
+}
+.home-hero__cta-button.button {
+	color: $fontWhite;
+	background-color: $green;
+	border-color: $green;
+}
+@media only screen and (min-width: 40em) {
+	.home-hero__container {
+		margin-left: 3em;
+		margin-right: 3em;
+	}
+	.home-hero__header {
+		font-size: 2.4em;
+	}
+	.home-hero__subheader {
+		font-size: 1.3em;
+	}
+}
+@media only screen and (min-width: 60em) {
+	.home-hero {
+		padding-bottom: 4em;
+	}
+	.home-hero__container {
+		margin-top: 4em;
+	}
+	.home-hero__header {
+		font-size: 3em;
+	}
+}
+@media only screen and (max-width: 60em) {
+	.home-hero {
+		background-image: url("/assets/img/planet-bg-mobile.jpg");
+	}
+}
+@media only screen and (min-width: 60em) {
+	.home-hero {
+		background-image: url("/assets/img/planet-bg-desktop.jpg");
+	}
+}
+
+// Home About
+.home-about {
+	padding-top: 1em;
+	padding-bottom: 3em;
+	text-align: center;
+}
+.home-about__container {
+	margin-left: $mobileMargin;
+	margin-right: $mobileMargin;
+	padding-bottom: 2em;
+}
+.home-about__brand {
+	margin-left: $mobileMargin;
+	margin-right: $mobileMargin;
+}
+.home-about__header {
+	color: $purple;
+	font-family: $titleFont;
+	font-size: 1.8em;
+	font-weight: $heavy;
+	margin: 0;
+}
+.home-about__img {
+	margin-top: 4em;
+	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
 }
-.home .benefits {
-	background-color: #ddd;
+.home-about__content {
+	margin-top: 4em;
+}
+.home-about__primary-cta {
+	margin: 0;
+	text-align: center;
+}
+.home-about__cta {
+	margin-top: 2em;
+	margin-bottom: 0;
+	text-align: center;
+}
+a.home-about__cta-link.button {
+	display: block;
+	margin-top: 1em;
+	margin-left: auto;
+	margin-right: auto;
+}
+@media only screen and (min-width: 28em) {
+	.home-about__content-p {
+		font-size: 1.2em;
+	}
+	a.home-about__cta-link.button {
+		display: inline-block;
+		margin-left: 1.2em;
+	}
+	a.home-about__cta-link.button:first-child {
+		margin-left: 0;
+	}
+}
+@media only screen and (min-width: 40em) {
+	.home-about__container {
+		max-width: 36em;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+@media only screen and (min-width: 58em) {
+	.home-about__container {
+		max-width: 60em;
+		padding-left: 2em;
+		padding-right: 2em;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.home-about__brand {
+		width: 30em;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.home-about__header {
+		font-size: 2.2em;
+	}
+	.home-about__img {
+		width: 48%;
+		float: left;
+	}
+	.home-about__content {
+		margin-left: 54%;
+		text-align: left;
+	}
+	.home-about__cta {
+		padding-top: 2em;
+	}
+}
+
+// Home Benefits
+.benefits {
+	background-color: $backgroundBlack;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	color: $fontWhite;
+	padding-top: 4em;
+	padding-bottom: 3em;
+}
+.benefits__hero {
+	margin-left: $mobileMargin;
+	margin-right: $mobileMargin;
+	text-align: center;
+	padding-bottom: 1em;
+}
+.benefits__hero-header {
+	margin: 0;
+	font-size: 1.8em;
+	font-weight: $heavy;
+	font-family: $titleFont;
+	text-transform: uppercase;
+}
+.benefits__hero-subheader {
+	font-family: $bodyFont;
+	font-size: 1.2em;
+	margin-top: 0.5em;
+	color: $lightGreen;
+	font-weight: $light;
+}
+.benefit {
+	background-color: $darkGray;
+	margin-left: $mobileMargin;
+	margin-right: $mobileMargin;
+	margin-top: 1em;
+}
+.benefit__img-box {
+	position: absolute;
+	overflow: hidden;
+	height: 1px;
+	width: 1px;
+	margin: -1px;
+}
+.benefit__content-box {
 	padding: 1em;
 }
-.home .benefits__header {
+.benefit > a.benefit__link {
+	color: $fontWhite;
+	text-decoration: none;
+}
+.benefit__header {
+	margin-top: 0;
+	font-size: 1.5em;
+	font-family: $titleFont;
+	font-weight: $med;
+	text-transform: uppercase;
+}
+.benefit__content {
+	margin-bottom: 0;
+}
+.benefit__content-link {
+	color: $lightGreen;
+}
+@media only screen and (min-width: 40em) {
+	.benefits__hero-header {
+		font-size: 2.2em;
+	}
+	.benefit {
+		height: 12em;
+		width: 40em;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.benefit__img-box {
+		position: static;
+		height: 12em;
+		width: 12em;
+		margin: 0;
+		float: left;
+	}
+	.benefit__content-box {
+		margin-left: 13em;
+	}
+}
+@media only screen and (max-width: 60em) {
+	.benefits {
+		background-image: url("/assets/img/network-bg-mobile.jpg");
+	}
+}
+@media only screen and (min-width: 60em) {
+	.benefits {
+		background-image: url("/assets/img/network-bg-desktop.jpg");
+	}
+}
+@media only screen and (min-width: 80em) {
+	.benefits__box {
+		width: 77em;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.benefit {
+		float: left;
+		margin-left: 0;
+		margin-right: 0;
+		width: 38em;
+	}
+	.benefit:nth-child(even) {
+		margin-left: 1em;
+	}
+}
+
+// Contact Page
+.scroll-top.contact-page .header {
+	background-color: $backgroundBlack;
+}
+.contact-form__hero {
+	padding-top: $headerPadding;
 	text-align: center;
+}
+.contact-form__hero-container {
+	max-width: 50em;
+	margin-left: auto;
+	margin-right: auto;
+}
+.contact-form__header {
+	color: $purple;
+	font-family: $titleFont;
+	font-size: 2em;
+	font-weight: $heavy;
+	line-height: 1.3em;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: $mobileMargin;
+	margin-right: $mobileMargin;
+}
+.contact-form__subheader {
+	font-size: 1.5em;
+	margin-top: 0.5em;
+	margin-bottom: 0;
+	margin-left: $mobileMargin;
+	margin-right: $mobileMargin;
+}
+.contact-form__summary {
+	font-size: 1.2em;
+	margin-left: $mobileMargin;
+	margin-right: $mobileMargin;
+}
+.contact-form__form {
+	margin-left: $mobileMargin;
+	margin-right: $mobileMargin;
+	padding-top: 2em;
+	padding-bottom: 3em;
+}
+@media only screen and (min-width: 36em) {
+	.contact-form__form {
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 32em;
+	}
+}
+
+// Contact Confirmation
+.scroll-top.contact-confirm-page .header {
+	background-color: $backgroundBlack;
+}
+.contact-confirm__hero {
+	padding-top: $headerPadding;
+}
+.contact-confirm__header {
+	font-family: $titleFont;
+	font-size: 1.5em;
+	font-weight: $heavy;
+	text-align: center;
+	margin: 0;
+}
+.contact-confirm__subhead {
+	font-size: 1.2em;
+	text-align: center;
+}
+.contact-confirm__cta {
+	text-align: center;
+}
+.contact-confirm__cta-link.button {
+	display: block;
+	margin-top: 1em;
+	margin-left: auto;
+	margin-right: auto;
+}
+.contact-confirm__paul {
+	width: 8em;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2em;
+}
+@media only screen and (min-width: 30em) {
+	.contact-confirm__cta-link.button {
+		display: inline-block;
+		margin-left: 1.2em;
+	}
+	.contact-confirm__cta-link.button:first-child {
+		margin-left: 0;
+	}
+}
+
+// Request Access Page
+.scroll-top.request-access-page .header {
+	background-color: $backgroundBlack;
+}
+// Request Access Confirmation Page
+.scroll-top.request-access-confirm-page .header {
+	background-color: $backgroundBlack;
+}
+
+// Pricing Page
+.pricing-content__cta-button.button {
+	color: $fontWhite;
+	background-color: $green;
+	border-color: $green;
+}
+.pricing-hero {
+	background-color: $backgroundBlack;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	padding-top: $headerPadding; // Compensate for position:fixed page header
+	padding-bottom: 3em;
+	color: $fontWhite;
+	font-family: $titleFont;
+	text-align: center;
+}
+.pricing-hero__container {
+	margin-left: $mobileMargin;
+	margin-right: $mobileMargin;
+}
+.pricing-hero__header {
+	font-size: 3em;
+	line-height: 1.2em;
+	font-weight: $heavy;
+	margin: 0;
+}
+.pricing-hero__subheader {
+	font-family: $bodyFont;
+	font-size: 1em;
+	font-weight: $light;
+	color: $lightGreen;
+}
+.pricing-content {
+	padding-top: 5em;
+	padding-bottom: 5em;
+}
+.pricing-content__container {
+	margin-left: $mobileMargin;
+	margin-right: $mobileMargin;
+}
+.pricing-content__header {
+	font-family: $titleFont;
+	font-size: 3em;
+	font-weight: $heavy;
+	margin-top: 0;
+}
+.pricing-content__content {
+	font-size: 1.2em;
+}
+.pricing-content__paul {
+	width: 6em;
+}
+@media only screen and (min-width: 40em) {
+	.pricing-hero__container {
+		margin-left: 3em;
+		margin-right: 3em;
+	}
+	.pricing-hero__header {
+		font-size: 2.4em;
+	}
+	.pricing-hero__subheader {
+		font-size: 1.3em;
+	}
+	.pricing-content__container {
+		width: 36em;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+@media only screen and (min-width: 60em) {
+	.pricing-hero {
+		padding-bottom: 4em;
+	}
+	.pricing-hero__container {
+		margin-top: 4em;
+	}
+	.pricing-hero__header {
+		font-size: 3em;
+	}
+}
+@media only screen and (max-width: 60em) {
+	.pricing-hero {
+		background-image: url("/assets/img/space-bg-mobile.jpg");
+	}
+}
+@media only screen and (min-width: 60em) {
+	.pricing-hero {
+		background-image: url("/assets/img/space-bg-desktop.jpg");
+	}
+}
+
+// Product Hero
+.product-hero {
+	background-color: $backgroundBlack;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	padding-top: $headerPadding; // Compensate for position:fixed page header
+	padding-bottom: 1em;
+	color: $fontWhite;
+	font-family: $titleFont;
+	text-align: center;
+}
+.product-hero__container {
+	margin-left: $mobileMargin;
+	margin-right: $mobileMargin;
+}
+.product-hero__header {
+	font-size: 2em;
+	line-height: 1.2em;
+	font-weight: $heavy;
+	margin-bottom: 0;
+}
+.product-hero__subheader {
+	font-family: $bodyFont;
+	font-size: 1em;
+	font-weight: $light;
+	color: $lightGreen;
+}
+
+// Product Benefits
+.product-benefit {
+	padding: 1em;
+}
+.product-benefit__box {
+	margin-left: $mobileMargin;
+	margin-right: $mobileMargin;
+}
+.product-benefit--even {
+	background-color: $green;
+	color: $fontWhite;
+}
+.product-benefit__header {
+	margin-top: 0;
+	font-family: $titleFont;
+	font-weight: $med;
+	font-size: 1.4em;
+	text-transform: uppercase;
+}
+a.product-benefit__link {
+	border-color: $purple;
+	color: $purple;
+}
+@media only screen and (max-width: 60em) {
+	.product-hero {
+		background-image: url("/assets/img/space-bg-mobile.jpg");
+	}
+}
+@media only screen and (min-width: 60em) {
+	.product-hero {
+		background-image: url("/assets/img/space-bg-desktop.jpg");
+	}
 }

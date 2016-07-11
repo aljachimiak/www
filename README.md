@@ -23,7 +23,7 @@ Run the development server with
 
     npm run devserver
 
-And watch the pretty output :-)
+This will run the server with [Nodemon](https://github.com/remy/nodemon) so that it will automatically restart when you make changes to the Node.js source files and template partials.
 
 __!Warning:__ File changes to server-side JS files or template partials will require a server restart to take effect. Changes to view template files will not.
 
@@ -31,6 +31,10 @@ __!Warning:__ File changes to server-side JS files or template partials will req
 There is a Sass build which can be run with
 
     npm run css
+
+During development it is handy to run the CSS build tool with a file watcher so that the Sass is automatically built when their are file changes. You can do this with
+
+    npm run watch-css
 
 Configuration and Deployment
 ----------------------------

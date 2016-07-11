@@ -1,0 +1,14 @@
+{
+  "ext": "js hbs json",
+  "watch": [
+    "commands/",
+    "controllers/",
+    "initializers/",
+    "lib/",
+    "middleware/",
+    "pagedata/",
+    "queries/",
+    "views/partials/",
+    "server.js"
+  ]
+}
