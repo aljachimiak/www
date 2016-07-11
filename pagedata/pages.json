@@ -4,20 +4,11 @@
 		"description": "Odd Networks is a band of geeks holed up in a secret hideout building a video platform for the future of television."
 	},
 	"request-access": {
-		"description": "Request early access."
+		"description": "Request early access to the Odd Networks video streaming platform."
 	},
 	"request-access-confirm": {
 		"title": "Thank You!",
-		"description": "We'll be in touch."
-	},
-	"request-odd-access": {
-		"description": "Request early access.",
-		"stylesheet": "/assets/css/legacy.css"
-	},
-	"request-odd-access-confirm": {
-		"title": "Thank You!",
-		"description": "We'll be in touch.",
-		"stylesheet": "/assets/css/legacy.css"
+		"description": "We'll be in touch soon."
 	},
 	"inquiry": {
 		"title": "Contact Odd Networks",
@@ -25,6 +16,6 @@
 	},
 	"inquiry-confirm": {
 		"title": "Thank You!",
-		"description": "We'll be in touch."
+		"description": "We'll be in touch soon."
 	}
 }
