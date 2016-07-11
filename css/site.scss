@@ -18,6 +18,11 @@ $heavy: 700;
 $mobileMargin: 16px;
 $headerPadding: 10em;
 
+
+html, body {
+	height: 100%;
+}
+
 // Typeface
 body {
 	font-family: $bodyFont;
@@ -174,13 +179,24 @@ a.header__nav-link {
 }
 
 // Footer
+.page-content {
+	min-height: 100%;
+	margin-bottom: -8em;
+}
+.page-content:after {
+	content: "";
+	display: block;
+	height: 8em;
+}
 .footer {
 	clear: both;
+	height: 8em;
 	padding-top: 1em;
 	padding-bottom: 1em;
 	background-color: $darkGray;
 }
 .footer-nav {
+	margin-top: 2em;
 	text-align: center;
 }
 ul.footer-nav__list {
@@ -502,20 +518,41 @@ a.home-about__cta-link.button {
 }
 
 // Contact Page
+.scroll-top.contact-page .header {
+	background-color: $backgroundBlack;
+}
 .contact-form__hero {
 	padding-top: $headerPadding;
 	text-align: center;
-	margin-left: $mobileMargin;
-	margin-right: $mobileMargin;
 }
 .contact-form__header {
+	color: $purple;
 	font-family: $titleFont;
 	font-size: 2em;
 	font-weight: $heavy;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: $mobileMargin;
+	margin-right: $mobileMargin;
+}
+.contact-form__subheader {
+	font-size: 1.5em;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: $mobileMargin;
+	margin-right: $mobileMargin;
 }
 .contact-form__form {
 	margin-left: $mobileMargin;
 	margin-right: $mobileMargin;
+	padding-bottom: 3em;
+}
+@media only screen and (min-width: 36em) {
+	.contact-form__form {
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 32em;
+	}
 }
 
 // Contact Confirmation
