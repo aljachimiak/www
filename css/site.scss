@@ -334,11 +334,16 @@ a.page-cta__button.button {
 
 // Home About
 .home-about {
-	padding-top: 4em;
+	padding-top: 1em;
 	padding-bottom: 3em;
 	text-align: center;
 }
 .home-about__container {
+	margin-left: $mobileMargin;
+	margin-right: $mobileMargin;
+	padding-bottom: 2em;
+}
+.home-about__brand {
 	margin-left: $mobileMargin;
 	margin-right: $mobileMargin;
 }
@@ -348,24 +353,23 @@ a.page-cta__button.button {
 	font-size: 1.8em;
 	font-weight: $heavy;
 	margin: 0;
-	text-transform: uppercase;
 }
 .home-about__img {
-	margin-top: 2em;
+	margin-top: 4em;
 	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
 }
 .home-about__content {
-	margin-top: 2em;
+	margin-top: 4em;
 }
-.home-about__logo {
-	width: 8em;
-	margin-left: auto;
-	margin-right: auto;
+.home-about__primary-cta {
+	margin: 0;
+	text-align: center;
 }
 .home-about__cta {
-	margin: 0;
+	margin-top: 2em;
+	margin-bottom: 0;
 	text-align: center;
 }
 a.home-about__cta-link.button {
@@ -375,6 +379,9 @@ a.home-about__cta-link.button {
 	margin-right: auto;
 }
 @media only screen and (min-width: 28em) {
+	.home-about__content-p {
+		font-size: 1.2em;
+	}
 	a.home-about__cta-link.button {
 		display: inline-block;
 		margin-left: 1.2em;
@@ -395,6 +402,11 @@ a.home-about__cta-link.button {
 		max-width: 60em;
 		padding-left: 2em;
 		padding-right: 2em;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.home-about__brand {
+		width: 30em;
 		margin-left: auto;
 		margin-right: auto;
 	}
