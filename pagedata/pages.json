@@ -1,21 +1,26 @@
 {
 	"index": {
 		"title": "Launch your own streaming service",
-		"description": "Odd Networks is a band of geeks holed up in a secret hideout building a video platform for the future of television."
+		"description": "Odd Networks is a band of geeks holed up in a secret hideout building a video platform for the future of television.",
+		"bodyClass": "homepage"
 	},
 	"request-access": {
-		"description": "Request early access to the Odd Networks video streaming platform."
+		"description": "Request early access to the Odd Networks video streaming platform.",
+		"bodyClass": "request-access-page"
 	},
 	"request-access-confirm": {
 		"title": "Thank You!",
-		"description": "We'll be in touch soon."
+		"description": "We'll be in touch soon.",
+		"bodyClass": "request-access-confirm-page"
 	},
 	"inquiry": {
 		"title": "Contact Odd Networks",
-		"description": "Don't be shy. Make an inquiry."
+		"description": "Don't be shy. Make an inquiry.",
+		"bodyClass": "contact-page"
 	},
 	"inquiry-confirm": {
 		"title": "Thank You!",
-		"description": "We'll be in touch soon."
+		"description": "We'll be in touch soon.",
+		"bodyClass": "contact-confirm-page"
 	}
 }
