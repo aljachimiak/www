@@ -334,7 +334,7 @@ a.page-cta__button.button {
 
 // Home About
 .home-about {
-	padding-top: 1em;
+	padding-top: 3em;
 	padding-bottom: 3em;
 	text-align: center;
 }
@@ -343,15 +343,18 @@ a.page-cta__button.button {
 	margin-right: $mobileMargin;
 	padding-bottom: 2em;
 }
-.home-about__brand {
-	margin-left: $mobileMargin;
-	margin-right: $mobileMargin;
-}
 .home-about__header {
-	color: $purple;
 	font-family: $titleFont;
-	font-size: 1.8em;
+	font-size: 2em;
 	font-weight: $heavy;
+	text-transform: uppercase;
+	margin: 0;
+}
+.home-about__subheader {
+	font-family: $titleFont;
+	color: $green;
+	font-size: 1.2em;
+	font-weight: $med;
 	margin: 0;
 }
 .home-about__img {
@@ -390,6 +393,11 @@ a.home-about__cta-link.button {
 		margin-left: 0;
 	}
 }
+@media only screen and (min-width: 32em) {
+	.home-about__header {
+		font-size: 3em;
+	}
+}
 @media only screen and (min-width: 40em) {
 	.home-about__container {
 		max-width: 36em;
@@ -405,13 +413,11 @@ a.home-about__cta-link.button {
 		margin-left: auto;
 		margin-right: auto;
 	}
-	.home-about__brand {
-		width: 30em;
-		margin-left: auto;
-		margin-right: auto;
-	}
 	.home-about__header {
-		font-size: 2.2em;
+		font-size: 4em;
+	}
+	.home-about__subheader {
+		font-size: 1.5em;
 	}
 	.home-about__img {
 		width: 48%;
