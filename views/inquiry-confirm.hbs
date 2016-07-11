@@ -1,17 +1,26 @@
 {{> head}}
 	{{> header}}
-	<section class="contact-confirm">
-		<h2 class="contact-confirm__header">
-		Thank You!
-		</h2>
-		<p class="contact-confirm__subhead">
-			You'll be getting an email response shortly if it has not arrived already.
-		</p>
-		<p class="contact-confirm__cta"><!--
-			--><a class="contact-confirm__cta-link button" href="http://slack.oddnetworks.com/">Join us in Slack</a><!--
-			--><a class="contact-confirm__cta-link button" href="https://github.com/oddnetworks/oddworks">Check us out on GitHub</a><!--
-			--><a class="contact-confirm__cta-link button" href="https://twitter.com/oddnetworks">Follow us on Twitter</a><!--
-		--></p>
+	<section class="contact-confirm page-content">
+		<header class="contact-confirm__hero">
+			<h2 class="contact-confirm__header">
+			Thank You!
+			</h2>
+			<p class="contact-confirm__subhead">
+				You'll be getting an email response shortly if it has not arrived already.
+				<br>In the meantime, <strong>don't be shy</strong>:
+			</p>
+		</header>
+		<section class="contact-confirm__cta"><!--
+			--><a class="contact-confirm__cta-link button button--slack" href="http://slack.oddnetworks.com/">
+					Chat on <span class="button__brand">Slack</span>
+				</a><!--
+			--><a class="contact-confirm__cta-link button button--github" href="https://github.com/oddnetworks/oddworks">
+					View on <span class="button__brand">GitHub</span>
+				</a><!--
+		--></section>
+			<section class="contact-confirm__paul">
+				<img src="/assets/svg/paul.svg" alt="paul">
+			</section>
 	</section>
 	{{> footer}}
 {{> foot}}

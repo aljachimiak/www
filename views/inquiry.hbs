@@ -12,12 +12,14 @@
 		<section class="contact-form__form-container">
 			<form class="form contact-form__form" accept-charset="UTF-8" autocomplete="off" method="POST">
 				{{#if formErrors}}
-				<p class="form__error">
-					<strong>There was an error submitting your form:</strong>
+				<section class="form__error">
+					<h2 class="form__error-header">There was an error submitting your form:</h2>
+					<ul class="form__error-list">
 					{{#each formErrors}}
-					<br><span class="error">{{message}}</span>
+						<li class="form__error-item">{{message}}</li>
 					{{/each}}
-				</p>
+					</ul>
+				</section>
 				{{/if}}
 
 				<!-- Email -->
@@ -32,7 +34,7 @@
 				<!-- Comments -->
 				<div class="form__field">
 					<label class="form__label" for="inquiry">
-					Give us a hint. Leave a comment.
+						What can we help with?
 					</label>
 					<textarea
 						id="inquiry" name="inquiry"

@@ -63,6 +63,12 @@ a.button {
 	border-color: $fontBlack;
 	text-decoration: none;
 }
+a.button.button--slack, a.button.button--github {
+	width: 9em;
+	font-size: 1em;
+	border-color: $green;
+	color: $green;
+}
 .button > .button__brand {
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -72,10 +78,10 @@ a.button {
 	width: 4em;
 	margin-left: 0.2em;
 }
-.button > .button__brand--slack {
+.button--slack > .button__brand {
 	background-image: url("/assets/svg/slack-brand.svg");
 }
-.button > .button__brand--github {
+.button--github > .button__brand {
 	background-image: url("/assets/svg/github-brand.svg");
 }
 
@@ -110,10 +116,11 @@ label.form__label > .form__req {
 	background-color: $purple;
 	border-color: $purple;
 }
-.form__error > strong {
-	font-family: $titleFont;
-	font-weight: $heavy;
+.form__error-header {
+	font-weight: $med;
 	color: $red;
+	font-size: 1.5em;
+	margin: 0;
 }
 @media only screen and (max-width: 28em) {
 	input, textarea {
@@ -359,10 +366,6 @@ a.page-cta__button.button {
 }
 a.home-about__cta-link.button {
 	display: block;
-	width: 9em;
-	font-size: 1em;
-	border-color: $green;
-	color: $green;
 	margin-top: 1em;
 	margin-left: auto;
 	margin-right: auto;
@@ -546,6 +549,7 @@ a.home-about__cta-link.button {
 .contact-form__form {
 	margin-left: $mobileMargin;
 	margin-right: $mobileMargin;
+	padding-top: 2em;
 	padding-bottom: 3em;
 }
 @media only screen and (min-width: 36em) {
@@ -557,17 +561,18 @@ a.home-about__cta-link.button {
 }
 
 // Contact Confirmation
-.contact-confirm {
+.scroll-top.contact-confirm-page .header {
+	background-color: $backgroundBlack;
+}
+.contact-confirm__hero {
 	padding-top: $headerPadding;
-	padding-bottom: 2em;
-	margin-left: $mobileMargin;
-	margin-right: $mobileMargin;
 }
 .contact-confirm__header {
 	font-family: $titleFont;
 	font-size: 1.5em;
 	font-weight: $heavy;
 	text-align: center;
+	margin: 0;
 }
 .contact-confirm__subhead {
 	font-size: 1.2em;
@@ -576,10 +581,26 @@ a.home-about__cta-link.button {
 .contact-confirm__cta {
 	text-align: center;
 }
-a.contact-confirm__cta-link.button {
-	border-color: $green;
-	color: $green;
-	margin-top: 1.2em;
+.contact-confirm__cta-link.button {
+	display: block;
+	margin-top: 1em;
+	margin-left: auto;
+	margin-right: auto;
+}
+.contact-confirm__paul {
+	width: 8em;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2em;
+}
+@media only screen and (min-width: 30em) {
+	.contact-confirm__cta-link.button {
+		display: inline-block;
+		margin-left: 1.2em;
+	}
+	.contact-confirm__cta-link.button:first-child {
+		margin-left: 0;
+	}
 }
 
 // Product Hero
