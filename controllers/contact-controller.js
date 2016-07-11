@@ -14,8 +14,8 @@ class ContactController {
 	get(req, res) {
 		const locals = U.merge(
 			{},
-			this.pagedata[this.view],
-			this.pagedata.index
+			this.pagedata.index,
+			this.pagedata[this.view]
 		);
 		res.status(200).render(this.view, locals);
 	}
