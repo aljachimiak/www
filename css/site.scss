@@ -179,18 +179,19 @@ a.header__nav-link {
 }
 
 // Footer
+$footerHeight: 8em;
 .page-content {
 	min-height: 100%;
-	margin-bottom: -8em;
+	margin-bottom: -$footerHeight;
 }
 .page-content:after {
 	content: "";
 	display: block;
-	height: 8em;
+	height: $footerHeight;
 }
 .footer {
 	clear: both;
-	height: 8em;
+	height: $footerHeight;
 	padding-top: 1em;
 	padding-bottom: 1em;
 	background-color: $darkGray;
