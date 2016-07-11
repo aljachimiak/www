@@ -649,7 +649,7 @@ a.home-about__cta-link.button {
 	margin-right: $mobileMargin;
 }
 .pricing-hero__header {
-	font-size: 2em;
+	font-size: 3em;
 	line-height: 1.2em;
 	font-weight: $heavy;
 	margin: 0;
@@ -660,17 +660,25 @@ a.home-about__cta-link.button {
 	font-weight: $light;
 	color: $lightGreen;
 }
+.pricing-content {
+	padding-top: 5em;
+	padding-bottom: 5em;
+}
 .pricing-content__container {
 	margin-left: $mobileMargin;
 	margin-right: $mobileMargin;
 }
 .pricing-content__header {
 	font-family: $titleFont;
-	font-size: 2em;
-	font-weight: $med;
+	font-size: 3em;
+	font-weight: $heavy;
+	margin-top: 0;
 }
 .pricing-content__content {
 	font-size: 1.2em;
+}
+.pricing-content__paul {
+	width: 6em;
 }
 @media only screen and (min-width: 40em) {
 	.pricing-hero__container {
