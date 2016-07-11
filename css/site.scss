@@ -299,6 +299,10 @@ a.page-cta__button.button {
 	border-color: $green;
 }
 @media only screen and (min-width: 40em) {
+	.home-hero__container {
+		margin-left: 3em;
+		margin-right: 3em;
+	}
 	.home-hero__header {
 		font-size: 2.4em;
 	}
@@ -529,11 +533,17 @@ a.home-about__cta-link.button {
 	padding-top: $headerPadding;
 	text-align: center;
 }
+.contact-form__hero-container {
+	max-width: 50em;
+	margin-left: auto;
+	margin-right: auto;
+}
 .contact-form__header {
 	color: $purple;
 	font-family: $titleFont;
 	font-size: 2em;
 	font-weight: $heavy;
+	line-height: 1.3em;
 	margin-top: 0;
 	margin-bottom: 0;
 	margin-left: $mobileMargin;
@@ -541,8 +551,13 @@ a.home-about__cta-link.button {
 }
 .contact-form__subheader {
 	font-size: 1.5em;
-	margin-top: 0;
+	margin-top: 0.5em;
 	margin-bottom: 0;
+	margin-left: $mobileMargin;
+	margin-right: $mobileMargin;
+}
+.contact-form__summary {
+	font-size: 1.2em;
 	margin-left: $mobileMargin;
 	margin-right: $mobileMargin;
 }
@@ -601,6 +616,15 @@ a.home-about__cta-link.button {
 	.contact-confirm__cta-link.button:first-child {
 		margin-left: 0;
 	}
+}
+
+// Request Access Page
+.scroll-top.request-access-page .header {
+	background-color: $backgroundBlack;
+}
+// Request Access Confirmation Page
+.scroll-top.request-access-confirm-page .header {
+	background-color: $backgroundBlack;
 }
 
 // Product Hero
