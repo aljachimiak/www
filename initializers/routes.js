@@ -58,8 +58,16 @@ module.exports = function (app) {
 
 	app.API.express.use(accessLog(app));
 
+	//
+	// Redirects
+	//
+
 	app.API.express.all('/signup|contact', (req, res) => {
 		res.redirect(301, '/inquiry');
+	});
+
+	app.API.express.all('/request-odd-access', (req, res) => {
+		res.redirect(301, '/request-access');
 	});
 
 	// Setup the static page server
@@ -97,18 +105,6 @@ module.exports = function (app) {
 		ContactController.create(app, {
 			view: 'request-access',
 			confirmationView: 'request-access-confirm'
-		})
-	);
-
-	app.API.express.all(
-		'/request-odd-access',
-		bodyParser.urlencoded({
-			extended: false,
-			parameterLimit: 8
-		}),
-		ContactController.create(app, {
-			view: 'request-odd-access',
-			confirmationView: 'request-odd-access-confirm'
 		})
 	);
 
