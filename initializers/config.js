@@ -57,7 +57,7 @@ module.exports = function (app) {
 		tablePrefix: dynamoDBTablePrefix()
 	};
 	app.config.dynamodbSchema = {
-		third_party_oauth: {} // eslint-disable-line camelcase
+		oauth: {} // eslint-disable-line camelcase
 	};
 
 	if (!process.env.INFUSIONSOFT_CLIENT_ID) {
