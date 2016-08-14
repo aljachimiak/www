@@ -106,14 +106,14 @@ module.exports = function infusionsoft(app) {
 
 		refreshToken(args) {
 			const creds = `${config.clientId}:${config.clientSecret}`;
-			creds = new Buffer(creds).toString('base64');
+			const base64Creds = new Buffer(creds).toString('base64');
 
 			/* eslint-disable camelcase */
 			const opts = {
 				method: 'POST',
 				url: TOKEN_URL,
 				headers: {
-					Authorization: `Basic ${creds}`
+					Authorization: `Basic ${base64Creds}`
 				},
 				form: {
 					grant_type: 'refresh_token',
