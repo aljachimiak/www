@@ -41,7 +41,7 @@ module.exports = function infusionsoft(app) {
 				// Refresh the token again in the future before it expires.
 				.then(() => {
 					setTimeout(() => {
-						return infusionsoft.refreshToken();
+						return infusionsoftCommands.refreshToken();
 					}, 10000);
 					return null;
 				});
@@ -83,7 +83,7 @@ module.exports = function infusionsoft(app) {
 				// Refresh the token again in the future before it expires.
 				.then(() => {
 					setTimeout(() => {
-						return infusionsoft.refreshToken();
+						return infusionsoftCommands.refreshToken();
 					}, 60000);
 
 					return null;

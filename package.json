@@ -1,7 +1,7 @@
 {
   "name": "odd-networks-www",
   "private": true,
-  "version": "4.3.7",
+  "version": "4.3.8",
   "description": "Odd Networks World Wide Web",
   "scripts": {
     "postinstall": "npm run css",
