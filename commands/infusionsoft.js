@@ -21,7 +21,7 @@ module.exports = function infusionsoft(app) {
 				.postCode(args)
 				// Update the database record
 				.then(token => {
-					return infusionsoftCommands.updateRecord({
+					return infusionsoftCommands.updateTokenRecord({
 						accessToken: token.access_token,
 						expiresIn: token.expires_in,
 						refreshToken: token.refresh_token
@@ -40,9 +40,10 @@ module.exports = function infusionsoft(app) {
 				})
 				// Refresh the token again in the future before it expires.
 				.then(() => {
-					return Promise.delay(10000).then(() => {
+					setTimeout(() => {
 						return infusionsoft.refreshToken();
-					});
+					}, 10000);
+					return null;
 				});
 		},
 
@@ -62,7 +63,7 @@ module.exports = function infusionsoft(app) {
 				})
 				// Update the database record
 				.then(token => {
-					return infusionsoftCommands.updateRecord({
+					return infusionsoftCommands.updateTokenRecord({
 						accessToken: token.access_token,
 						expiresIn: token.expires_in,
 						refreshToken: token.refresh_token
@@ -81,9 +82,11 @@ module.exports = function infusionsoft(app) {
 				})
 				// Refresh the token again in the future before it expires.
 				.then(() => {
-					return Promise.delay(60000).then(() => {
+					setTimeout(() => {
 						return infusionsoft.refreshToken();
-					});
+					}, 60000);
+
+					return null;
 				});
 		},
 
