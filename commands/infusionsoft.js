@@ -6,6 +6,12 @@ const U = require('../lib/u');
 const TOKEN_URL = 'https://api.infusionsoft.com/token';
 const OAUTH_RECORD_TYPE = 'oauth';
 const OAUTH_RECORD_ID = 'infusionsoft-oauth-token';
+// Infusionsoft tokens supposedly need to be refreshed every 24 hours. Since
+// we're assuming a multi-node stateless system, we pick a number between
+// 4 and 22 for this node.
+const HOUR = 60 * 1000 * 60;
+const REFRESH_RANGE_FLOOR = HOUR * 4;
+const REFRESH_RANGE_CEIL = HOUR * 22;
 
 module.exports = function infusionsoft(app) {
 	const log = app.API.log;
@@ -19,6 +25,7 @@ module.exports = function infusionsoft(app) {
 		link(args) {
 			return infusionsoftCommands
 				.postCode(args)
+
 				// Update the database record
 				.then(token => {
 					return infusionsoftCommands.updateTokenRecord({
@@ -32,25 +39,31 @@ module.exports = function infusionsoft(app) {
 					// Reject again to short circuit any remaining handlers.
 					return Promise.reject(err);
 				})
+
 				.catch(err => {
 					// Catch this specific error for logging purposes.
 					log.error(err, `database failed to update ${OAUTH_RECORD_TYPE}:${OAUTH_RECORD_ID}`);
 					// Reject again to short circuit any remaining handlers.
 					return Promise.reject(err);
 				})
+
 				// Refresh the token again in the future before it expires.
 				.then(() => {
+					log.info('infusionsoft token linked and saved');
 					setTimeout(() => {
 						return infusionsoftCommands.refreshToken();
-					}, 10000);
+					}, U.random(REFRESH_RANGE_FLOOR, REFRESH_RANGE_CEIL));
+
 					return null;
 				});
 		},
 
 		refreshToken() {
 			return infusionsoftCommands
+
 				// Get the refresh token from the database
 				.getTokenRecord()
+
 				// POST the refresh token to Infusionsoft
 				.then(record => {
 					log.info(`database got ${OAUTH_RECORD_TYPE}:${OAUTH_RECORD_ID}`);
@@ -61,6 +74,7 @@ module.exports = function infusionsoft(app) {
 					// Reject again to short circuit any remaining handlers.
 					return Promise.reject(err);
 				})
+
 				// Update the database record
 				.then(token => {
 					return infusionsoftCommands.updateTokenRecord({
@@ -74,17 +88,20 @@ module.exports = function infusionsoft(app) {
 					// Reject again to short circuit any remaining handlers.
 					return Promise.reject(err);
 				})
+
 				.catch(err => {
 					// Catch this specific error for logging purposes.
 					log.error(err, `database failed to update ${OAUTH_RECORD_TYPE}:${OAUTH_RECORD_ID}`);
 					// Reject again to short circuit any remaining handlers.
 					return Promise.reject(err);
 				})
+
 				// Refresh the token again in the future before it expires.
 				.then(() => {
+					log.info();
 					setTimeout(() => {
 						return infusionsoftCommands.refreshToken();
-					}, 60000);
+					}, U.random(REFRESH_RANGE_FLOOR, REFRESH_RANGE_CEIL));
 
 					return null;
 				});
