@@ -14,11 +14,85 @@ module.exports = function infusionsoft(app) {
 
 	const infusionsoftCommands = {
 		// args.code
-		// args.grant_type
-		// args.redirect_url
+		// args.grantType
+		// args.redirectUri
 		link(args) {
+			return infusionsoftCommands
+				.postCode(args)
+				// Update the database record
+				.then(token => {
+					return infusionsoftCommands.updateRecord({
+						accessToken: token.access_token,
+						expiresIn: token.expires_in,
+						refreshToken: token.refresh_token
+					});
+				}, err => {
+					// Catch this specific error for logging purposes.
+					log.error(err, 'Infusionsoft postCode request failed');
+					// Reject again to short circuit any remaining handlers.
+					return Promise.reject(err);
+				})
+				.catch(err => {
+					// Catch this specific error for logging purposes.
+					log.error(err, `database failed to update ${OAUTH_RECORD_TYPE}:${OAUTH_RECORD_ID}`);
+					// Reject again to short circuit any remaining handlers.
+					return Promise.reject(err);
+				})
+				// Refresh the token again in the future before it expires.
+				.then(() => {
+					return Promise.delay(10000).then(() => {
+						return infusionsoft.refreshToken();
+					});
+				});
+		},
+
+		refreshToken() {
+			return infusionsoftCommands
+				// Get the refresh token from the database
+				.getTokenRecord()
+				// POST the refresh token to Infusionsoft
+				.then(record => {
+					log.info(`database got ${OAUTH_RECORD_TYPE}:${OAUTH_RECORD_ID}`);
+					return infusionsoftCommands.postRefreshToken(record);
+				}, err => {
+					// Catch this specific error for logging purposes.
+					log.error(err, `database failed to get ${OAUTH_RECORD_TYPE}:${OAUTH_RECORD_ID}`);
+					// Reject again to short circuit any remaining handlers.
+					return Promise.reject(err);
+				})
+				// Update the database record
+				.then(token => {
+					return infusionsoftCommands.updateRecord({
+						accessToken: token.access_token,
+						expiresIn: token.expires_in,
+						refreshToken: token.refresh_token
+					});
+				}, err => {
+					// Catch this specific error for logging purposes.
+					log.error(err, 'Infusionsoft postRefreshToken request failed');
+					// Reject again to short circuit any remaining handlers.
+					return Promise.reject(err);
+				})
+				.catch(err => {
+					// Catch this specific error for logging purposes.
+					log.error(err, `database failed to update ${OAUTH_RECORD_TYPE}:${OAUTH_RECORD_ID}`);
+					// Reject again to short circuit any remaining handlers.
+					return Promise.reject(err);
+				})
+				// Refresh the token again in the future before it expires.
+				.then(() => {
+					return Promise.delay(60000).then(() => {
+						return infusionsoft.refreshToken();
+					});
+				});
+		},
+
+		// args.code
+		// args.grantType
+		// args.redirectUri
+		postCode(args) {
 			/* eslint-disable camelcase */
-			const opts = {
+			const params = {
 				method: 'POST',
 				url: TOKEN_URL,
 				form: {
@@ -31,85 +105,16 @@ module.exports = function infusionsoft(app) {
 			};
 			/* eslint-enable camelcase */
 
-			return new Promise((resolve, reject) => {
-				request(opts, (err, res) => {
-					if (err) {
-						return reject(err);
-					}
-
-					if (res.statusCode !== 200) {
-						return reject(new Error(
-							`api.infusionsoft.com/token returned status code ${res.statusCode}`
-						));
-					}
-
-					// "access_token": "drwgbbq4snaas3khpxmvugy7",
-					// "token_type": "bearer",
-					// "expires_in": 86400,
-					// "refresh_token": "4ugt7p9xskg76k7v4jxhazz4",
-					// "scope": "full|wo321.infusionsoft.com"
-
-					let data = res.body;
-					if (U.isString(res.body)) {
-						try {
-							data = JSON.parse(res.body);
-						} catch (err) {
-							return reject(new Error(
-								`JSON parse error in api.infusionsoft.com/token response: ${err.message}`
-							));
-						}
-					}
-
-					if (!data || !U.isObject(data)) {
-						return reject(new Error(
-							'api.infusionsoft.com/token returned empty response'
-						));
-					}
-
-					const record = {
-						type: OAUTH_RECORD_TYPE,
-						id: OAUTH_RECORD_ID,
-						value: data.access_token,
-						expiresIn: data.expires_in,
-						refreshToken: data.refresh_token
-					};
-
-					dynamodb.updateRecord(record)
-						.then(() => {
-							log.info(
-								{token: {value: Boolean(data.access_token)}},
-								'infusionsoft token'
-							);
-						})
-						.catch(err => {
-							log.error(err, `dynamodb updateRecord error for ${record.id}`);
-						});
-
-					setTimeout(() => {
-						return dynamodb.getRecord(OAUTH_RECORD_TYPE, OAUTH_RECORD_ID)
-							.then(record => {
-								return infusionsoftCommands.refreshToken(record);
-							}, err => {
-								log.error(err, `dynamodb getRecord error for ${record.id}`);
-								return null;
-							})
-							.catch(err => {
-								log.error(err, 'infusionsoft refresh_token error');
-								return null;
-							});
-					}, 10000);
-
-					resolve(true);
-				});
-			});
+			return infusionsoftCommands.makeTokenRequest(params);
 		},
 
-		refreshToken(args) {
+		// args.refreshToken
+		postRefreshToken(args) {
 			const creds = `${config.clientId}:${config.clientSecret}`;
 			const base64Creds = new Buffer(creds).toString('base64');
 
 			/* eslint-disable camelcase */
-			const opts = {
+			const params = {
 				method: 'POST',
 				url: TOKEN_URL,
 				headers: {
@@ -122,23 +127,25 @@ module.exports = function infusionsoft(app) {
 			};
 			/* eslint-enable camelcase */
 
+			return infusionsoftCommands.makeTokenRequest(params);
+		},
+
+		// params.method
+		// params.url
+		// params.headers
+		// params.form
+		makeTokenRequest(params) {
 			return new Promise((resolve, reject) => {
-				request(opts, (err, res) => {
+				request(params, (err, res) => {
 					if (err) {
 						return reject(err);
 					}
 
 					if (res.statusCode !== 200) {
 						return reject(new Error(
-							`api.infusionsoft.com/token returned status code ${res.statusCode}`
+							`${params.method} api.infusionsoft.com/token returned status code ${res.statusCode}`
 						));
 					}
-
-					// "access_token": "drwgbbq4snaas3khpxmvugy7",
-					// "token_type": "bearer",
-					// "expires_in": 86400,
-					// "refresh_token": "4ugt7p9xskg76k7v4jxhazz4",
-					// "scope": "full|wo321.infusionsoft.com"
 
 					let data = res.body;
 					if (U.isString(res.body)) {
@@ -151,16 +158,34 @@ module.exports = function infusionsoft(app) {
 						}
 					}
 
-					console.log('DATA');
-					console.log(data);
-
 					if (!data || !U.isObject(data)) {
 						return reject(new Error(
 							'api.infusionsoft.com/token returned empty response'
 						));
 					}
+
+					return resolve(data);
 				});
 			});
+		},
+
+		// data.accessToken
+		// data.expiresIn
+		// data.refreshToken
+		updateTokenRecord(data) {
+			const record = {
+				type: OAUTH_RECORD_TYPE,
+				id: OAUTH_RECORD_ID,
+				value: data.accessToken,
+				expiresIn: data.expiresIn,
+				refreshToken: data.refreshToken
+			};
+
+			return dynamodb.updateRecord(record);
+		},
+
+		getTokenRecord() {
+			return dynamodb.getRecord(OAUTH_RECORD_TYPE, OAUTH_RECORD_ID);
 		}
 	};
 

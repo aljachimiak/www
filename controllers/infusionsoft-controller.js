@@ -13,8 +13,6 @@ class InfusionsoftController {
 	get(req, res) {
 		// scope=full|wo321.infusionsoft.com&code=hf7askekx9ba8cax5x3m78nz
 		const args = {
-			clientId: this.config.clientId,
-			clientSecret: this.config.clientSecret,
 			code: req.query.code,
 			grantType: this.config.grantType,
 			redirectUri: this.config.redirectUri
