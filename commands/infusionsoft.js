@@ -105,7 +105,7 @@ module.exports = function infusionsoft(app) {
 		},
 
 		refreshToken(args) {
-			let creds = `${config.clientId}:${config.clientSecret}`;
+			const creds = `${config.clientId}:${config.clientSecret}`;
 			creds = new Buffer(creds).toString('base64');
 
 			/* eslint-disable camelcase */
@@ -113,7 +113,7 @@ module.exports = function infusionsoft(app) {
 				method: 'POST',
 				url: TOKEN_URL,
 				headers: {
-					Authorization: `Bearer ${creds}`
+					Authorization: `Basic ${creds}`
 				},
 				form: {
 					grant_type: 'refresh_token',
