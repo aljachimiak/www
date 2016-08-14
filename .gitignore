@@ -24,13 +24,10 @@ node_modules
 .node_repl_history
 
 # Front end build targets
-/public/assets/css/
+public/assets/css/
 
 # Local environment variables
 .env
-.production-env
-.launch-ec2-instances-vars.sh
-.deploy-vars.sh
 
-# Deployment
-build/deployment
+# Local database files
+data/

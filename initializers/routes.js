@@ -86,11 +86,14 @@ module.exports = function (app) {
 	// 	DocumentationController.create()
 	// );
 
+	// User initiated URL to begin the Infusionsoft linking proces.
 	app.API.express.all(
 		'/infusionsoft',
 		InfusionsoftLinkController.create(app)
 	);
 
+	// Completes the Infusionsoft OAuth linking process after a redirect
+	// from Infusionsoft.
 	app.API.express.all(
 		'/oauth/infusionsoft',
 		InfusionsoftController.create(app)

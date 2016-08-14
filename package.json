@@ -8,11 +8,12 @@
     "start": "./bin/server",
     "lint": "xo",
     "test": "xo",
-    "devserver": "nodemon ./bin/devserver | bunyan",
-    "css": "treadmill build.js css",
-    "watch-css": "treadmill build.js watch-css",
-    "launch-instances": "source .launch-ec2-instances-vars.sh && bin/launch-ec2-instances",
-    "deploy": "source .deploy-vars.sh && bin/deploy.sh"
+    "css": "treadmill tasks.js css",
+    "watch-css": "treadmill tasks.js watch-css",
+    "dev": "NODE_ENV=development nodemon node_modules/.bin/treadmill tasks.js dev-db-server | bunyan",
+    "db-migrate": "treadmill tasks.js db-migrate",
+    "db-clean": "NODE_ENV=development treadmill tasks.js db-clean",
+    "db-run": "NODE_ENV=development treadmill tasks.js db-run"
   },
   "dependencies": {
     "bluebird": "~3.3.0",
@@ -23,6 +24,7 @@
     "chokidar": "~1.6.0",
     "debug": "~2.2.0",
     "dotenv": "~2.0.0",
+    "dynamodb-engine": "~0.8.0",
     "express": "~4.13.0",
     "filepath": "~1.1.0",
     "gray-matter": "~2.0.0",
@@ -38,17 +40,22 @@
   },
   "devDependencies": {
     "aws-sdk": "~2.4.0",
+    "dynalite": "~1.0.0",
     "nodemon": "~1.9.0",
     "xo": "~0.15.0"
   },
   "xo": {
-    "envs": ["node"],
+    "envs": [
+      "node"
+    ],
     "esnext": true,
     "overrides": [
       {
         "files": "public/assets/javascript/*.js",
         "esnext": false,
-        "envs": ["browser"]
+        "envs": [
+          "browser"
+        ]
       }
     ]
   },

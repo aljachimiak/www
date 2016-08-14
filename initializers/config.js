@@ -1,20 +1,21 @@
 'use strict';
 
-const U = require('../lib/u');
-
 module.exports = function (app) {
 	const debug = app.debug('initializeConfig');
 	debug('initializing');
 
+	// Server
 	app.config.server = {
 		port: normalizePort(process.env.PORT) || 3000,
 		host: process.env.HOST || '0.0.0.0'
 	};
 
+	// Logging
 	app.config.log = {
 		level: (process.env.LOG_LEVEL || 'debug').toLowerCase()
 	};
 
+	// Express.js
 	app.config.express = {
 		paths: {
 			views: app.appdir.append('views').toString(),
@@ -28,10 +29,35 @@ module.exports = function (app) {
 		}
 	};
 
+	// Middleware
 	app.config.middleware = {
 		static: {
 			maxAge: app.environment === 'production' ? '30d' : 0
 		}
+	};
+
+	// DynamoDB
+	if (!process.env.DYNAMODB_ACCESS_KEY_ID) {
+		console.error('Missing DYNAMODB_ACCESS_KEY_ID');
+	}
+	if (!process.env.DYNAMODB_SECRET_ACCESS_KEY) {
+		console.error('Missing DYNAMODB_SECRET_ACCESS_KEY');
+	}
+	if (!process.env.DYNAMODB_REGION) {
+		console.error('Missing DYNAMODB_REGION');
+	}
+	if (!process.env.DYNAMODB_ENDPOINT) {
+		console.error('Missing DYNAMODB_ENDPOINT');
+	}
+	app.config.dynamodb = {
+		accessKeyId: process.env.DYNAMODB_ACCESS_KEY_ID,
+		secretAccessKey: process.env.DYNAMODB_SECRET_ACCESS_KEY,
+		region: process.env.DYNAMODB_REGION,
+		endpoint: process.env.DYNAMODB_ENDPOINT,
+		tablePrefix: dynamoDBTablePrefix()
+	};
+	app.config.dynamodbSchema = {
+		third_party_oauth: {} // eslint-disable-line camelcase
 	};
 
 	if (!process.env.INFUSIONSOFT_CLIENT_ID) {
@@ -41,6 +67,7 @@ module.exports = function (app) {
 		debug('missing env var INFUSIONSOFT_SECRET');
 	}
 
+	// Infusionsoft
 	app.config.infusionsoft = {
 		clientId: process.env.INFUSIONSOFT_CLIENT_ID,
 		clientSecret: process.env.INFUSIONSOFT_SECRET,
@@ -50,9 +77,9 @@ module.exports = function (app) {
 		grantType: 'authorization_code'
 	};
 
+	// Paths
 	app.config.pagedata = getPageData(app);
 
-	U.deepFreeze(app.config);
 	debug('initialized');
 	return app;
 };
@@ -76,4 +103,17 @@ function normalizePort(val) {
 function getPageData(app) {
 	const file = app.appdir.append('pagedata', 'pages.json');
 	return require(file.toString());
+}
+
+function dynamoDBTablePrefix() {
+	switch (process.env.NODE_ENV) {
+		case 'test':
+			return 'odd_www_test';
+		case 'staging':
+			return 'odd_www_staging';
+		case 'production':
+			return 'odd_www';
+		default:
+			return 'odd_www_development';
+	}
 }

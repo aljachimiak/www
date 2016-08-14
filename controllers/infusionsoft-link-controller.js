@@ -12,6 +12,7 @@ class InfusionsoftLinkController {
 		this.config = app.config.infusionsoft;
 	}
 
+	// User initiated URL to begin the Infusionsoft linking proces.
 	get(req, res) {
 		const locals = U.cloneDeep(this.locals);
 

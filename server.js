@@ -28,6 +28,7 @@ exports.main = function () {
 		require('./initializers/api-log'),
 		initializeOpbeat,
 		require('./initializers/api-handle-error'),
+		require('./initializers/api-dynamodb'),
 		require('./initializers/api-queries'),
 		require('./initializers/api-commands'),
 		require('./initializers/api-express'),

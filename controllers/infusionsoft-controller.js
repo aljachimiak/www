@@ -8,6 +8,8 @@ class InfusionsoftController {
 		this.commands = app.API.commands;
 	}
 
+	// Completes the Infusionsoft OAuth linking process after a redirect
+	// from Infusionsoft.
 	get(req, res) {
 		// scope=full|wo321.infusionsoft.com&code=hf7askekx9ba8cax5x3m78nz
 		const args = {
