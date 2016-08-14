@@ -35,7 +35,7 @@ module.exports = function infusionsoft(app) {
 
 					if (res.statusCode !== 200) {
 						return reject(new Error(
-							`api.infusionsoft.com/token returned status code ${res.statusCod}`
+							`api.infusionsoft.com/token returned status code ${res.statusCode}`
 						));
 					}
 
@@ -120,7 +120,7 @@ module.exports = function infusionsoft(app) {
 
 					if (res.statusCode !== 200) {
 						return reject(new Error(
-							`api.infusionsoft.com/token returned status code ${res.statusCod}`
+							`api.infusionsoft.com/token returned status code ${res.statusCode}`
 						));
 					}
 
