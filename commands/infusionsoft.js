@@ -10,16 +10,20 @@ const OAUTH_RECORD_ID = 'infusionsoft-oauth-token';
 module.exports = function infusionsoft(app) {
 	const log = app.API.log;
 	const dynamodb = app.API.dynamodb;
+	const config = app.config.infusionsoft;
 
 	const infusionsoftCommands = {
+		// args.code
+		// args.grant_type
+		// args.redirect_url
 		link(args) {
 			/* eslint-disable camelcase */
 			const opts = {
 				method: 'POST',
 				url: TOKEN_URL,
 				form: {
-					client_id: args.clientId,
-					client_secret: args.clientSecret,
+					client_id: config.clientId,
+					client_secret: config.clientSecret,
 					code: args.code,
 					grant_type: args.grantType,
 					redirect_uri: args.redirectUri
@@ -101,10 +105,16 @@ module.exports = function infusionsoft(app) {
 		},
 
 		refreshToken(args) {
+			let creds = `${config.clientId}:${config.clientSecret}`;
+			creds = new Buffer(creds).toString('base64');
+
 			/* eslint-disable camelcase */
 			const opts = {
 				method: 'POST',
 				url: TOKEN_URL,
+				headers: {
+					Authorization: `Bearer ${creds}`
+				},
 				form: {
 					grant_type: 'refresh_token',
 					refresh_token: args.refreshToken
