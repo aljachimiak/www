@@ -71,10 +71,7 @@ module.exports = function (app) {
 	app.config.infusionsoft = {
 		clientId: process.env.INFUSIONSOFT_CLIENT_ID,
 		clientSecret: process.env.INFUSIONSOFT_SECRET,
-		redirectUri: 'https://www.oddnetworks.com/oauth/infusionsoft',
-		responseType: 'code',
-		scope: 'full',
-		grantType: 'authorization_code'
+		redirectUri: 'https://www.oddnetworks.com/oauth/infusionsoft'
 	};
 
 	// Paths
