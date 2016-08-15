@@ -64,6 +64,11 @@ Configuration and Deployment
 ### Environment Variables
 Find a list of environment variables in `.env-example`. Copy that to `.env` in you local clone of the project and fill them in appropriately.
 
+### Heroku
+appname: www-oddnetworks-com
+
+    git push heroku master
+
 Copyright
 ---------
 Copyright: (c) 2016 by Odd Networks.
