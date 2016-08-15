@@ -24,8 +24,8 @@ class InfusionsoftLinkController {
 			query: {
 				client_id: this.config.clientId,
 				redirect_uri: this.config.redirectUri,
-				response_type: this.config.responseType,
-				scope: this.config.scope
+				response_type: 'code',
+				scope: 'full'
 			}
 		});
 		/* eslint-enable camelcase */

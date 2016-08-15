@@ -11,15 +11,9 @@ class InfusionsoftController {
 	// Completes the Infusionsoft OAuth linking process after a redirect
 	// from Infusionsoft.
 	get(req, res) {
-		// scope=full|wo321.infusionsoft.com&code=hf7askekx9ba8cax5x3m78nz
-		const args = {
-			code: req.query.code,
-			grantType: this.config.grantType,
-			redirectUri: this.config.redirectUri
-		};
-
+		// req.query = scope=full|wo321.infusionsoft.com&code=hf7askeka9ba8caz5xhm78nz
 		return this.commands.infusionsoft
-			.link(args)
+			.link({code: req.query.code})
 			.then(() => {
 				res.status(200).send('success');
 				return null;
