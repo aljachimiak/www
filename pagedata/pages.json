@@ -4,15 +4,6 @@
 		"description": "Odd Networks is a band of geeks holed up in a secret hideout building a video platform for the future of television.",
 		"bodyClass": "homepage"
 	},
-	"request-access": {
-		"description": "Request early access to the Odd Networks video streaming platform.",
-		"bodyClass": "request-access-page"
-	},
-	"request-access-confirm": {
-		"title": "Thank You!",
-		"description": "We'll be in touch soon.",
-		"bodyClass": "request-access-confirm-page"
-	},
 	"inquiry": {
 		"title": "Contact Odd Networks",
 		"description": "Don't be shy. Make an inquiry.",
@@ -22,5 +13,25 @@
 		"title": "Thank You!",
 		"description": "We'll be in touch soon.",
 		"bodyClass": "contact-confirm-page"
+	},
+	"future-of-tv-platform-for-content-networks": {
+		"title": "A Platform for Your Content",
+		"description": "Odd Networks is a platform like no other",
+		"bodyClass": "platform-for-content-page"
+	},
+	"pricing": {
+		"title": "Pay as You Grow...",
+		"description": "Your service will be able to scale up or down at any time.",
+		"bodyClass": "pricing-page"
+	},
+	"request-access": {
+		"title": "Request Access",
+		"description": "Request early access to the Odd Networks video streaming platform.",
+		"bodyClass": "request-access-page"
+	},
+	"request-access-confirm": {
+		"title": "Thank You!",
+		"description": "We'll be in touch soon.",
+		"bodyClass": "request-access-confirm-page"
 	}
 }
