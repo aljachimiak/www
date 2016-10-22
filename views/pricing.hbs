@@ -48,20 +48,20 @@
 							<div id="configure-providers">
 								<h3>Where is your video hosting?</h3>
 								<fieldset>
-									<label><input type="radio" name="provider" value="vimeo" />Vimeo</label><br/>
-									<label><input type="radio" name="provider" value="ooyala" />Ooyala</label><br/>
-									<label><input type="radio" name="provider" value="brightcove" />Brightcove</label><br/>
-									<label><input type="radio" name="provider" value="not listed" />Not listed?</label><br/>
+									<label><input type="radio" name="provider" value="vimeo" data-type='provider'/>Vimeo</label><br/>
+									<label><input type="radio" name="provider" value="ooyala"  data-type='provider'/>Ooyala</label><br/>
+									<label><input type="radio" name="provider" value="brightcove"  data-type='provider'/>Brightcove</label><br/>
+									<label><input type="radio" name="provider" value="custom"  data-type='provider'/>Not listed?</label><br/>
 									<input type="input" placeholder="Name of your video hosting provider.">
 									<br/>
 
-									<input name="livestream" id="livestream" type="checkbox">									
+									<input name="livestream" id="livestream" type="checkbox"  data-type='provider'>									
 									<label for="livestream"> We have a livestream feed.</label></br>
 								</fieldset>
 							</div>
 							<div id="configure-odd" style="display:none;">
 								<h3>Approximately, how many videos views in a month?</h3>
-								<select name="odd-views-select" id="odd-views-select">
+								<select name="odd-views-select" id="odd-views-select"  data-type='odd'>
 									<option value="10k">0 - 10,000 per month</option>
 									<option value="100k"> 10k - 100k per month</option>
 									<option value="250k">100k - 250k per month</option>
@@ -74,35 +74,38 @@
 								<input name="roku" id="roku" type="checkbox" checked="checked" disabled>
 								<label for="roku">Roku (included - free!)</label></br>
 
-								<input name="apple-ios" id="apple-ios" type="checkbox">
+								<input name="apple-ios" id="apple-ios" type="checkbox" data-type='app'>
 								<label for="apple-ios">Apple iOS</label></br>
 
-								<input name="apple-tv" id="apple-tv" type="checkbox">
+								<input name="apple-tv" id="apple-tv" type="checkbox" data-type='app'>
 								<label for="apple-tv">Apple TV</label></br>
 
-								<input name="android" id="android" type="checkbox">
+								<input name="android" id="android" type="checkbox" data-type='app'>
 								<label for="android">Android</label></br>
 
-								<input name="android-tv" id="android-tv" type="checkbox">
+								<input name="android-tv" id="android-tv" type="checkbox" data-type='app'>
 								<label for="android-tv">Apple TV</label></br>
 
 								<div id="integrations">
 									<h3>Do you need to manage subscriptions, entitlements, and per asset permissions?</h3>
 
-									<input name="adobepass" id="adobepass" type="checkbox">
+									<input name="adobepass" id="adobepass" type="checkbox" data-type='integration'>
 									<label for="adobepass">Adobe Pass</label></br>
 
-									<input name="cleeng" id="cleeng" type="checkbox">
+									<input name="cleeng" id="cleeng" type="checkbox" data-type='integration'>
 									<label for="cleeng">Cleeng</label></br>
 
-									<input name="piano" id="piano" type="checkbox">
+									<input name="piano" id="piano" type="checkbox" data-type='integration'>
 									<label for="piano">Piano</label></br>
 
-									<input name="tinypass" id="tinypass" type="checkbox">
+									<input name="tinypass" id="tinypass" type="checkbox" data-type='integration'>
 									<label for="tinypass">Tiny Pass</label></br>
 
-									<input name="android-tv" id="android-tv" type="checkbox">
-									<label for="android-tv">Apple TV</label></br>
+									<input name="jwplayer" id="jwplayer" type="checkbox" data-type='integration'>
+									<label for="jwplayer">JW Player</label></br>
+
+									<input name="int-livestream" id="int-livestream" type="checkbox" data-type='integration'>
+									<label for="int-livestream">LiveStream.com</label></br>
 								</div>
 
 							</div>
