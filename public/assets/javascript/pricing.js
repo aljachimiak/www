@@ -216,6 +216,7 @@ function pricingPage (preSet) {
 		var totalPrice = 0;
 		var oddPrice = 0;
 		var numProviders = 0;
+		var numIntegrations = 0;
 
 		// reverse through the array to make apps ans integrations appear in order
 		for (var i = selectedArr.length - 1; i >= 0; i--) {
@@ -224,9 +225,12 @@ function pricingPage (preSet) {
 			
 			if (item.type === 'provider') {
 				numProviders++;
+			} else if (item.type === 'integration') {
+				numIntegrations++;
 			}
 			$('#provider-none').toggle(numProviders === 0);
-			
+			$('#integration-none').toggle(numIntegrations === 0);
+
 			if (item.type === 'odd') {
 				oddPrice = item.price;
 			} else {
@@ -236,8 +240,7 @@ function pricingPage (preSet) {
 				}
 			}
 
-			var type = item.type === 'integration' ? 'app' : item.type;
-			$(html).insertAfter('#' + type + '-after');
+			$(html).insertAfter('#' + item.type + '-after');
 		};
 
 		if (oddPrice < 0) {
@@ -281,8 +284,6 @@ function pricingPage (preSet) {
 		this.initializeFromInterface();
 	}
 }
-
-// green 
 
 function tabChange (elem, event) {
 	event.preventDefault();
