@@ -126,6 +126,13 @@ function pricingPage (preSet) {
 			name: 'LiveStream.com',
 			selected: false
 		},
+		{
+			type: 'integration',
+			id: 'jwplayer',
+			price: 5000,
+			name: 'JW Player',
+			selected: false
+		}
 	];
 
 	this.selected = function () {
@@ -181,31 +188,91 @@ function pricingPage (preSet) {
 			}
 		});
 		var arr = this.selected();
-		console.log(arr);
 		return arr;
 	}
 
 	this.updatedateSelected = function(elem) {
 		var type = $(elem).data('type');
+		var selected = [];
 		switch (type){
 			case 'provider':
-				this.providerChange(elem);
+				selected = this.providerChange(elem);
 				break;
 			case 'odd':
-				this.oddChange(elem);
+				selected = this.oddChange(elem);
 				break;
 			case 'app':
-				this.appChange(elem);
+				selected = this.appChange(elem);
 				break;
 			case 'integration':
-				this.appChange(elem);
+				selected = this.appChange(elem);
 				break;
+		}
+		this.buildTable(selected);
+	}
+
+	this.buildTable = function (selectedArr) {
+		$('#config-table .inserted').remove();
+		var totalPrice = 0;
+		var oddPrice = 0;
+		var numProviders = 0;
+
+		// reverse through the array to make apps ans integrations appear in order
+		for (var i = selectedArr.length - 1; i >= 0; i--) {
+			var item = selectedArr[i];
+			var html = rowHtml(item);
+			
+			if (item.type === 'provider') {
+				numProviders++;
+			}
+			$('#provider-none').toggle(numProviders === 0);
+			
+			if (item.type === 'odd') {
+				oddPrice = item.price;
+			} else {
+
+				if (item.price >= 0) {
+					totalPrice += item.price;
+				}
+			}
+
+			var type = item.type === 'integration' ? 'app' : item.type;
+			$(html).insertAfter('#' + type + '-after');
+		};
+
+		if (oddPrice < 0) {
+			oddPrice = 'Contact Odd';
+		} else {
+			oddPrice = formatPrice(oddPrice);
+		}
+
+		$('#odd-cost').html(oddPrice);
+		$('#total-cost').html(formatPrice(totalPrice));
+
+		function formatPrice (amount) {
+			if (typeof(amount) === 'string') {
+				return amount;
+			}
+			// number to string with commas
+			// from http://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript
+
+			var price =  amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+			return '$ ' + price;
+		}
+
+		function rowHtml(item) {
+			var price = item.price >= 0 ? formatPrice(item.price) : 'Contact Odd';
+			var html = '<tr class="inserted"><td class="component-name">';
+			html += item.name + '</td><td class="component-price">';
+			html += price + '</td></tr>';
+			return html;
 		}
 	}
 
 	this.initializeFromInterface  = function () {
 		var elem = $('#odd-views-select')[0];
-		this.oddChange(elem);
+		this.updatedateSelected(elem);
 	}
 
 	if (preSet) {
