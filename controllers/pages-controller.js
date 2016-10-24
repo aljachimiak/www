@@ -14,23 +14,19 @@ class PagesController {
 	}
 
 	get(req, res, next) {
-		let path = PagesController.cleanPath(req.path);
-		if (!this.viewPath.append(`${path}.hbs`).isFile()) {
+		let path = controller.cleanPath(req.path);
+		if (!(this.viewPath || '').append(`${path}.hbs`).isFile()) {
 			path = `${path}/index`;
 			if (!this.viewPath.append(`${path}.hbs`).isFile()) {
 				return next();
 			}
 		}
 
-		const locals = this.pagedata[path] || this.pagedata.index;
+		const kPath = controller.kebabPath(path);
+		const locals = this.pagedata[kPath] || this.pagedata.index;
+		console.log('PATH for Pagedata.path: ', kPath);
 
 		res.status(200).render(path, locals);
-	}
-
-	static cleanPath(path) {
-		path = path.replace(/index.html$/, 'index');
-		return !path || (path === '/') ?
-			'index' : path.replace(/^\//, '').replace(/\/$/, '');
 	}
 
 	static create(app) {

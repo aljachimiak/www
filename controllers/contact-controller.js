@@ -1,5 +1,7 @@
 'use strict';
 
+const filepath = require('filepath');
+
 const U = require('../lib/u');
 const controller = require('../lib/controller');
 
@@ -9,14 +11,21 @@ class ContactController {
 		this.view = options.view;
 		this.confirmationView = options.confirmationView;
 		this.pagedata = U.cloneDeep(app.config.pagedata);
+		this.viewPath = filepath.create(app.config.express.paths.views);
 	}
 
 	get(req, res) {
-		const locals = U.merge(
-			{},
-			this.pagedata.index,
-			this.pagedata[this.view]
-		);
+		let path = controller.cleanPath(req.path);
+		if (!this.viewPath.append(`${path}.hbs`).isFile()) {
+			path = `${path}/index`;
+			if (!this.viewPath.append(`${path}.hbs`).isFile()) {
+				return next();
+			}
+		}
+		const kPath = controller.kebabPath(path);
+		console.log('KPATH: ', kPath);
+		const locals = this.pagedata[kPath] || this.pagedata.index;
+
 		res.status(200).render(this.view, locals);
 	}
 
